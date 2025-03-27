@@ -25,7 +25,7 @@ include_once("../config/db.php");
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
-                        <img src="../img/LogoDisc-ing.png" width="90" alt="Logo Disc-ing" class="d-inline-block">
+                        <img src="" width="90" alt="Logo Disc-ing" class="d-inline-block">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Esconder a navegação">
                         <span class="navbar-toggler-icon"></span>
@@ -37,10 +37,10 @@ include_once("../config/db.php");
                                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="sobre.html">Sobre</a>
+                                    <a class="nav-link" href="">Sobre</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="login.html">Perfil</a>
+                                    <a class="nav-link" href="">Perfil</a>
                                 </li>
                             </ul>
                         </div>
@@ -186,7 +186,6 @@ include_once("../config/db.php");
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="../javascript/index.js"></script>
     </body>
 
 </html>
