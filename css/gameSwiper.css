@@ -1,0 +1,47 @@
+.jogosPopContainer {
+    width: 0vw;
+}
+.cardWrapper *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.cardWrapper{
+    max-width: 1100px;
+    margin: 15px 60px 35px;
+    overflow: hidden;
+}
+.cardItem{
+    list-style: none;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    transition: 200ms;
+}
+.cardItem:hover .cardLink {
+    border-radius: 12px;
+    border: 3px solid #0CC0DF;
+    transition: 200ms;
+}
+.cardItem .cardLink{
+    user-select: none;
+    display: block;
+    background-color: #FFF;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+}
+.cardLink .cardImg{
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #121D46;
+}
+.cardLink .cardTitle{
+    margin-top: 12px;
+    font-size: 1em;
+    color: #000;
+    font-weight: 600;
+}
+.swiper-pagination, .swiper-button-prev, .swiper-button-next{
+    color:#62ffff;
+}
