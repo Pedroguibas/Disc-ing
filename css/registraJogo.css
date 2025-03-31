@@ -1,0 +1,55 @@
+.gamePageBody {
+    background-color: #335;
+}
+.gamePageContentContainer {
+    min-height: 100vh;
+}
+.gamePageContentContainer * {
+    color: #c4c4c4;
+}
+.gamePageContentContainer {
+    border: 3px solid #c4c4c4;
+    border-radius: 10px;
+    background-color: #1e1e34;
+}
+.plataformasJogoContainer {
+    border: 3px solid #c4c4c4;
+    border-radius: 10px;
+    background-color: #1e1e34;
+}
+.plataformasJogo {
+    margin: 2rem 0;
+}
+input[type="checkbox"] {
+    display: none;
+}
+textarea {
+    min-height: 5em;
+    color: #000 !important;
+}
+option, select {
+    color: #000 !important;
+}
+.plataformaCheck {
+    border-radius: 20px;
+    padding: 0 1rem;
+    border: 4px solid #c4c4c400;
+    font-size: 5em;
+    cursor: pointer;
+}
+input[type="submit"] {
+    all: unset;
+    padding: .5em 1.5em;
+    background: #1e1e34;
+    color: #c4c4c4;
+    border: 2px solid #c4c4c4;
+    border-radius: 10px;
+    transition: all ease 300ms;
+}
+input[type="submit"]:hover {
+    background: #121222;
+    transition: all ease 300ms;
+}
+input[type="checkbox"]:checked + .plataformaCheck {
+    border-color: #c4c4c4;
+}
