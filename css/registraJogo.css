@@ -1,13 +1,13 @@
 .gamePageBody {
     background-color: #335;
 }
-.gamePageContentContainer {
+.registroContentContainer {
     min-height: 100vh;
 }
-.gamePageContentContainer * {
+.registroContentContainer * {
     color: #c4c4c4;
 }
-.gamePageContentContainer {
+.registroContentContainer {
     border: 3px solid #c4c4c4;
     border-radius: 10px;
     background-color: #1e1e34;

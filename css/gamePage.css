@@ -1,0 +1,83 @@
+.gamePageBanner {
+    position: relative;
+}
+
+.gamePageBanner * {
+    margin: 0;
+}
+
+.gamePageBanner .gameBanner {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.gamePageBanner .gameProfile {
+    position: absolute;
+    padding: 1em 0 1em 1em;
+    gap: 2em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    color: #fff;
+    background: linear-gradient(#18181800 0%, #18181865 15%, 40%, #181818 100%);
+}
+
+.gameProfile img {
+    border-radius: 15px;
+    box-shadow: 0 0 7px 5px #ffffff60;
+    width: 15em;
+}
+
+.gameProfile .gamePageTitle {
+    font-size: 3em;
+}
+
+.gamePageInfoContainer {
+    min-height: 100vh;
+}
+
+.gamePageInfoContainer * {
+    color: #c4c4c4;
+}
+
+.gamePageInfoContainer button {
+    all: unset;
+}
+
+.buttonIcon {
+    transition: 300ms ease;
+}
+
+.rotated {
+    transition: 300ms ease;
+    transform: rotate(180deg);
+}
+
+.gameDropContent {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 500ms ease;
+}
+
+.gameDropContent div {
+    overflow: hidden;
+}
+
+.gameDropHidden {
+    grid-template-rows: 0fr;
+    overflow: hidden;
+}
+
+.buttonDrop {
+    border: 3px solid #c4c4c4;
+    border-radius: 10px;
+    background-color: #1e1e34;
+    cursor: pointer;
+    transition: background-color 300ms ease;
+}
+
+.buttonDrop:hover {
+    background-color: #0f0f1c;
+    transition: background-color 300ms ease;
+}

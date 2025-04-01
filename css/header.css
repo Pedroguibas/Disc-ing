@@ -2,6 +2,12 @@ header{
     background: #3e68ff;
 }
 .headerShadow{
-    height: 1rem;
+    height: .8rem;
     background: #004BAD;
+}
+.navbar-brand img {
+    width: 2em !important;
+}
+.navbar-toggler {
+    font-size: 1em;
 }

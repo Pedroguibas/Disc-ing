@@ -29,7 +29,7 @@ $Jogos = $stmt->fetchAll();
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="../assets/LogoDisc-ing.png" width="90" alt="Logo Disc-ing" class="d-inline-block">
+                    <img src="../assets/LogoDisc-ing.png" alt="Logo Disc-ing" class="d-inline-block w-100">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent"
@@ -57,36 +57,39 @@ $Jogos = $stmt->fetchAll();
     </header>
     <main id="indexmain" class="d-flex justify-content-center">
         <section class="sectionJogosPopulares container">
-            <div class="titleContainer">
-                <h1>Jogos Populares</h1>
-            </div>
-            <div class="jogosPopContainer container-fluid d-flex flex-column align-items-center justify-content-center">
-                <div class="col-12 d-flex align-items-center swiper">
-                    <div class="cardWrapper">
-                        <ul class="cardList  d-flex align-items-center swiper-wrapper">
+            <form action="gamePage.php">
+                <div class="titleContainer">
+                    <h1>Jogos Populares</h1>
+                </div>
+                <div class="jogosPopContainer container-fluid d-flex flex-column align-items-center justify-content-center">
+                    <div class="col-12 d-flex align-items-center swiper">
+                        <div class="cardWrapper">
+                            <input id="gamePageHeader" type="hidden" name="gameID" value="">
+                            <ul class="cardList  d-flex align-items-center swiper-wrapper">
 
-                            <?php
+                                <?php
 
-                            foreach ($Jogos as $Jogo) {
-                                echo '
-                                    <li class="cardItem swiper-slide">
-                                        <button class="cardLink">
-                                            <img class="cardImg w-100" src="../assets/Jogos/cover' . $Jogo['id'] . '.jpg" alt="Capa ' . $Jogo['nome'] . '">
-                                            <h2 class="cardTitle">' . $Jogo['nome'] . '</h2>
-                                        </button>
-                                    </li> 
-                                ';
-                            }
+                                foreach ($Jogos as $Jogo) {
+                                    echo '
+                                        <li class="cardItem swiper-slide">
+                                            <button class="cardLink" onclick="document.getElementById('."'gamePageHeader'".').value = '. $Jogo['id'] .'">
+                                                <img class="cardImg w-100" src="../assets/Jogos/banner' . $Jogo['id'] . '.jpg" alt="Capa ' . $Jogo['nome'] . '">
+                                                <h2 class="cardTitle">' . $Jogo['nome'] . '</h2>
+                                            </button>
+                                        </li> 
+                                    ';
+                                }
 
-                            ?>
+                                ?>
 
-                        </ul>
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
+                            </ul>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

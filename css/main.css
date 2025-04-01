@@ -2,3 +2,7 @@
     min-height: 100vh;
     background: linear-gradient(#121D46, #472BE0);
 }
+
+#gamePageBody {
+    background: #335;
+}

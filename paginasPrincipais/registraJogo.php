@@ -10,11 +10,11 @@
 </head>
 
 <body class="gamePageBody">
-<header>
+    <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="../assets/LogoDisc-ing.png" width="90" alt="Logo Disc-ing" class="d-inline-block">
+                    <img src="../assets/LogoDisc-ing.png" alt="Logo Disc-ing" class="d-inline-block w-100">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent"
@@ -25,7 +25,7 @@
                     <div class="ms-auto">
                         <ul class="navbar-nav ml-auto mb-2 mb-lh-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="sobre.php">Sobre</a>
@@ -42,7 +42,7 @@
     </header>
     <main>
         <form action="">
-            <div class="gamePageContentContainer container mt-5">
+            <div class="registroContentContainer container mt-5">
                 <div class="gameInput mt-3">
                     <h1>Nome</h1>
                     <input type="text" name="nome" class="col-3" required>
@@ -100,6 +100,9 @@
                 </div>
         </form>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

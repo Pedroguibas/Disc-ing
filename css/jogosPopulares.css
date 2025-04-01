@@ -1,48 +1,65 @@
+.cardWrapper * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .sectionJogosPopulares {
     margin-top: 4em;
 }
+
 .titleContainer h1 {
     color: #fff;
     margin-left: 10px;
     font-size: 1.5em;
     font-weight: 400;
 }
+
 .jogosPopContainer {
-    padding: 3em 0; 
+    padding: 3em 0;
     background: #1e1e34;
     border-radius: 10px;
 }
-.cardWrapper * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 .cardWrapper {
     margin: 1em 3em 2em;
     overflow: hidden;
 }
+
 .cardItem {
     list-style: none;
     border: 2px solid transparent;
     border-radius: 12px;
     transition: 200ms;
 }
+
 .cardItem:hover .cardLink {
     border-color: #0CC0DF;
+    cursor: pointer !important;
     transition: 200ms;
 }
+
 .cardItem .cardLink {
     user-select: none;
     all: unset;
+    overflow: hidden;
     display: block;
     text-decoration: none;
     position: relative;
     border: 3px solid #0cbfdf00;
 }
+
 .cardLink .cardImg {
     aspect-ratio: 16/9;
     object-fit: cover;
+    transition: all ease 200ms;
 }
+
+.cardLink:hover .cardImg {
+    transform: scale(1.2);
+    transition: all ease 200ms;
+}
+
 .cardLink .cardTitle {
     position: absolute;
     bottom: 0;
@@ -54,23 +71,35 @@
     color: #fff;
     font-weight: 600;
 }
-.swiper-pagination, .swiper-button-prev, .swiper-button-next {
-    color:#62ffff;
+
+.swiper-pagination,
+.swiper-button-prev,
+.swiper-button-next {
+    color: #62ffff;
 }
-.swiper-button-prev::after, .swiper-button-next::after {
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
     font-size: 3em;
 }
 
 @media screen and (max-width: 425px) {
-    
-    .swiper-button-prev, .swiper-button-next {
+
+    .swiper-button-prev,
+    .swiper-button-next {
         display: none;
         width: 0 !important;
     }
+
     .cardWrapper {
         margin: 1em 1em 2em;
     }
+
     .cardLink .cardTitle {
         font-size: 1.5em;
+    }
+
+    .jogosPopContainer {
+        padding: 2em 0;
     }
 }
