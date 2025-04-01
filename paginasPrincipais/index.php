@@ -57,8 +57,11 @@ $Jogos = $stmt->fetchAll();
     </header>
     <main id="indexmain" class="d-flex justify-content-center">
         <section class="sectionJogosPopulares container">
-            <div class="container-fluid d-flex flex-column align-items-center justify-content-center">
-                <div class="jogosPopContainer col-12 d-flex align-items-center swiper">
+            <div class="titleContainer">
+                <h1>Jogos Populares</h1>
+            </div>
+            <div class="jogosPopContainer container-fluid d-flex flex-column align-items-center justify-content-center">
+                <div class="col-12 d-flex align-items-center swiper">
                     <div class="cardWrapper">
                         <ul class="cardList  d-flex align-items-center swiper-wrapper">
 
@@ -78,9 +81,9 @@ $Jogos = $stmt->fetchAll();
                             ?>
 
                         </ul>
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
                     </div>
                 </div>
             </div>
