@@ -1,5 +1,6 @@
 .gamePageBanner {
     position: relative;
+    margin-bottom: 2em;
 }
 
 .gamePageBanner * {
@@ -53,6 +54,8 @@
 }
 
 .buttonIcon {
+    margin-left: 10px;
+    font-size: 1.5em;
     transition: 300ms ease;
 }
 

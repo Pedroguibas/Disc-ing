@@ -58,8 +58,8 @@ $gameInfo = $stmt->fetch();
                     <img src="<?= $BASE_URL . 'assets/Jogos/classificacao/age' . $gameInfo['classificacao'] . '.png' ?>" alt="Classificação indicativa <?= $gameInfo['classificacao'] ?>" class="gamePageClassificacao">
                 </div>
             </div>
-            <div class="gamePageInfoContainer container">
-                <section id="sinopse" class="m-2">
+            <div class="gamePageInfoContainer container d-flex flex-column align-items-center">
+                <section id="sinopse" class="col-10 m-2">
                     <div class="gameDropContainer">
                         <div class="gameDropdown">
                             <div class="buttonDrop col-12">
@@ -76,6 +76,23 @@ $gameInfo = $stmt->fetch();
                     </div>
                 </section>
 
+                <section id="requisitos" class="col-10 m-2">
+                    <div class="gameDropContainer">
+                        <div class="gameDropdown">
+                            <div class="buttonDrop col-12">
+                                <button class="gameDropBtn d-flex align-items-center p-2">
+                                    <h2>Requisitos</h2><i class="bi bi-caret-down-fill buttonIcon"></i>
+                                </button>
+                            </div>
+                            <div class="gameDropContent gameDropHidden">
+                                <div class="d-flex justify-content-center">
+                                    <p class="col-11 mt-2"><?= $gameInfo['requisitos'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
             </div>
         </main>
 
