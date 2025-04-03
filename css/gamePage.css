@@ -23,14 +23,21 @@
     background: linear-gradient(#18181800 0%, #18181865 15%, 40%, #181818 100%);
 }
 
-.gameProfile img {
+.gameProfile .gamePageCover {
     border-radius: 15px;
     box-shadow: 0 0 7px 5px #ffffff60;
-    width: 15em;
+    width: 12em;
 }
 
 .gameProfile .gamePageTitle {
     font-size: 3em;
+}
+
+.gamePageClassificacao {
+    position: absolute;
+    right: 0;
+    margin-right: 3em;
+    width: 8em;
 }
 
 .gamePageInfoContainer {

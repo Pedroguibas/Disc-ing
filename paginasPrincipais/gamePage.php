@@ -53,8 +53,9 @@ $gameInfo = $stmt->fetch();
             <div class="gamePageBanner col-12">
                 <img src="<?= $BASE_URL . 'assets/Jogos/banner' . $gameInfo['id'] . '.jpg' ?>" alt="Banner <?= $gameInfo['nome'] ?>" class="gameBanner w-100">
                 <div class="gameProfile d-flex align-items-center">
-                    <img src="<?= $BASE_URL . 'assets/Jogos/cover' . $gameInfo['id'] . '.jpg' ?>" alt="">
+                    <img class="gamePageCover" src="<?= $BASE_URL . 'assets/Jogos/cover' . $gameInfo['id'] . '.jpg' ?>" alt="">
                     <h1 class="gamePageTitle"><?= $gameInfo['nome'] ?></h1>
+                    <img src="<?= $BASE_URL . 'assets/Jogos/classificacao/age' . $gameInfo['classificacao'] . '.png' ?>" alt="Classificação indicativa <?= $gameInfo['classificacao'] ?>" class="gamePageClassificacao">
                 </div>
             </div>
             <div class="gamePageInfoContainer container">
