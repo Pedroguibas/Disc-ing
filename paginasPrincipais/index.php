@@ -1,5 +1,5 @@
 <?php
-$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing/";
+$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 include_once("../config/db.php");
 
 $stmt = $conn->prepare("SELECT * FROM jogo");
@@ -74,7 +74,10 @@ $Jogos = $stmt->fetchAll();
                                         <li class="cardItem swiper-slide">
                                             <button class="cardLink" onclick="document.getElementById('."'gamePageHeader'".').value = '. $Jogo['id'] .'">
                                                 <img class="cardImg w-100" src="../assets/Jogos/banner' . $Jogo['id'] . '.jpg" alt="Capa ' . $Jogo['nome'] . '">
-                                                <h2 class="cardTitle">' . $Jogo['nome'] . '</h2>
+                                                <div class="cardTitleContainer d-flex justify-content-between align-items-end">
+                                                    <h2 class="cardTitle">' . $Jogo['nome'] . '</h2>
+                                                    <img class="cardClassificacao" alt="Classificação ' . $Jogo['classificacao'] . ' anos" src="' . $BASE_URL . 'assets/Jogos/classificacao/age' . $Jogo['classificacao'] . '.png">
+                                                </div>
                                             </button>
                                         </li> 
                                     ';

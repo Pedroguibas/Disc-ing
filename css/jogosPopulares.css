@@ -60,19 +60,33 @@
     transition: all ease 200ms;
 }
 
-.cardLink .cardTitle {
+.cardLink .cardTitleContainer {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     background: linear-gradient(#18181800 0%, #18181865 15%, 40%, #181818 100%);
-    padding: .5em 0 .5em .5em;
-    font-size: 2em;
+    padding: .5em;
+    font-size: 1.5em;
     color: #fff;
     font-weight: 600;
 }
 
-.swiper-pagination,
+.cardTitleContainer .cardTitle {
+    font-size: 1em;
+}
+
+.cardTitleContainer .cardClassificacao {
+    width: 2em;
+}
+
+.swiper-pagination-bullet {
+    border: 2px solid #62ffff;
+}
+.swiper-pagination-bullet-active {
+    background: #62ffff;
+}
+
 .swiper-button-prev,
 .swiper-button-next {
     color: #62ffff;
@@ -95,11 +109,14 @@
         margin: 1em 1em 2em;
     }
 
-    .cardLink .cardTitle {
-        font-size: 1.5em;
-    }
-
     .jogosPopContainer {
         padding: 2em 0;
     }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .cardLink .cardTitleContainer {
+        font-size: 1em;
+    }
+}
+
