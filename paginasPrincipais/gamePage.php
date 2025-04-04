@@ -1,4 +1,5 @@
 <?php
+
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 include_once("../config/db.php");
 
@@ -6,6 +7,9 @@ $stmt = $conn->prepare("SELECT * FROM jogo WHERE id = :id");
 $stmt->execute([':id' => $_GET["gameID"]]);
 $gameInfo = $stmt->fetch();
 
+$stmt = $conn->prepare("SELECT * FROM requisitosJogo WHERE id = :id");
+$stmt->execute([':id' => $gameInfo['requisitosID']]);
+$requisitos = $stmt->fetch();
 
 ?>
 
@@ -22,7 +26,7 @@ $gameInfo = $stmt->fetch();
         <header>
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index.php">
                         <img src="../assets/LogoDisc-ing.png" alt="Logo Disc-ing" class="d-inline-block w-100">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -81,12 +85,18 @@ $gameInfo = $stmt->fetch();
                         <div class="gameDropdown">
                             <div class="buttonDrop col-12">
                                 <button class="gameDropBtn d-flex align-items-center p-2">
-                                    <h2>Requisitos</h2><i class="bi bi-caret-down-fill buttonIcon"></i>
+                                    <h2>Requisitos Mínimos</h2><i class="bi bi-caret-down-fill buttonIcon"></i>
                                 </button>
                             </div>
                             <div class="gameDropContent gameDropHidden">
                                 <div class="d-flex justify-content-center">
-                                    <p class="col-11 mt-2"><?= $gameInfo['requisitos'] ?></p>
+                                    <div class="col-11 mt-2">
+                                        <p>Sistema Operacional: <?= $requisitos['so'] ?></p>
+                                        <p>Processador: <?= $requisitos['cpu'] ?></p>
+                                        <p>Placa de vídeo: <?= $requisitos['gpu'] ?></p>
+                                        <p>Memória: <?= $requisitos['ram'] ?></p>
+                                        <p>Armazenamento: <?= $requisitos['armazenamento'] ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
