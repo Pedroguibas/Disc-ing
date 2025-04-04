@@ -103,6 +103,29 @@ $requisitos = $stmt->fetch();
                         </div>
                     </div>
                 </section>
+
+                <section id="plataformasSection" class="col-10 m-2">
+                    <div id="plataformasContainer" class="col-12">
+                        <div id="plataformasTitleContainer" class="p-2">
+                            <h2>Plataformas:</h2>
+                        </div>
+                        <div id="plataformas" class="d-flex justify-content-around m-3">
+                            <?php   
+
+                                if($gameInfo['nintendoSwitch'])
+                                    echo '<i class="bi bi-nintendo-switch"></i>';
+                                if($gameInfo['playstation'])
+                                    echo '<i class="bi bi-playstation"></i>';
+                                if($gameInfo['xbox'])
+                                    echo '<i class="bi bi-xbox"></i>';
+                                if($gameInfo['pc'])
+                                    echo '<i class="bi bi-pc-display">';
+                            
+                            ?>
+                        </div>
+                    </div>
+
+                </section>
                 
             </div>
         </main>
