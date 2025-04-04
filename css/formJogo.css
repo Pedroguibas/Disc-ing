@@ -1,42 +1,49 @@
 .gamePageBody {
     background-color: #335;
 }
-.registroContentContainer {
-    min-height: 100vh;
-}
 .registroContentContainer * {
     color: #c4c4c4;
 }
+
 .registroContentContainer {
     border: 3px solid #c4c4c4;
     border-radius: 10px;
     background-color: #1e1e34;
 }
+
 .plataformasJogoContainer {
     border: 3px solid #c4c4c4;
     border-radius: 10px;
     background-color: #1e1e34;
 }
+
 .plataformasJogo {
     margin: 2rem 0;
 }
+
 input[type="checkbox"] {
     display: none;
 }
+
 textarea {
     min-height: 5em;
-    color: #000 !important;
+    color: #000;
 }
-option, select {
-    color: #000 !important;
+
+input,
+option,
+select {
+    color: #000;
 }
+
 .plataformaCheck {
     border-radius: 20px;
     padding: 0 1rem;
-    border: 4px solid #c4c4c400;
+    border: 4px solid #c4c4c430 !important;
     font-size: 5em;
     cursor: pointer;
 }
+
 input[type="submit"] {
     all: unset;
     padding: .5em 1.5em;
@@ -46,10 +53,12 @@ input[type="submit"] {
     border-radius: 10px;
     transition: all ease 300ms;
 }
+
 input[type="submit"]:hover {
     background: #121222;
     transition: all ease 300ms;
 }
-input[type="checkbox"]:checked + .plataformaCheck {
+
+input[type="checkbox"]:checked+.plataformaCheck {
     border-color: #c4c4c4;
 }

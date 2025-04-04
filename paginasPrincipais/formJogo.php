@@ -41,7 +41,7 @@
         <div class="headerShadow"></div>
     </header>
     <main>
-        <form action="">
+        <form action="../form/registraJogo.php" method="POST">
             <div class="registroContentContainer container mt-5">
                 <div class="gameInput mt-3">
                     <h1>Nome</h1>
@@ -51,13 +51,13 @@
                     <h1>Classificação indicativa</h1>
 
                     <div class="col-3">
-                        <select name="age" class="form-select">
+                        <select name="classificacao" class="form-select">
                             <option value="livre">Livre</option>
-                            <option value="age10">10 Anos</option>
-                            <option value="age12">12 Anos</option>
-                            <option value="age14">14 Anos</option>
-                            <option value="age16">16 Anos</option>
-                            <option value="age18">18 Anos</option>
+                            <option value="10">10 Anos</option>
+                            <option value="12">12 Anos</option>
+                            <option value="14">14 Anos</option>
+                            <option value="16">16 Anos</option>
+                            <option value="18">18 Anos</option>
                         </select>
                     </div>
                 </div>
@@ -71,26 +71,43 @@
                 </div>
                 <div class="gameInput mt-3">
                     <h1>Sinopse:</h1>
-                    <textarea name="gameInfo" class="col-12" required></textarea>
+                    <textarea name="sinopse" class="col-12" required></textarea>
                 </div>
                 
                 <div class="gameInput mt-3">
-                    <h1>Informações gráficas:</h1>
-                    <textarea name="grafInfo" required class="col-12"></textarea>
+                    <div>
+                        <h1>Requisistos Mínimos:</h1>
+                        <h2 class="mt-3">Sistema Operacional: </h2>
+                        <input type="text" name="so" class="col-3" required>
+                        
+                        <h2 class="mt-3">Processador: </h2>
+                        <input type="text" name="cpu" class="col-3" required>
+                        
+                        <h2 class="mt-3">Placa de Vídeo: </h2>
+                        <input type="text" name="gpu" class="col-3" required>
+                        
+                        <h2 class="mt-3">Memória: </h2>
+                        <input type="text" name="ram" class="col-3" required>
+                        
+                        <h2 class="mt-3">Armazenamento: </h2>
+                        <input type="text" name="armazenamento" class="col-3" required>
+                        
+
+                    </div>
                 </div>
                 <h1 class="tituloPlat m-2">Plataformas</h1>
                 <div class="gameInput d-flex justify-content-around align-items-center mt-3">
 
-                    <input id="plat1" type="checkbox" name="plataforma" value="switch">
+                    <input id="plat1" type="checkbox" name="plataforma[]" value="switch">
                     <label class="plataformaCheck" for="plat1"><i class="bi bi-nintendo-switch"></i></label>
 
-                    <input id="plat2" type="checkbox" name="plataforma" value="playstation">
+                    <input id="plat2" type="checkbox" name="plataforma[]" value="playstation">
                     <label class="plataformaCheck" for="plat2"><i class="bi bi-playstation"></i></label>
 
-                    <input id="plat3" type="checkbox" name="plataforma" value="xbox">
+                    <input id="plat3" type="checkbox" name="plataforma[]" value="xbox">
                     <label class="plataformaCheck" for="plat3"><i class="bi bi-xbox"></i></label>
 
-                    <input id="plat4" type="checkbox" name="plataforma" value="pc">
+                    <input id="plat4" type="checkbox" name="plataforma[]" value="pc">
                     <label class="plataformaCheck" for="plat4"><i class="bi bi-pc-display"></i></label>
                 </div>
             </div>
