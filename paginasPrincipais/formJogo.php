@@ -45,7 +45,7 @@
             <div class="registroContentContainer container mt-5">
                 <div class="gameInput mt-3">
                     <h1>Nome</h1>
-                    <input type="text" name="nome" class="col-3" required>
+                    <input type="text" name="nome" class="textInput col-3" required>
                 </div>
                 <div class="gameInput mt-3">
                     <h1>Classificação indicativa</h1>
@@ -71,32 +71,32 @@
                 </div>
                 <div class="gameInput mt-3">
                     <h1>Sinopse:</h1>
-                    <textarea name="sinopse" class="col-12" required></textarea>
+                    <textarea name="sinopse" class="col-12 textInput" required></textarea>
                 </div>
                 
                 <div class="gameInput mt-3">
                     <div>
                         <h1>Requisistos Mínimos:</h1>
                         <h2 class="mt-3">Sistema Operacional: </h2>
-                        <input type="text" name="so" class="col-3" required>
+                        <input type="text" name="so" class="col-3 textInput" required>
                         
                         <h2 class="mt-3">Processador: </h2>
-                        <input type="text" name="cpu" class="col-3" required>
+                        <input type="text" name="cpu" class="col-3 textInput" required>
                         
                         <h2 class="mt-3">Placa de Vídeo: </h2>
-                        <input type="text" name="gpu" class="col-3" required>
+                        <input type="text" name="gpu" class="col-3 textInput" required>
                         
                         <h2 class="mt-3">Memória: </h2>
-                        <input type="text" name="ram" class="col-3" required>
+                        <input type="text" name="ram" class="col-3 textInput" required>
                         
                         <h2 class="mt-3">Armazenamento: </h2>
-                        <input type="text" name="armazenamento" class="col-3" required>
+                        <input type="text" name="armazenamento" class="col-3 textInput" required>
                         
 
                     </div>
                 </div>
                 <h1 class="tituloPlat m-2">Plataformas</h1>
-                <div class="gameInput d-flex justify-content-around align-items-center mt-3">
+                <div class="gameInput d-flex justify-content-around align-items-center mt-3 mb-5">
 
                     <input id="plat1" type="checkbox" name="plataforma[]" value="switch">
                     <label class="plataformaCheck" for="plat1"><i class="bi bi-nintendo-switch"></i></label>
