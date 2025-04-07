@@ -20,10 +20,22 @@ $stmt->execute([':jogoID' => $_GET['gameID'],
                 ':usuarioID' => 1]); // Trocar por id do usuário assim que for possível iniciar sessão
 $notaUsuario = $stmt->fetch();
 
+
 if ($notaUsuario !== false)
     $notaUsuario = $notaUsuario['nota'];
 else
     $notaUsuario = 0;
+
+    
+$stmt = $conn->prepare("SELECT naLista FROM lista WHERE usuarioID = :usuarioID AND jogoID = :jogoID");
+$stmt->execute([':jogoID' => $_GET['gameID'],
+                ':usuarioID' => 1]); // Trocar por id do usuário assim que for possível iniciar sessão
+$lista = $stmt->fetch();
+
+if ($lista !== false) 
+    $lista = $lista['naLista'];
+else
+    $lista = NULL;
 
 ?>
 
@@ -78,47 +90,65 @@ else
                 </div>
             </div>
             <div class="gamePageInfoContainer container d-flex flex-column align-items-center">
-                <section id="avaliacaoJogo" class="col-10 m-2">
-                    <div id="notaContainer" class="d-flex flex-column align-items-center">
-                        <span id="gameScore">
+                <section id="avaliacaoJogo" class="col-10 m-2 d-flex justify-content-between align-items-center">
+                    <div>
+                        <div id="notaContainer" class="d-flex flex-column align-items-center">
+                            <span id="gameScore">
 
-                            <?php
-                            if ($gameScore['nota'] > 0)
-                                echo number_format($gameScore['nota'] / $gameScore['nAvaliacoes'], 2);
-                            else
-                                echo '0.00';
-                            ?>
-                            
-                        </span>
-                        <p><?= $gameScore['nAvaliacoes'] ?> avaliações</p>
+                                <?php
+                                if ($gameScore['nota'] > 0)
+                                    echo number_format($gameScore['nota'] / $gameScore['nAvaliacoes'], 2);
+                                else
+                                    echo '0.00';
+                                ?>
+                                
+                            </span>
+                            <p><?= $gameScore['nAvaliacoes'] ?> avaliações</p>
+                        </div>
+                        <div id="starAvaliacaoContainer" class="mt-2">
+                            <form action="../form/avaliaJogo.php" method="POST">
+                                <input type="hidden" name="gameID" value="<?= $_GET['gameID'] ?>">
+                                <input id="notaInput" type="hidden" name="nota" value="">
+                                <input type="hidden" name="avaliado" value="
+                                <?php 
+                                    if ($notaUsuario != 0) 
+                                        echo '1';
+                                    else
+                                        echo '0';
+                                ?>">
+                                
+                                <div id="starScoreContainer" class="d-flex gap-1">
+                                <?php
+
+                                for ($i=1; $i<=10; $i++) {
+
+                                    if ($i == $notaUsuario)
+                                        echo '<button class="scoreStar scoreStarActive mouseOut" onclick="document.getElementById(' . "'notaInput'" . ').value = ' . $i . '"><i class="bi bi-star-fill"></i></button>';
+                                    else
+                                        echo '<button class="scoreStar mouseOut" onclick="document.getElementById(' . "'notaInput'" . ').value = ' . $i . '"><i class="bi bi-star-fill"></i></button>';
+                                }
+
+                                ?>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div id="starAvaliacaoContainer" class="mt-2">
-                        <form action="../form/avaliaJogo.php" method="POST">
+
+                    <div id="listaBtnContainer">
+                        <form action="../form/adicionaNaLista.php" method="POST">
                             <input type="hidden" name="gameID" value="<?= $_GET['gameID'] ?>">
-                            <input id="notaInput" type="hidden" name="nota" value="">
-                            <input type="hidden" name="avaliado" value="
-                            <?php 
-                                if ($notaUsuario != 0) 
-                                    echo '1';
+                            <input type="hidden" name="naLista" value="<?= $lista ?>">
+                            <button id="listaBtn" >
+                                <?php 
+                                
+                                if ($lista == 1)
+                                    echo '<i class="bi bi-check-lg"></i>';
                                 else
-                                    echo '0';
-                            ?>">
-                            
-                            <div id="starScoreContainer" class="d-flex gap-1">
-                            <?php
-
-                            for ($i=1; $i<=10; $i++) {
-
-                                if ($i == $notaUsuario)
-                                    echo '<button class="scoreStar scoreStarActive mouseOut" onclick="document.getElementById(' . "'notaInput'" . ').value = ' . $i . '"><i class="bi bi-star-fill"></i></button>';
-                                else
-                                    echo '<button class="scoreStar mouseOut" onclick="document.getElementById(' . "'notaInput'" . ').value = ' . $i . '"><i class="bi bi-star-fill"></i></button>';
-                            }
-
-                            ?>
-                            </div>
+                                    echo '+';
+                                ?> Minha lista</button>
                         </form>
                     </div>
+                    
                 </section>
 
                 <section id="sinopse" class="col-10 m-2">
