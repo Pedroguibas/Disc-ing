@@ -79,17 +79,20 @@ else
             </div>
             <div class="gamePageInfoContainer container d-flex flex-column align-items-center">
                 <section id="avaliacaoJogo" class="col-10 m-2">
-                    <div id="notaContainer">
+                    <div id="notaContainer" class="d-flex flex-column align-items-center">
                         <span id="gameScore">
+
                             <?php
                             if ($gameScore['nota'] > 0)
-                                echo $gameScore['nota'] / $gameScore['nAvaliacoes'];
+                                echo number_format($gameScore['nota'] / $gameScore['nAvaliacoes'], 2);
                             else
                                 echo '0.00';
                             ?>
+                            
                         </span>
+                        <p><?= $gameScore['nAvaliacoes'] ?> avaliações</p>
                     </div>
-                    <div id="starAvaliacaoContainer">
+                    <div id="starAvaliacaoContainer" class="mt-2">
                         <form action="../form/avaliaJogo.php" method="POST">
                             <input type="hidden" name="gameID" value="<?= $_GET['gameID'] ?>">
                             <input id="notaInput" type="hidden" name="nota" value="">
