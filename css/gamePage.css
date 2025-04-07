@@ -1,3 +1,5 @@
+/* --- Banner --- */
+
 .gamePageBanner {
     position: relative;
     margin-bottom: 2em;
@@ -41,9 +43,7 @@
     width: 8em;
 }
 
-.gamePageInfoContainer {
-    min-height: 100vh;
-}
+/* --- Conteúdo Principal --- */
 
 .gamePageInfoContainer * {
     color: #c4c4c4;
@@ -90,14 +90,49 @@
 }
 
 .buttonDrop {
-    border: 3px solid #c4c4c4;
-    border-radius: 10px;
-    background-color: #1e1e34;
     cursor: pointer;
-    transition: background-color 300ms ease;
+    position: relative;
 }
 
-.buttonDrop:hover {
-    background-color: #0f0f1c;
-    transition: background-color 300ms ease;
+.buttonDrop::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    background: #c4c4c4;
+    transition: all 300ms ease;
+}
+
+.buttonDrop:hover::after,
+.contentVisible::after {
+    transition: all 300ms ease;
+    width: inherit;
+}
+
+#notaContainer {
+    width: fit-content;
+    padding: .5em;
+    font-size: 3em;
+    font-weight: bold;
+    border: 3px solid #c4c4c4;
+    border-radius: 10px;
+    background: #1e1e34;
+}
+
+.scoreStar i {
+    font-size: 1.2em;
+    color: inherit;
+}
+
+#starScoreContainer {
+    width: fit-content;
+}
+
+#starAvaliacaoContainer .scoreStarActive.mouseOut,
+#starAvaliacaoContainer .scoreStar:hover,
+#starAvaliacaoContainer .scoreStar:has(~ .scoreStar:hover),
+#starAvaliacaoContainer .scoreStar:has(~ .scoreStarActive).mouseOut {
+    color: #f7e600;
+    cursor: pointer
 }

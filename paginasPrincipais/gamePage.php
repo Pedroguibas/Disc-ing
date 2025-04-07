@@ -11,6 +11,20 @@ $stmt = $conn->prepare("SELECT * FROM requisitosJogo WHERE id = :id");
 $stmt->execute([':id' => $gameInfo['requisitosID']]);
 $requisitos = $stmt->fetch();
 
+$stmt = $conn->prepare("SELECT SUM(nota) AS nota, COUNT(*) AS nAvaliacoes FROM avaliacao WHERE jogoID = :jogoID");
+$stmt->execute([':jogoID' => $_GET['gameID']]);
+$gameScore = $stmt->fetch();
+
+$stmt = $conn->prepare("SELECT nota FROM avaliacao WHERE jogoID = :jogoID AND usuarioID = :usuarioID");
+$stmt->execute([':jogoID' => $_GET['gameID'],
+                ':usuarioID' => 1]); // Trocar por id do usuário assim que for possível iniciar sessão
+$notaUsuario = $stmt->fetch();
+
+if ($notaUsuario !== false)
+    $notaUsuario = $notaUsuario['nota'];
+else
+    $notaUsuario = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +37,7 @@ $requisitos = $stmt->fetch();
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
     </head>
-    <body id="gamePageBody">
+    <body id="gamePageBody" onload="changeScoreColor();">
         <header>
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
@@ -64,6 +78,46 @@ $requisitos = $stmt->fetch();
                 </div>
             </div>
             <div class="gamePageInfoContainer container d-flex flex-column align-items-center">
+                <section id="avaliacaoJogo" class="col-10 m-2">
+                    <div id="notaContainer">
+                        <span id="gameScore">
+                            <?php
+                            if ($gameScore['nota'] > 0)
+                                echo $gameScore['nota'] / $gameScore['nAvaliacoes'];
+                            else
+                                echo '0.00';
+                            ?>
+                        </span>
+                    </div>
+                    <div id="starAvaliacaoContainer">
+                        <form action="../form/avaliaJogo.php" method="POST">
+                            <input type="hidden" name="gameID" value="<?= $_GET['gameID'] ?>">
+                            <input id="notaInput" type="hidden" name="nota" value="">
+                            <input type="hidden" name="avaliado" value="
+                            <?php 
+                                if ($notaUsuario != 0) 
+                                    echo '1';
+                                else
+                                    echo '0';
+                            ?>">
+                            
+                            <div id="starScoreContainer" class="d-flex gap-1">
+                            <?php
+
+                            for ($i=1; $i<=10; $i++) {
+
+                                if ($i == $notaUsuario)
+                                    echo '<button class="scoreStar scoreStarActive mouseOut" onclick="document.getElementById(' . "'notaInput'" . ').value = ' . $i . '"><i class="bi bi-star-fill"></i></button>';
+                                else
+                                    echo '<button class="scoreStar mouseOut" onclick="document.getElementById(' . "'notaInput'" . ').value = ' . $i . '"><i class="bi bi-star-fill"></i></button>';
+                            }
+
+                            ?>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
                 <section id="sinopse" class="col-10 m-2">
                     <div class="gameDropContainer">
                         <div class="gameDropdown">
@@ -119,7 +173,7 @@ $requisitos = $stmt->fetch();
                                 if($gameInfo['xbox'])
                                     echo '<i class="bi bi-xbox"></i>';
                                 if($gameInfo['pc'])
-                                    echo '<i class="bi bi-pc-display">';
+                                    echo '<i class="bi bi-pc-display"></i>';
                             
                             ?>
                         </div>
