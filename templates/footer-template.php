@@ -1,3 +1,8 @@
+<?php
+$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
+
+?>
+
 <footer>
     <div id="footerContainer" class="container">
         <ul id="footerLinksContainer" class="d-flex justify-content-center">
@@ -26,16 +31,16 @@
         <div class="d-flex justify-content-center">
             <ul class="d-flex justify-content-center gap-5 mt-4 mb-4">
                 <li class="footerLink">
-                    <a href="#welcomeBanner">Home</a>
+                    <a href="<?= $BASE_URL . 'paginasPrincipais/index.php' ?>">Home</a>
                 </li>
                 <li class="footerLink">
-                    <a href="sobre.html">Sobre</a>
+                    <a href="<?= $BASE_URL . 'paginasPrincipais/sobre.php' ?>">Sobre</a>
                 </li>
                 <li class="footerLink">
-                    <a href="login.html">Perfil</a>
+                    <a href="<?= $BASE_URL . 'paginasPrincipais/perfilDoUsuario.php' ?>">Perfil</a>
                 </li>
                 <li class="footerLink">
-                    <a href="erros.html">Erros</a>
+                    <a href="<?= $BASE_URL . 'paginasPrincipais/errosform.php' ?>">Erros</a>
                 </li>
             </ul>
         </div>
