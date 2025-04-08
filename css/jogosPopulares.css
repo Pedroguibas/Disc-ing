@@ -47,6 +47,7 @@
     text-decoration: none;
     position: relative;
     border: 3px solid #0cbfdf00;
+    background: #000;
 }
 
 .cardLink .cardImg {
@@ -58,6 +59,8 @@
 .cardLink:hover .cardImg {
     transform: scale(1.2);
     transition: all ease 200ms;
+    opacity: 0.5;
+    filter: blur(6px);
 }
 
 .cardLink .cardTitleContainer {
@@ -78,6 +81,27 @@
 
 .cardTitleContainer .cardClassificacao {
     width: 2em;
+}
+
+.cardLink .cardScoreContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.cardLink:hover .cardScoreContainer {
+    opacity: 1;
+}
+
+.cardScoreContainer .cardScore {
+    font-size: 3.5em;
+    color: #fff;
+}
+
+.cardScore i {
+    font-size: .8em;
 }
 
 .swiper-pagination-bullet {

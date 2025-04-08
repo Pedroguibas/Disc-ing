@@ -96,7 +96,7 @@ else
                             <span id="gameScore">
 
                                 <?php
-                                if ($gameScore['nota'] > 0)
+                                if ($gameScore['nAvaliacoes'] > 0)
                                     echo number_format($gameScore['nota'] / $gameScore['nAvaliacoes'], 2);
                                 else
                                     echo '0.00';

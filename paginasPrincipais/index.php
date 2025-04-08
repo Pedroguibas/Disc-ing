@@ -70,6 +70,15 @@ $Jogos = $stmt->fetchAll();
                                 <?php
 
                                 foreach ($Jogos as $Jogo) {
+                                    $stmt = $conn->prepare("SELECT SUM(nota) AS nota, COUNT(*) AS nAvaliacoes FROM avaliacao WHERE jogoID = :jogoID");
+                                    $stmt->execute([':jogoID' => $Jogo['id']]);
+                                    $cardScore = $stmt->fetch();
+
+                                    if ($cardScore['nAvaliacoes'] > 0)
+                                        $cardScore = number_format($cardScore['nota'] / $cardScore['nAvaliacoes'], 2);
+                                    else
+                                        $cardScore = number_format(0, 2);
+
                                     echo '
                                         <li class="cardItem swiper-slide">
                                             <button class="cardLink" onclick="document.getElementById('."'gamePageHeader'".').value = '. $Jogo['id'] .'">
@@ -77,6 +86,9 @@ $Jogos = $stmt->fetchAll();
                                                 <div class="cardTitleContainer d-flex justify-content-between align-items-end">
                                                     <h2 class="cardTitle">' . $Jogo['nome'] . '</h2>
                                                     <img class="cardClassificacao" alt="Classificação ' . $Jogo['classificacao'] . ' anos" src="' . $BASE_URL . 'assets/Jogos/classificacao/age' . $Jogo['classificacao'] . '.png">
+                                                </div>
+                                                <div class="cardScoreContainer">
+                                                    <span class="cardScore d-flex align-items-center gap-2"><i class="bi bi-star-fill"></i> '. $cardScore .'</span>
                                                 </div>
                                             </button>
                                         </li> 
