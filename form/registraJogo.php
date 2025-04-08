@@ -44,6 +44,17 @@ $stmt->execute([':nome' => $jogo['nome'],
 $stmt = $conn->prepare("SELECT id FROM jogo ORDER BY id DESC LIMIT 1");
 $stmt->execute();
 $gameID = $stmt->fetch(); //Pega id do jogo que acabou de ser registrado no banco para usar nos nomes das imagens
+$gameID = $gameID['id'];
+
+$diretorio = '../assets/Jogos/';
+$banner = $diretorio . basename($_FILES['banner']['name']);
+move_uploaded_file($_FILES['banner']['tmp_name'], $banner);
+rename($banner, $diretorio . 'banner' . $gameID . '.jpg');
+
+$cover = $diretorio . basename($_FILES['cover']['name']);
+move_uploaded_file($_FILES['cover']['tmp_name'], $cover);
+rename($cover, $diretorio . 'cover' . $gameID . '.jpg');
+
 
 
 ?>
