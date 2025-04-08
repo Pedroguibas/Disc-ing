@@ -41,7 +41,7 @@ $stmt->execute([':nome' => $jogo['nome'],
                 ':nintendoSwitch' => $plat['switch'],
                 ':pc' => $plat['pc']]);
 
-$stmt = $conn->prepare("SELECT id FROM jogo ORDER BY id LIMIT 1");
+$stmt = $conn->prepare("SELECT id FROM jogo ORDER BY id DESC LIMIT 1");
 $stmt->execute();
 $gameID = $stmt->fetch(); //Pega id do jogo que acabou de ser registrado no banco para usar nos nomes das imagens
 
