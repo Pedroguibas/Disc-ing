@@ -63,11 +63,11 @@
                 </div>
                 <div class="gameInput mt-3">
                     <h1>Banner do jogo</h1>
-                    <input type="file" name="banner" required>
+                    <input type="file" name="banner" accept="image/jpeg" required />
                 </div>
                 <div class="gameInput mt-3">
                     <h1>Capa do jogo</h1>
-                    <input type="file" name="cover" required>
+                    <input type="file" name="cover" accept="image/jpeg" required />
                 </div>
                 <div class="gameInput mt-3">
                     <h1>Sinopse:</h1>
