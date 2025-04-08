@@ -2,6 +2,9 @@
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 include_once("../config/db.php");
 
+$aditionalTags = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">';
+include_once('../templates/header-template.php');
+
 $stmt = $conn->prepare("SELECT * FROM jogo");
 $stmt->execute();
 $Jogos = $stmt->fetchAll();
@@ -10,51 +13,6 @@ $Jogos = $stmt->fetchAll();
 //header("Location: " . $BASE_URL . "paginasPrincipais/login.php");
 ?>
 
-
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <title>Disc-ing</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="../assets/LogoDisc-ing.png" alt="Logo Disc-ing" class="d-inline-block w-100">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent"
-                    aria-expanded="false" aria-label="Esconder a navegação">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="ms-auto">
-                        <ul class="navbar-nav ml-auto mb-2 mb-lh-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="sobre.php">Sobre</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="perfilDoUsuario.php">Perfil</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <div class="headerShadow"></div>
-    </header>
     <main id="indexmain" class="d-flex justify-content-center">
         <section class="sectionJogosPopulares container">
             <form action="gamePage.php">
@@ -107,11 +65,8 @@ $Jogos = $stmt->fetchAll();
             </form>
         </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="../javascript/index.js"></script>
-</body>
-
-</html>
+<?php
+include_once('../templates/footer-template.php');
+?>
