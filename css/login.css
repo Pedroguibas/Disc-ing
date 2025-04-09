@@ -20,9 +20,9 @@
 }
 
 #loginForm .loginInputContainer {
-    border-radius:  1.5em;
+    border-radius:  1.3em;
     border: 3px solid #fff;
-    padding: 1em;
+    padding: .7em 1em;
 }
 
 #loginForm .loginInputContainer i {
