@@ -1,0 +1,57 @@
+#loginMain * {
+    color: #fff;
+    font-family: pixelFont, sans;
+}
+
+#loginBannerContainer #loginBanner {
+    filter: drop-shadow(0 0 .6em #fff);
+}
+
+#loginTitleContainer #loginTitle {
+    font-size: 2.5em;
+}
+
+#loginForm input {
+    all: unset;
+}
+
+#loginForm ::placeholder {
+    color: #ffffff59;
+}
+
+#loginForm .loginInputContainer {
+    border-radius:  1.5em;
+    border: 3px solid #fff;
+    padding: 1em;
+}
+
+#loginForm .loginInputContainer i {
+    font-size: 1.5em;
+    margin-left: 4px;
+}
+
+#showPasswordBtn {
+    all: unset;
+    cursor: pointer;
+}
+
+#loginForm .btn-outline-light {
+    padding: .3em 1em;
+    font-size: 1.3em;
+}
+
+#loginForm .btn-outline-light:hover {
+    color: #121D46 !important;
+}
+
+@media screen and (max-width: 769px) {
+    #loginForm .loginInputContainer {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    #loginForm .loginInputContainer {
+        font-size: 0.6em;
+    }
+}

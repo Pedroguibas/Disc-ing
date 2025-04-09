@@ -8,7 +8,7 @@ $stmt->execute([':id' => $_GET["gameID"]]);
 $gameInfo = $stmt->fetch();
 
 $title = $gameInfo['nome'];
-$bodyAttributes = ' id="gamePageBody" onload="changeScoreColor();"';
+$bodyAttributes = 'onload="changeScoreColor();"';
 include_once("../templates/header-template.php");
 
 $stmt = $conn->prepare("SELECT * FROM requisitosJogo WHERE id = :id");
@@ -43,7 +43,7 @@ else
 
 ?>
 
-        <main>
+        <main id="gamePageMain">
             <div class="gamePageBanner col-12">
                 <img src="<?= $BASE_URL . 'assets/Jogos/banner' . $gameInfo['id'] . '.jpg' ?>" alt="Banner <?= $gameInfo['nome'] ?>" class="gameBanner w-100">
                 <div class="gameProfile d-flex align-items-center">

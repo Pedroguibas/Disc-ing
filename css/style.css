@@ -1,7 +1,9 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url(settings.css);
 @import url(header.css);
-@import url(main.css);
+@import url(footer.css);
+@import url(background.css);
+@import url(login.css);
 @import url(jogosPopulares.css);
 @import url(gamePage.css);
 @import url(formJogo.css);
-@import url(footer.css);

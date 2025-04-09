@@ -1,0 +1,12 @@
+@font-face {
+    font-family: pixelFont;
+    src: url(../assets/font/Better\ VCR\ 9.0.1.ttf);
+}
+
+* {
+    margin: 0;
+}
+
+main {
+    padding: 5em 0;
+}

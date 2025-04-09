@@ -1,0 +1,16 @@
+body {
+    background: #1e1e34;
+}
+
+#indexmain {
+    background: linear-gradient(#121D46, #472BE0);
+}
+
+#gamePageMain {
+    padding-top: 0;
+    background: #335;
+}
+
+#loginMain {
+    background: linear-gradient(#472BE0, #9e2be0, #e02b7c);;
+}
