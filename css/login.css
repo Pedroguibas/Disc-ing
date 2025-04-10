@@ -62,6 +62,8 @@
     color: #e02b7c !important;
 }
 
+#emailCadastradoWarning,
+#usuarioCadastradoWarning,
 #wrongPasswordWarning {
     color: #f00;
     margin-left: 1em;

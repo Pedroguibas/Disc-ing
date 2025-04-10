@@ -32,7 +32,7 @@ $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="<?= $BASE_URL ?>paginasPrincipais/index.php">
                     <img src="<?= $BASE_URL ?>assets/LogoDisc-ing.png" alt="Logo Disc-ing" class="d-inline-block w-100">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

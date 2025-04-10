@@ -26,7 +26,7 @@ include_once("../templates/header-template.php")
                     </div>
                     <div class="loginInputContainer d-flex align-items-center m-2">
                         <input class="passwordInput" type="password" name="senha" placeholder="Senha" minlength="8" size="25">
-                        <button type="button" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
+                        <button type="button" tabindex="-1" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
                     </div>
                     <div class="loginOptions d-flex flex-column align-items-center mt-3">
                         <p>Ainda não tem uma conta? <a href="signin.php">Cadastre-se</a></p>

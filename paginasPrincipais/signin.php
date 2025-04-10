@@ -20,9 +20,10 @@ include_once("../templates/header-template.php");
                     <form action="<?= $BASE_URL ?>form/registraUsuario.php" method="POST" id="loginForm" class="d-flex flex-column align-items-center mt-4">
                         <div class="formContainer mb-5">
                             <div class="loginInputContainer d-flex align-items-center m-2">
-                                <input type="email" name="email" placeholder="e-mail" size="25" required>
+                                <input type="email" id="email" name="email" placeholder="e-mail" size="25" required>
                                 <i class="bi bi-envelope"></i>
                             </div>
+                            <p id="emailCadastradoWarning">Já existe um usuário com este e-mail.</p>
                             <div class="loginInputContainer d-flex align-items-center m-2">
                                 <input type="text" name="nome" placeholder="Nome" size="25" required>
                                 <i class="bi bi-person"></i>
@@ -35,28 +36,31 @@ include_once("../templates/header-template.php");
                                 <input type="text" name="username" placeholder="Nome de usuário" size="25" required>
                                 <i class="bi bi-person"></i>
                             </div>
+                            <p id="usuarioCadastradoWarning">Já existe um usuário com este nome de usuário.</p>
                             <div class="loginInputContainer d-flex align-items-center m-2">
                                 <input class="passwordInput" id="senha" type="password" name="senha" placeholder="Senha" minlength="8" size="25">
-                                <button type="button" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
+                                <button type="button" tabindex="-1" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
                             </div>
                             <div class="loginInputContainer d-flex align-items-center m-2">
                                 <input class="passwordInput" id="confirma-senha" type="password" name="confirma-senha" placeholder="Confirmar senha" minlength="8" size="25">
-                                <button type="button" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
+                                <button type="button" tabindex="-1" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
                             </div>
 
                             <p id="wrongPasswordWarning">As senhas não conferem.</p>
-                            
+
                             <div class="loginOptions d-flex flex-column align-items-center mt-3">
                                 <p>Já passou por aqui? <a href="login.php">Entre com sua conta</a></p>
                             </div>
                         </div>
 
-                        <button class="btn btn-outline-light" onclick="return checkSenha();">Sign-in</button>
+                        <button class="btn btn-outline-light" onclick="return checkSenha(); return validaEmail();">Sign-in</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
+    <script> let BASE_URL = '<?= $BASE_URL ?>'; </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="<?= $BASE_URL ?>javascript/login.js"></script>
     <script src="<?= $BASE_URL ?>javascript/signin.js"></script>
 
