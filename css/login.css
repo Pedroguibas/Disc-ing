@@ -62,14 +62,21 @@
     color: #e02b7c !important;
 }
 
+#wrongPasswordWarning {
+    color: #f00;
+    margin-left: 1em;
+    font-size: .8em;
+    display: none;
+}
+
 @media screen and (max-width: 769px) {
-    #loginForm .loginInputContainer {
+    #loginForm {
         font-size: 0.8em;
     }
 }
 
 @media screen and (max-width: 426px) {
-    #loginForm .loginInputContainer {
+    #loginForm {
         font-size: 0.6em;
     }
 }

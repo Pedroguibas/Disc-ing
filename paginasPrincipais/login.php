@@ -25,7 +25,7 @@ include_once("../templates/header-template.php")
                         <i class="bi bi-person"></i>
                     </div>
                     <div class="loginInputContainer d-flex align-items-center m-2">
-                        <input class="passwordInput" type="password" name="Senha" placeholder="senha" minlength="8" size="25">
+                        <input class="passwordInput" type="password" name="senha" placeholder="Senha" minlength="8" size="25">
                         <button type="button" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
                     </div>
                     <div class="loginOptions d-flex flex-column align-items-center mt-3">

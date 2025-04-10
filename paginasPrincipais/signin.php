@@ -36,25 +36,29 @@ include_once("../templates/header-template.php");
                                 <i class="bi bi-person"></i>
                             </div>
                             <div class="loginInputContainer d-flex align-items-center m-2">
-                                <input class="passwordInput" type="password" name="senha" placeholder="Senha" minlength="8" size="25">
+                                <input class="passwordInput" id="senha" type="password" name="senha" placeholder="Senha" minlength="8" size="25">
                                 <button type="button" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
                             </div>
                             <div class="loginInputContainer d-flex align-items-center m-2">
-                                <input class="passwordInput" type="password" name="senha" placeholder="Confirmar senha" minlength="8" size="25">
+                                <input class="passwordInput" id="confirma-senha" type="password" name="confirma-senha" placeholder="Confirmar senha" minlength="8" size="25">
                                 <button type="button" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
                             </div>
+
+                            <p id="wrongPasswordWarning">As senhas não conferem.</p>
+                            
                             <div class="loginOptions d-flex flex-column align-items-center mt-3">
                                 <p>Já passou por aqui? <a href="login.php">Entre com sua conta</a></p>
                             </div>
                         </div>
 
-                        <button class="btn btn-outline-light">Sign-in</button>
+                        <button class="btn btn-outline-light" onclick="return checkSenha();">Sign-in</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
     <script src="<?= $BASE_URL ?>javascript/login.js"></script>
+    <script src="<?= $BASE_URL ?>javascript/signin.js"></script>
 
 
 <?php
