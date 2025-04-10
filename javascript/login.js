@@ -12,5 +12,7 @@ function togglePassword() {
     }
 }
 
-const showPasswordBtn = document.getElementById('showPasswordBtn');
-showPasswordBtn.addEventListener('click', togglePassword);
+const showPasswordBtn = document.querySelectorAll('.showPasswordBtn');
+showPasswordBtn.forEach(function(elem) {
+    elem.addEventListener('click', togglePassword);
+});

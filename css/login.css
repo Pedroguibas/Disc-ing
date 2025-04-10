@@ -1,4 +1,5 @@
-#loginMain * {
+#loginMain * ,
+#signinMain * {
     color: #fff;
     font-family: pixelFont, sans;
 }
@@ -19,6 +20,11 @@
     color: #ffffff59;
 }
 
+#loginForm ::selection {
+    background: #fff;
+    color: #1900a8;
+}
+
 #loginForm .loginInputContainer {
     border-radius:  1.3em;
     border: 3px solid #fff;
@@ -30,7 +36,7 @@
     margin-left: 4px;
 }
 
-#showPasswordBtn {
+.showPasswordBtn {
     all: unset;
     cursor: pointer;
 }
@@ -48,8 +54,12 @@
     font-size: 0.8em;
 }
 
-.loginOptions a:hover {
+#loginMain .loginOptions a:hover {
     color: #1900a8 !important;
+}
+
+#signinMain .loginOptions a:hover {
+    color: #e02b7c !important;
 }
 
 @media screen and (max-width: 769px) {

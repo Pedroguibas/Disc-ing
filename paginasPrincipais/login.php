@@ -8,7 +8,7 @@ include_once("../templates/header-template.php")
 
 ?>
 <main id="loginMain">
-    <section id="loginContainer" class="container">
+    <section id="loginSection" class="container">
         <div class="row justify-content-center">
             <div id="loginBannerContainer" class="col-lg-5 col-md-8 col-sm-10">
                 <img src="<?= $BASE_URL ?>assets/LoginBanner.png" alt="Banner da página de log-in" class="w-100" id="loginBanner">
@@ -20,13 +20,13 @@ include_once("../templates/header-template.php")
             </div>
             <form action="<?= $BASE_URL ?>form/auth.php" method="POST" id="loginForm" class="d-flex flex-column align-items-center mt-4">
                 <div class="formContainer mb-5">
-                    <div class="loginInputContainer d-flex alignitems-center m-2">
+                    <div class="loginInputContainer d-flex align-items-center m-2">
                         <input type="text" name="usuario" placeholder="Username ou e-mail" size="25" required>
                         <i class="bi bi-person"></i>
                     </div>
-                    <div class="loginInputContainer d-flex alignitems-center m-2">
-                        <input class="passwordInput" type="password" name="senha" placeholder="senha" minlength="8" size="25">
-                        <button type="button" id="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
+                    <div class="loginInputContainer d-flex align-items-center m-2">
+                        <input class="passwordInput" type="password" name="Senha" placeholder="senha" minlength="8" size="25">
+                        <button type="button" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
                     </div>
                     <div class="loginOptions d-flex flex-column align-items-center mt-3">
                         <p>Ainda não tem uma conta? <a href="signin.php">Cadastre-se</a></p>
