@@ -41,7 +41,15 @@
 }
 
 #loginForm .btn-outline-light:hover {
-    color: #121D46 !important;
+    color: #1900a8 !important;
+}
+
+.loginOptions {
+    font-size: 0.8em;
+}
+
+.loginOptions a:hover {
+    color: #1900a8 !important;
 }
 
 @media screen and (max-width: 769px) {

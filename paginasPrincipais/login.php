@@ -19,14 +19,21 @@ include_once("../templates/header-template.php")
                 <h1 id="loginTitle">Log-in</h1>
             </div>
             <form action="<?= $BASE_URL ?>form/auth.php" method="POST" id="loginForm" class="d-flex flex-column align-items-center mt-4">
-                <div class="loginInputContainer d-flex alignitems-center m-2">
-                    <input type="text" name="usuario" placeholder="Username ou e-mail" size="25" required>
-                    <i class="bi bi-person"></i>
+                <div class="formContainer mb-5">
+                    <div class="loginInputContainer d-flex alignitems-center m-2">
+                        <input type="text" name="usuario" placeholder="Username ou e-mail" size="25" required>
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div class="loginInputContainer d-flex alignitems-center m-2">
+                        <input class="passwordInput" type="password" name="senha" placeholder="senha" minlength="8" size="25">
+                        <button type="button" id="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
+                    </div>
+                    <div class="loginOptions d-flex flex-column align-items-center mt-3">
+                        <p>Ainda não tem uma conta? <a href="signin.php">Cadastre-se</a></p>
+                        <p class="mt-2">Esqueceu sua senha? <a href="#">Clique aqui</a></p>
+                    </div>
                 </div>
-                <div class="loginInputContainer d-flex alignitems-center m-2 mb-5">
-                    <input class="passwordInput" type="password" name="senha" placeholder="senha" minlength="8" size="25">
-                    <button type="button" id="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
-                </div>
+                
 
                 <button class="btn btn-outline-light">Log-in</button>
             </form>
