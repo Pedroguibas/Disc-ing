@@ -62,10 +62,8 @@
     color: #e02b7c !important;
 }
 
-#emailCadastradoWarning,
-#usuarioCadastradoWarning,
-#wrongPasswordWarning {
-    color: #f00;
+.loginWarning {
+    color: #f00 !important;
     margin-left: 1em;
     font-size: .8em;
     display: none;

@@ -23,7 +23,8 @@ include_once("../templates/header-template.php");
                                 <input type="email" id="email" name="email" placeholder="e-mail" size="25" required>
                                 <i class="bi bi-envelope"></i>
                             </div>
-                            <p id="emailCadastradoWarning">Já existe um usuário com este e-mail.</p>
+                            <p id="emailCadastradoWarning" class="loginWarning">Já existe um usuário com este e-mail.</p>
+                            <p id="emailInvalidoWarning" class="loginWarning">O e-mail digitado não é válido.</p>
                             <div class="loginInputContainer d-flex align-items-center m-2">
                                 <input type="text" name="nome" placeholder="Nome" size="25" required>
                                 <i class="bi bi-person"></i>
@@ -33,10 +34,10 @@ include_once("../templates/header-template.php");
                                 <i class="bi bi-person"></i>
                             </div>
                             <div class="loginInputContainer d-flex align-items-center m-2">
-                                <input type="text" name="username" placeholder="Nome de usuário" size="25" required>
+                                <input type="text" id="username" name="username" placeholder="Username" size="25" required>
                                 <i class="bi bi-person"></i>
                             </div>
-                            <p id="usuarioCadastradoWarning">Já existe um usuário com este nome de usuário.</p>
+                            <p id="usuarioCadastradoWarning" class="loginWarning">Já existe um usuário com este username.</p>
                             <div class="loginInputContainer d-flex align-items-center m-2">
                                 <input class="passwordInput" id="senha" type="password" name="senha" placeholder="Senha" minlength="8" size="25">
                                 <button type="button" tabindex="-1" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
@@ -46,7 +47,7 @@ include_once("../templates/header-template.php");
                                 <button type="button" tabindex="-1" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
                             </div>
 
-                            <p id="wrongPasswordWarning">As senhas não conferem.</p>
+                            <p id="wrongPasswordWarning" class="loginWarning">As senhas não conferem.</p>
 
                             <div class="loginOptions d-flex flex-column align-items-center mt-3">
                                 <p>Já passou por aqui? <a href="login.php">Entre com sua conta</a></p>
@@ -60,7 +61,6 @@ include_once("../templates/header-template.php");
         </section>
     </main>
     <script> let BASE_URL = '<?= $BASE_URL ?>'; </script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="<?= $BASE_URL ?>javascript/login.js"></script>
     <script src="<?= $BASE_URL ?>javascript/signin.js"></script>
 
