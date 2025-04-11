@@ -19,11 +19,12 @@ $('#loginForm').on('submit', function(e) {
     e.preventDefault();
 
     if($('#senha').val().length >= 8) {
+        
         $.ajax({
             url: BASE_URL + 'form/validaLogin.php?usuario=' + $('#usuario').val() + '&senha=' + $('#senha').val(),
             success: function(result) {
                 result = parseInt(result);
-                console.log(result);
+                
                 if (result == 1) {
                     $('#loginForm')[0].submit();
                 } else {

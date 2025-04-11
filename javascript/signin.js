@@ -83,10 +83,7 @@ function validaUsername() {
 $('#loginForm').on('submit', function(e) {
     e.preventDefault();
     let count = 0;
-
-    if (!checkSenha)
-        count++
-
+    
     if(validaEmail()) {
         $.ajax({
             url: BASE_URL + "form/checaUsuarioEmail.php",
@@ -116,6 +113,12 @@ $('#loginForm').on('submit', function(e) {
             }
         }
     }).then(function() {
+        checkSenha();
+
+        if (!checkSenha())
+            count++
+    
+
         if (count == 0)
             $('#loginForm')[0].submit();
     })

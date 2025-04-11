@@ -54,7 +54,7 @@ include_once("../templates/header-template.php");
                             </div>
                         </div>
 
-                        <button class="btn btn-outline-light" onclick="return checkSenha(); return validaEmail();">Sign-in</button>
+                        <button class="btn btn-outline-light">Sign-in</button>
                     </form>
                 </div>
             </div>
