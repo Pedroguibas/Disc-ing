@@ -23,6 +23,7 @@ function checaValidacaoUsername(result) {
         return true;
 
     $('#usuarioCadastradoWarning').show();
+    return false;
 }
 
 function validaEmail() {
