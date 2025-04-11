@@ -54,15 +54,12 @@
     font-size: 0.8em;
 }
 
-#loginMain .loginOptions a:hover {
-    color: #1900a8 !important;
-}
-
-#signinMain .loginOptions a:hover {
+.loginOptions a:hover {
     color: #e02b7c !important;
 }
 
-.loginWarning {
+.loginWarning,
+.signinWarning {
     color: #f00 !important;
     margin-left: 1em;
     font-size: .8em;

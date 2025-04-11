@@ -21,13 +21,14 @@ include_once("../templates/header-template.php")
             <form action="<?= $BASE_URL ?>form/auth.php" method="POST" id="loginForm" class="d-flex flex-column align-items-center mt-4">
                 <div class="formContainer mb-5">
                     <div class="loginInputContainer d-flex align-items-center m-2">
-                        <input type="text" name="usuario" placeholder="Username ou e-mail" size="25" required>
+                        <input type="text" name="usuario" placeholder="Username ou e-mail" size="25" id="usuario" class="loginInput" required>
                         <i class="bi bi-person"></i>
                     </div>
                     <div class="loginInputContainer d-flex align-items-center m-2">
-                        <input class="passwordInput" type="password" name="senha" placeholder="Senha" minlength="8" size="25">
+                        <input type="password" name="senha" placeholder="Senha" minlength="8" size="25" id="senha" class="loginInput" required>
                         <button type="button" tabindex="-1" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
                     </div>
+                    <p id="usuarioOuSenhaWarning" class="loginWarning">Usuário ou senha inválidos.</p>
                     <div class="loginOptions d-flex flex-column align-items-center mt-3">
                         <p>Ainda não tem uma conta? <a href="signin.php">Cadastre-se</a></p>
                         <p class="mt-2">Esqueceu sua senha? <a href="#">Clique aqui</a></p>
@@ -41,6 +42,7 @@ include_once("../templates/header-template.php")
     </section>
 </main>
 
+<script> let BASE_URL = '<?= $BASE_URL ?>'; </script>
 <script src="<?= $BASE_URL ?>javascript/login.js"></script>
 
 <?php
