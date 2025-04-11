@@ -2,17 +2,14 @@ let passwordVisible = false;
 
 function togglePassword() {
     if (passwordVisible) {
-        this.innerHTML = '<i class="bi bi-eye-slash"></i>';
-        this.parentElement.querySelector('.passwordInput').type = 'password';
+        $(this).html('<i class="bi bi-eye-slash"></i>');
+        $(this).parent().find('.passwordInput').attr('type', 'password');
         passwordVisible = false;
     } else {
-        this.innerHTML = '<i class="bi bi-eye"></i>';
-        this.parentElement.querySelector('.passwordInput').type = 'text';
+        $(this).html('<i class="bi bi-eye"></i>');
+        $(this).parent().find('.passwordInput').attr('type', 'text');
         passwordVisible = true;
     }
 }
 
-const showPasswordBtn = document.querySelectorAll('.showPasswordBtn');
-showPasswordBtn.forEach(function(elem) {
-    elem.addEventListener('click', togglePassword);
-});
+$('.showPasswordBtn').on('click', togglePassword);
