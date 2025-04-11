@@ -21,8 +21,6 @@ function checkSenha() {
     return false;
 }
 
-<<<<<<< HEAD
-=======
 function checaValidacaoEmail(result) {
     result = parseInt(result);
     
@@ -42,7 +40,6 @@ function checaValidacaoUsername(result) {
     return false;
 }
 
->>>>>>> 7bb0764a5791f24254f8eb32dfce5071fd5a6b5e
 function validaEmail() {
     let email = $('#email');
     if (email.val() != '')
@@ -86,6 +83,9 @@ function validaUsername() {
 $('#loginForm').on('submit', function(e) {
     e.preventDefault();
     let count = 0;
+
+    if (!checkSenha)
+        count++
 
     if(validaEmail()) {
         $.ajax({
@@ -136,8 +136,5 @@ $('#username').on('focusout', validaUsername);
 $('#username').on('focus', function() {
     $('#usuarioCadastradoWarning').hide();
 });
-<<<<<<< HEAD
 
 $('.showPasswordBtn').on('click', togglePassword);
-=======
->>>>>>> 7bb0764a5791f24254f8eb32dfce5071fd5a6b5e
