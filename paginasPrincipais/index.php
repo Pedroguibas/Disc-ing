@@ -5,9 +5,13 @@ include_once("../config/db.php");
 $aditionalTags = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">';
 include_once('../templates/header-template.php');
 
-$stmt = $conn->prepare("SELECT * FROM jogo");
+$stmt = $conn->prepare("SELECT jogo.*, SUM(avaliacao.nota) AS nota, COUNT(avaliacao.jogoID) AS nAvaliacoes
+FROM jogo
+LEFT JOIN avaliacao ON jogo.id WHERE avaliacao.jogoID = jogo.id
+GROUP BY jogo.id;");
 $stmt->execute();
 $Jogos = $stmt->fetchAll();
+
 
 // if (usuario não logado)
 //header("Location: " . $BASE_URL . "paginasPrincipais/login.php");
@@ -28,17 +32,14 @@ $Jogos = $stmt->fetchAll();
                                 <?php
 
                                 foreach ($Jogos as $Jogo) {
-                                    $stmt = $conn->prepare("SELECT SUM(nota) AS nota, COUNT(*) AS nAvaliacoes FROM avaliacao WHERE jogoID = :jogoID");
-                                    $stmt->execute([':jogoID' => $Jogo['id']]);
-                                    $cardScore = $stmt->fetch();
 
-                                    if ($cardScore['nAvaliacoes'] > 0)
-                                        $cardScore = number_format($cardScore['nota'] / $cardScore['nAvaliacoes'], 2);
+                                    if ($Jogo['nAvaliacoes'] > 0)
+                                        $cardScore = number_format($Jogo['nota'] / $Jogo['nAvaliacoes'], 2);
                                     else
                                         $cardScore = number_format(0, 2);
 
                                     echo '
-                                        <li class="cardItem swiper-slide">
+                                        <li class="cardItem swiper-slide" id="game'. $Jogo['id'] .'">
                                             <button class="cardLink" onclick="document.getElementById('."'gamePageHeader'".').value = '. $Jogo['id'] .'">
                                                 <img class="cardImg w-100" src="../assets/Jogos/banner' . $Jogo['id'] . '.jpg" alt="Capa ' . $Jogo['nome'] . '">
                                                 <div class="cardTitleContainer d-flex justify-content-between align-items-end">
