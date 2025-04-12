@@ -7,7 +7,7 @@ include_once('../templates/header-template.php');
 
 $stmt = $conn->prepare("SELECT jogo.*, SUM(avaliacao.nota) AS nota, COUNT(avaliacao.jogoID) AS nAvaliacoes
 FROM jogo
-LEFT JOIN avaliacao ON jogo.id WHERE avaliacao.jogoID = jogo.id
+LEFT JOIN avaliacao ON avaliacao.jogoID = jogo.id
 GROUP BY jogo.id;");
 $stmt->execute();
 $Jogos = $stmt->fetchAll();
