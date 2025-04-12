@@ -3,23 +3,29 @@
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 include_once("../config/db.php");
 
-$stmt = $conn->prepare("SELECT * FROM jogo WHERE id = :id");
-$stmt->execute([':id' => $_GET["gameID"]]);
+$stmt = $conn->prepare("SELECT
+                            jogo.*,
+                            requisitosjogo.so,
+                            requisitosjogo.cpu,
+                            requisitosjogo.gpu,
+                            requisitosjogo.ram,
+                            requisitosjogo.armazenamento,
+                            SUM(avaliacao.nota) AS nota,
+                            COUNT(avaliacao.avaliacaoJogoID) AS nAvaliacoes,
+                            lista.naLista
+                        FROM jogo
+                        LEFT JOIN requisitosjogo ON jogo.jogoRequisitosJogoID = requisitosjogo.requisitosJogoID
+                        LEFT JOIN avaliacao ON avaliacao.avaliacaoJogoID = jogo.jogoID
+                        LEFT JOIN lista ON lista.listajogoID = jogo.jogoID AND lista.listaUsuarioID = :usuarioID
+                        WHERE jogo.jogoID = :jogoID
+                        GROUP BY jogo.jogoID;");
+
+$stmt->execute([':usuarioID' => 1, //Trocar por variável quando sessão estiver iniciada
+                ':jogoID' => $_GET['gameID']]);
 $gameInfo = $stmt->fetch();
 
-$title = $gameInfo['nome'];
-$bodyAttributes = 'onload="changeScoreColor();"';
-include_once("../templates/header-template.php");
 
-$stmt = $conn->prepare("SELECT * FROM requisitosJogo WHERE id = :id");
-$stmt->execute([':id' => $gameInfo['requisitosID']]);
-$requisitos = $stmt->fetch();
-
-$stmt = $conn->prepare("SELECT SUM(nota) AS nota, COUNT(*) AS nAvaliacoes FROM avaliacao WHERE jogoID = :jogoID");
-$stmt->execute([':jogoID' => $_GET['gameID']]);
-$gameScore = $stmt->fetch();
-
-$stmt = $conn->prepare("SELECT nota FROM avaliacao WHERE jogoID = :jogoID AND usuarioID = :usuarioID");
+$stmt = $conn->prepare("SELECT nota FROM avaliacao WHERE avaliacaoJogoID = :jogoID AND avaliacaoUsuarioID = :usuarioID");
 $stmt->execute([':jogoID' => $_GET['gameID'],
                 ':usuarioID' => 1]); // Trocar por id do usuário assim que for possível iniciar sessão
 $notaUsuario = $stmt->fetch();
@@ -30,25 +36,25 @@ if ($notaUsuario !== false)
 else
     $notaUsuario = 0;
 
-    
-$stmt = $conn->prepare("SELECT naLista FROM lista WHERE usuarioID = :usuarioID AND jogoID = :jogoID");
-$stmt->execute([':jogoID' => $_GET['gameID'],
-                ':usuarioID' => 1]); // Trocar por id do usuário assim que for possível iniciar sessão
-$lista = $stmt->fetch();
 
-if ($lista !== false) 
-    $lista = $lista['naLista'];
+if ($gameInfo['naLista'] !== NULL) 
+    $lista = $gameInfo['naLista'];
 else
     $lista = -1;
+
+
+$title = $gameInfo['jogoNome'];
+$bodyAttributes = 'onload="changeScoreColor();"';
+include_once("../templates/header-template.php");
 
 ?>
 
         <main id="gamePageMain">
             <div class="gamePageBanner col-12">
-                <img src="<?= $BASE_URL . 'assets/Jogos/banner' . $gameInfo['id'] . '.jpg' ?>" alt="Banner <?= $gameInfo['nome'] ?>" class="gameBanner w-100">
+                <img src="<?= $BASE_URL . 'assets/Jogos/banner' . $gameInfo['jogoID'] . '.jpg' ?>" alt="Banner <?= $gameInfo['jogoNome'] ?>" class="gameBanner w-100">
                 <div class="gameProfile d-flex align-items-center">
-                    <img class="gamePageCover" src="<?= $BASE_URL . 'assets/Jogos/cover' . $gameInfo['id'] . '.jpg' ?>" alt="">
-                    <h1 class="gamePageTitle"><?= $gameInfo['nome'] ?></h1>
+                    <img class="gamePageCover" src="<?= $BASE_URL . 'assets/Jogos/cover' . $gameInfo['jogoID'] . '.jpg' ?>" alt="">
+                    <h1 class="gamePageTitle"><?= $gameInfo['jogoNome'] ?></h1>
                     <img src="<?= $BASE_URL . 'assets/Jogos/classificacao/age' . $gameInfo['classificacao'] . '.png' ?>" alt="Classificação indicativa <?= $gameInfo['classificacao'] ?>" class="gamePageClassificacao">
                 </div>
             </div>
@@ -59,14 +65,14 @@ else
                             <span id="gameScore">
 
                                 <?php
-                                if ($gameScore['nAvaliacoes'] > 0)
-                                    echo number_format($gameScore['nota'] / $gameScore['nAvaliacoes'], 2);
+                                if ($gameInfo['nAvaliacoes'] > 0)
+                                    echo number_format($gameInfo['nota'] / $gameInfo['nAvaliacoes'], 2);
                                 else
                                     echo '0.00';
                                 ?>
                                 
                             </span>
-                            <p><?= $gameScore['nAvaliacoes'] ?> avaliações</p>
+                            <p><?= $gameInfo['nAvaliacoes'] ?> avaliações</p>
                         </div>
                         <div id="starAvaliacaoContainer" class="mt-2">
                             <div id="starScoreContainer" class="d-flex gap-1">
@@ -126,11 +132,11 @@ else
                             <div class="gameDropContent gameDropHidden">
                                 <div class="d-flex justify-content-center">
                                     <div class="col-11 mt-2">
-                                        <p>Sistema Operacional: <?= $requisitos['so'] ?></p>
-                                        <p>Processador: <?= $requisitos['cpu'] ?></p>
-                                        <p>Placa de vídeo: <?= $requisitos['gpu'] ?></p>
-                                        <p>Memória: <?= $requisitos['ram'] ?></p>
-                                        <p>Armazenamento: <?= $requisitos['armazenamento'] ?></p>
+                                        <p>Sistema Operacional: <?= $gameInfo['so'] ?></p>
+                                        <p>Processador: <?= $gameInfo['cpu'] ?></p>
+                                        <p>Placa de vídeo: <?= $gameInfo['gpu'] ?></p>
+                                        <p>Memória: <?= $gameInfo['ram'] ?></p>
+                                        <p>Armazenamento: <?= $gameInfo['armazenamento'] ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +170,7 @@ else
             </div>
         </main>
         <script>
-            let avaliado = <?= $notaUsuario ?> != 0 ? true : false;
+            let avaliado = <?= $notaUsuario ?> != 0 ? 1 : 0;
             let naLista = <?= $lista ?>;
             let gameID = <?= $_GET['gameID'] ?>;
             let BASE_URL = '<?= $BASE_URL ?>';

@@ -75,6 +75,7 @@ function avaliaJogo() {
             $('.scoreStarActive').removeClass('scoreStarActive');
             $('.scoreStar')[notaNova - 1].classList.add('scoreStarActive');
             $('#gameScore').html(result.toFixed(2));
+            avaliado = 1;
         }
     });
 }

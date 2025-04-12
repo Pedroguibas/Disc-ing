@@ -1,7 +1,5 @@
 <?php
-
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
-include_once("../config/db.php");
 
 $title = 'Sign-in';
 include_once("../templates/header-template.php");

@@ -27,11 +27,11 @@ $stmt->execute([':so' => $requisitos['so'],
                 ':ram' => $requisitos['ram'],
                 ':armazenamento' => $requisitos['armazenamento']]);
 
-$stmt = $conn->prepare("SELECT id FROM requisitosJogo ORDER BY id DESC LIMIT 1");
+$stmt = $conn->prepare("SELECT id FROM requisitosJogo ORDER BY requisitosJogoID DESC LIMIT 1");
 $stmt->execute();
 $reqID = $stmt->fetch();
 
-$stmt = $conn->prepare("INSERT INTO jogo (nome, classificacao, sinopse, requisitosID, playstation, xbox, nintendoSwitch, pc) VALUES (:nome, :classificacao, :sinopse, :requisitosID, :playstation, :xbox, :nintendoSwitch, :pc)");
+$stmt = $conn->prepare("INSERT INTO jogo (jogoNome, classificacao, sinopse, jogoRequisitosJogoID, playstation, xbox, nintendoSwitch, pc) VALUES (:nome, :classificacao, :sinopse, :requisitosID, :playstation, :xbox, :nintendoSwitch, :pc)");
 $stmt->execute([':nome' => $jogo['nome'],
                 ':classificacao' => $jogo['classificacao'],
                 ':sinopse' => $jogo['sinopse'],
@@ -41,10 +41,10 @@ $stmt->execute([':nome' => $jogo['nome'],
                 ':nintendoSwitch' => $plat['switch'],
                 ':pc' => $plat['pc']]);
 
-$stmt = $conn->prepare("SELECT id FROM jogo ORDER BY id DESC LIMIT 1");
+$stmt = $conn->prepare("SELECT jogoID FROM jogo ORDER BY id DESC LIMIT 1");
 $stmt->execute();
 $gameID = $stmt->fetch(); //Pega id do jogo que acabou de ser registrado no banco para usar nos nomes das imagens
-$gameID = $gameID['id'];
+$gameID = $gameID['jogoID'];
 
 $diretorio = '../assets/Jogos/';
 $banner = $diretorio . basename($_FILES['banner']['name']);

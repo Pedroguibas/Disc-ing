@@ -1,7 +1,5 @@
 <?php
-
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
-include_once("../config/db.php");
 
 $title = 'Log-in';
 include_once("../templates/header-template.php")
@@ -25,7 +23,7 @@ include_once("../templates/header-template.php")
                         <i class="bi bi-person"></i>
                     </div>
                     <div class="loginInputContainer d-flex align-items-center m-2">
-                        <input type="password" name="senha" placeholder="Senha" minlength="8" size="25" id="senha" class="loginInput" required>
+                        <input type="password" name="senha" placeholder="Senha" size="25" id="senha" class="loginInput" required>
                         <button type="button" tabindex="-1" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
                     </div>
                     <p id="usuarioOuSenhaWarning" class="loginWarning">Usuário ou senha inválidos.</p>

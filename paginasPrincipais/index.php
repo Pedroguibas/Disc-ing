@@ -5,10 +5,10 @@ include_once("../config/db.php");
 $aditionalTags = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">';
 include_once('../templates/header-template.php');
 
-$stmt = $conn->prepare("SELECT jogo.*, SUM(avaliacao.nota) AS nota, COUNT(avaliacao.jogoID) AS nAvaliacoes
+$stmt = $conn->prepare("SELECT jogo.*, SUM(avaliacao.nota) AS nota, COUNT(avaliacao.avaliacaoJogoID) AS nAvaliacoes
 FROM jogo
-LEFT JOIN avaliacao ON avaliacao.jogoID = jogo.id
-GROUP BY jogo.id;");
+LEFT JOIN avaliacao ON avaliacao.avaliacaoJogoID = jogo.jogoID
+GROUP BY jogo.jogoID;");
 $stmt->execute();
 $Jogos = $stmt->fetchAll();
 
@@ -39,11 +39,11 @@ $Jogos = $stmt->fetchAll();
                                         $cardScore = number_format(0, 2);
 
                                     echo '
-                                        <li class="cardItem swiper-slide" id="game'. $Jogo['id'] .'">
-                                            <button class="cardLink" onclick="document.getElementById('."'gamePageHeader'".').value = '. $Jogo['id'] .'">
-                                                <img class="cardImg w-100" src="../assets/Jogos/banner' . $Jogo['id'] . '.jpg" alt="Capa ' . $Jogo['nome'] . '">
+                                        <li class="cardItem swiper-slide" id="game'. $Jogo['jogoID'] .'">
+                                            <button class="cardLink" onclick="document.getElementById('."'gamePageHeader'".').value = '. $Jogo['jogoID'] .'">
+                                                <img class="cardImg w-100" src="../assets/Jogos/banner' . $Jogo['jogoID'] . '.jpg" alt="Capa ' . $Jogo['jogoNome'] . '">
                                                 <div class="cardTitleContainer d-flex justify-content-between align-items-end">
-                                                    <h2 class="cardTitle">' . $Jogo['nome'] . '</h2>
+                                                    <h2 class="cardTitle">' . $Jogo['jogoNome'] . '</h2>
                                                     <img class="cardClassificacao" alt="Classificação ' . $Jogo['classificacao'] . ' anos" src="' . $BASE_URL . 'assets/Jogos/classificacao/age' . $Jogo['classificacao'] . '.png">
                                                 </div>
                                                 <div class="cardScoreContainer">
