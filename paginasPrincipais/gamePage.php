@@ -39,7 +39,7 @@ $lista = $stmt->fetch();
 if ($lista !== false) 
     $lista = $lista['naLista'];
 else
-    $lista = NULL;
+    $lista = -1;
 
 ?>
 
@@ -70,7 +70,6 @@ else
                         </div>
                         <div id="starAvaliacaoContainer" class="mt-2">
                             <form action="../form/avaliaJogo.php" method="POST">
-                                <input type="hidden" name="gameID" value="<?= $_GET['gameID'] ?>">
                                 <input id="notaInput" type="hidden" name="nota" value="">
                                 <input type="hidden" name="avaliado" value="
                                 <?php 
@@ -98,18 +97,14 @@ else
                     </div>
 
                     <div id="listaBtnContainer">
-                        <form action="../form/adicionaNaLista.php" method="POST">
-                            <input type="hidden" name="gameID" value="<?= $_GET['gameID'] ?>">
-                            <input type="hidden" name="naLista" value="<?= $lista ?>">
-                            <button id="listaBtn" >
-                                <?php 
-                                
-                                if ($lista == 1)
-                                    echo '<i class="bi bi-check-lg"></i>';
-                                else
-                                    echo '+';
-                                ?> Minha lista</button>
-                        </form>
+                        <button id="listaBtn">
+                            <?php 
+                            
+                            if ($lista == 1)
+                                echo '<i class="bi bi-check-lg"></i>';
+                            else
+                                echo '<i class="bi bi-plus-square"></i>';
+                            ?> Minha lista</button>
                     </div>
                     
                 </section>
@@ -179,7 +174,14 @@ else
                 
             </div>
         </main>
+        <script>
+            let naLista = 
+            <?= $lista ?>;
+            let gameID = <?= $_GET['gameID'] ?>;
+            let BASE_URL = '<?= $BASE_URL ?>';
+        </script>
         <script type="text/javascript" src="../javascript/gamePage.js"></script>
+        
 
 <?php
 include_once('../templates/footer-template.php');

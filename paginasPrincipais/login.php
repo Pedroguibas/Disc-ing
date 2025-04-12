@@ -10,7 +10,7 @@ include_once("../templates/header-template.php")
 <main id="loginMain">
     <section id="loginSection" class="container">
         <div class="row justify-content-center">
-            <div id="loginBannerContainer" class="col-lg-5 col-md-8 col-sm-10">
+            <div id="loginBannerContainer" class="col-lg-5 col-md-8 col-sm-10 col-10">
                 <img src="<?= $BASE_URL ?>assets/LoginBanner.png" alt="Banner da página de log-in" class="w-100" id="loginBanner">
             </div>
         </div>

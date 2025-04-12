@@ -67,13 +67,15 @@
 }
 
 @media screen and (max-width: 769px) {
-    #loginForm {
+    #loginSection,
+    #signinSection {
         font-size: 0.8em;
     }
 }
 
 @media screen and (max-width: 426px) {
-    #loginForm {
+    #loginSection,
+    #signinSection {
         font-size: 0.6em;
     }
 }

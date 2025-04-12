@@ -38,8 +38,32 @@ function modoMostrarAvaliacao() {
     $(this).find('.scoreStar').addClass('mouseOut');
 }
 
+function toggleLista() {
+    $.ajax({
+        url: BASE_URL + 'form/adicionaNaLista.php',
+        method: 'GET',
+        data: {
+            gameID: gameID,
+            naLista: naLista
+        },
+        success: function(result) {
+            result = parseInt(result);
+            
+            if (result) {
+                naLista = 1;
+                $('#listaBtn').html('<i class="bi bi-check-lg"></i> Minha lista');
+            } else {
+                naLista = 0;
+                $('#listaBtn').html('<i class="bi bi-plus-square"></i> Minha lista');
+            }
+        }
+    })
+        
+}
 
 $('.buttonDrop').on('click', dropdown);
 
 $('#starScoreContainer').on('mouseenter', modoAvaliar);
 $('#starScoreContainer').on('mouseleave', modoMostrarAvaliacao);
+
+$('#listaBtn').on('click', toggleLista);
