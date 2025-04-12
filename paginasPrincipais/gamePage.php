@@ -69,30 +69,19 @@ else
                             <p><?= $gameScore['nAvaliacoes'] ?> avaliações</p>
                         </div>
                         <div id="starAvaliacaoContainer" class="mt-2">
-                            <form action="../form/avaliaJogo.php" method="POST">
-                                <input id="notaInput" type="hidden" name="nota" value="">
-                                <input type="hidden" name="avaliado" value="
-                                <?php 
-                                    if ($notaUsuario != 0) 
-                                        echo '1';
-                                    else
-                                        echo '0';
-                                ?>">
-                                
-                                <div id="starScoreContainer" class="d-flex gap-1">
-                                <?php
+                            <div id="starScoreContainer" class="d-flex gap-1">
+                            <?php
 
-                                for ($i=1; $i<=10; $i++) {
+                            for ($i=1; $i<=10; $i++) {
 
-                                    if ($i == $notaUsuario)
-                                        echo '<button class="scoreStar scoreStarActive mouseOut" onclick="document.getElementById(' . "'notaInput'" . ').value = ' . $i . '"><i class="bi bi-star-fill"></i></button>';
-                                    else
-                                        echo '<button class="scoreStar mouseOut" onclick="document.getElementById(' . "'notaInput'" . ').value = ' . $i . '"><i class="bi bi-star-fill"></i></button>';
-                                }
+                                if ($i == $notaUsuario)
+                                    echo '<button class="scoreStar scoreStarActive mouseOut" value="' . $i . '"><i class="bi bi-star-fill"></i></button>';
+                                else
+                                    echo '<button class="scoreStar mouseOut" value="' . $i . '"><i class="bi bi-star-fill"></i></button>';
+                            }
 
-                                ?>
-                                </div>
-                            </form>
+                            ?>
+                            </div>
                         </div>
                     </div>
 
@@ -175,8 +164,8 @@ else
             </div>
         </main>
         <script>
-            let naLista = 
-            <?= $lista ?>;
+            let avaliado = <?= $notaUsuario ?> != 0 ? true : false;
+            let naLista = <?= $lista ?>;
             let gameID = <?= $_GET['gameID'] ?>;
             let BASE_URL = '<?= $BASE_URL ?>';
         </script>

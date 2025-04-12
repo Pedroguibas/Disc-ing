@@ -48,7 +48,7 @@ function toggleLista() {
         },
         success: function(result) {
             result = parseInt(result);
-            
+
             if (result) {
                 naLista = 1;
                 $('#listaBtn').html('<i class="bi bi-check-lg"></i> Minha lista');
@@ -57,8 +57,26 @@ function toggleLista() {
                 $('#listaBtn').html('<i class="bi bi-plus-square"></i> Minha lista');
             }
         }
-    })
-        
+    });
+}
+
+function avaliaJogo() {
+    let notaNova = parseFloat($(this).val());
+    $.ajax({
+        url: BASE_URL + 'form/avaliaJogo.php',
+        method: 'GET',
+        data: {
+            gameID: gameID,
+            avaliado: avaliado,
+            nota: notaNova
+        },
+        success: function(result) {
+            result = parseFloat(result);
+            $('.scoreStarActive').removeClass('scoreStarActive');
+            $('.scoreStar')[notaNova - 1].classList.add('scoreStarActive');
+            $('#gameScore').html(result.toFixed(2));
+        }
+    });
 }
 
 $('.buttonDrop').on('click', dropdown);
@@ -67,3 +85,5 @@ $('#starScoreContainer').on('mouseenter', modoAvaliar);
 $('#starScoreContainer').on('mouseleave', modoMostrarAvaliacao);
 
 $('#listaBtn').on('click', toggleLista);
+
+$('.scoreStar').on('click', avaliaJogo);

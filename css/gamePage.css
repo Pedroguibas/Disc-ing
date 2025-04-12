@@ -3,6 +3,7 @@
 .gamePageBanner {
     position: relative;
     margin-bottom: 2em;
+    font-size: .6em;
 }
 
 .gamePageBanner .gameBanner {
@@ -12,7 +13,7 @@
 
 .gamePageBanner .gameProfile {
     position: absolute;
-    padding: 1em 0 1em 1em;
+    padding: 2%;
     gap: 2em;
     bottom: 0;
     left: 0;
@@ -24,7 +25,7 @@
 
 .gameProfile .gamePageCover {
     border-radius: 15px;
-    box-shadow: 0 0 7px 5px #ffffff60;
+    box-shadow: 0 0 7px .3em #ffffff60;
     width: 12em;
 }
 
@@ -34,8 +35,7 @@
 
 .gamePageClassificacao {
     position: absolute;
-    right: 0;
-    margin-right: 3em;
+    right: 2%;
     width: 8em;
 }
 
@@ -148,4 +148,23 @@
 #starAvaliacaoContainer .scoreStar:has(~ .scoreStarActive).mouseOut {
     color: #f7e600;
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    #gamePageMain {
+        font-size: .8em;
+    }
+    .gameProfile .gamePageTitle {
+        max-width: 7.5em;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    #gamePageMain {
+        font-size: .7em;
+    }
+    #listaBtnContainer #listaBtn {
+        font-size: .8em;
+    }
+
 }
