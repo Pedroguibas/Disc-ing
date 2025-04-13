@@ -33,7 +33,7 @@ include_once('../templates/header-template.php');
                 </div>
                 <div class="gameInput mt-3">
                     <h1>Sinopse:</h1>
-                    <textarea name="sinopse" class="col-12 textInput" required></textarea>
+                    <textarea name="sinopse" id="sinopseTextarea" class="col-12 textInput" required></textarea>
                 </div>
                 
                 <div class="gameInput mt-3">

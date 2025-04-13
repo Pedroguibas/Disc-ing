@@ -88,3 +88,21 @@ $('#starScoreContainer').on('mouseleave', modoMostrarAvaliacao);
 $('#listaBtn').on('click', toggleLista);
 
 $('.scoreStar').on('click', avaliaJogo);
+
+$('#novoComentario').on('input', function() {
+    $('#novoComentario').attr('placeholder', ' ');
+    if ($(this).val().trim() != '')
+        $('#enviaComentarioBtn').addClass('active');
+    else
+        $('#enviaComentarioBtn').removeClass('active');
+});
+
+$('#novoComentario').on('focus', function() {
+    $('#novoComentarioBtnContainer').show();
+});
+
+$('#cancelaComentarioBtn').on('click', function() {
+    $('#novoComentario').attr('placeholder', 'Adicione um comentário...');
+    $('#novoComentario').val('');
+    $('#novoComentarioBtnContainer').hide();
+});

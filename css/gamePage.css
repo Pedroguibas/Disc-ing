@@ -1,4 +1,4 @@
-/* --- Banner --- */
+/* -=-= Banner =-=- */
 
 .gamePageBanner {
     position: relative;
@@ -39,7 +39,7 @@
     width: 8em;
 }
 
-/* --- Conteúdo Principal --- */
+/* -=-= Conteúdo Principal =-=- */
 
 .gamePageInfoContainer * {
     color: #c4c4c4;
@@ -105,6 +105,7 @@
     transition: all 300ms ease;
     width: inherit;
 }
+
 #notaContainer {
     width: fit-content;
     padding: .5em 1em;
@@ -113,6 +114,7 @@
     background: #1e1e34;
 }
 
+/* -=-= Botão de adicionar na lista =-=- */
 
 #listaBtnContainer #listaBtn {
     cursor: pointer;
@@ -127,6 +129,8 @@
     background-color: #000046;
     transition: all ease 300ms;
 }
+
+/* -=-= Nota do jogo =-=- */
 
 #notaContainer #gameScore {
     font-size: 3em;
@@ -148,6 +152,56 @@
 #starAvaliacaoContainer .scoreStar:has(~ .scoreStarActive).mouseOut {
     color: #f7e600;
     cursor: pointer;
+}
+
+/* -=-= Comentários =-=- */
+
+#novoComentario {
+    field-sizing: content;
+    padding: 4px 8px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #c4c4c4;
+    resize: none;
+    font-size: 1.1em;
+}
+
+#novoComentario:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+#novoComentario::placeholder {
+    color: #c4c4c470 !important;
+}
+
+#enviaComentarioBtn {
+    padding: .5em 1em;
+    border-radius: 1.2em;
+    color: #c4c4c450;
+}
+
+#cancelaComentarioBtn {
+    padding: .5em 1em;
+    border-radius: 1.2em;
+    cursor: pointer;
+}
+
+#cancelaComentarioBtn:hover,
+#enviaComentarioBtn {
+    background: #00000030;
+}
+
+#enviaComentarioBtn.active {
+    background: #00005c;
+    color: #c4c4c4;
+    cursor: pointer;
+}
+
+#enviaComentarioBtn.active:hover {
+    background: #000046;
 }
 
 @media screen and (max-width: 768px) {

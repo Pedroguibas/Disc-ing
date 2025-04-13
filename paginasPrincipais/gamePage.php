@@ -166,6 +166,19 @@ include_once("../templates/header-template.php");
                     </div>
 
                 </section>
+                <section id="comentarios" class="col-10 m-2 mt-5">
+                    <h2 class="mb-3 mt-5">Comentários</h2>
+                    <div id="novoComentarioContainer" class="d-flex flex-column col-8">
+                        <textarea id="novoComentario" class="col-12" placeholder="Adicione um comentário..."></textarea>
+                        
+                        <div id="novoComentarioBtnContainer" style="display: none;">
+                            <div class="d-flex justify-content-end gap-3 mt-3">
+                                <button id="cancelaComentarioBtn">Cancelar</button>
+                                <button id="enviaComentarioBtn">Comentar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 
             </div>
         </main>
