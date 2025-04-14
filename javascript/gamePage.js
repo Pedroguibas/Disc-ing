@@ -106,3 +106,10 @@ $('#cancelaComentarioBtn').on('click', function() {
     $('#novoComentario').val('');
     $('#novoComentarioBtnContainer').hide();
 });
+
+$('#spoilerCheckContainer').on('click', function() {
+    if ($(this).html() == '<i class="bi bi-square"></i><span>Spoiler</span>')
+        $(this).html('<i class="bi bi-check-square"></i><span>Spoiler</span>');
+    else
+        $(this).html('<i class="bi bi-square"></i><span>Spoiler</span>');
+});

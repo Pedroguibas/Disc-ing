@@ -2,7 +2,7 @@
 $bodyAttributes = 'id="gamePageBody"';
 include_once('../templates/header-template.php');
 ?>
-    <main>
+    <main id="formJogoMain">
         <form action="../form/registraJogo.php" method="POST" enctype="multipart/form-data">
             <div class="registroContentContainer container mt-5">
                 <div class="gameInput mt-3">

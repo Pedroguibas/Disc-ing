@@ -204,6 +204,30 @@
     background: #000046;
 }
 
+#avisoTagsComentario {
+    color: red;
+    width: 15em;
+}
+
+#spoilerCheckContainer {
+    padding: 5px 10px;
+    border: 2px solid #c4c4c4;
+    border-radius: .7em;
+    cursor: pointer;
+}
+
+#spoilerCheckContainer:hover {
+    background: #c4c4c425;
+}
+
+#spoilerTag:checked+#spoilerCheckContainer  {
+    background: #c4c4c4;
+}
+
+#spoilerTag:checked+#spoilerCheckContainer * {
+    color: #335 !important;
+}
+
 @media screen and (max-width: 768px) {
     #gamePageMain {
         font-size: .8em;
@@ -220,5 +244,7 @@
     #listaBtnContainer #listaBtn {
         font-size: .8em;
     }
-
+    #novoComentarioBtnContainer {
+        font-size: .7em;
+    }
 }

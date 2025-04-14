@@ -168,14 +168,20 @@ include_once("../templates/header-template.php");
                 </section>
                 <section id="comentarios" class="col-10 m-2 mt-5">
                     <h2 class="mb-3 mt-5">Comentários</h2>
-                    <div id="novoComentarioContainer" class="d-flex flex-column col-8">
+                    <div id="novoComentarioContainer" class="d-flex flex-column col-lg-8 col-md-10 col-sm-10 col-10">
                         <textarea id="novoComentario" class="col-12" placeholder="Adicione um comentário..."></textarea>
                         
-                        <div id="novoComentarioBtnContainer" style="display: none;">
-                            <div class="d-flex justify-content-end gap-3 mt-3">
-                                <button id="cancelaComentarioBtn">Cancelar</button>
-                                <button id="enviaComentarioBtn">Comentar</button>
+                        <div id="novoComentarioBtnContainer" style="display: none;" class="mt-2">
+                            <div class="d-flex justify-content-between mb-2">
+                                <input type="checkbox" id="spoilerTag" style="display: none">
+                                <label for="spoilerTag" id="spoilerCheckContainer" class="d-flex align-items-center gap-2"><i class="bi bi-square"></i><span>Spoiler</span></label>
+
+                                <div class="d-flex justify-content-end align-items-center gap-3">
+                                    <button id="cancelaComentarioBtn">Cancelar</button>
+                                    <button id="enviaComentarioBtn">Comentar</button>
+                                </div>
                             </div>
+                            <span id="avisoTagsComentario">Atenção: comentar spoilers sem o uso da tag "spoiler" pode resultar em penalidade.</span>
                         </div>
                     </div>
                 </section>
