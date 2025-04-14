@@ -168,7 +168,7 @@ include_once("../templates/header-template.php");
                 </section>
                 <section id="comentarios" class="col-10 m-2 mt-5">
                     <h2 class="mb-3 mt-5">Comentários</h2>
-                    <div id="novoComentarioContainer" class="d-flex flex-column col-lg-8 col-md-10 col-sm-10 col-10">
+                    <div id="novoComentarioContainer" class="d-flex flex-column col-lg-8 col-10">
                         <textarea id="novoComentario" class="col-12" placeholder="Adicione um comentário..."></textarea>
                         
                         <div id="novoComentarioBtnContainer" style="display: none;" class="mt-2">
@@ -182,6 +182,36 @@ include_once("../templates/header-template.php");
                                 </div>
                             </div>
                             <span id="avisoTagsComentario">Atenção: comentar spoilers sem o uso da tag "spoiler" pode resultar em penalidade.</span>
+                        </div>
+                    </div>
+                    <div id="comentariosContainer" class="mt-5">
+                        <div class="comentario d-flex flex-column gap-1 col-lg-8 col-10">
+                            <div class="perfilUsuarioComentario d-flex align-items-center gap-2">
+                                <div class="fotoUsuarioComentario">
+                                    <img src="<?= $BASE_URL ?>assets/usuarios/unknownUser.jpg" alt="Foto do usuario">
+                                </div>
+                                <div class="informacoesUsuarioComentario d-flex flex-column">
+                                    <span class="usuarioUsernameComentario">Username</span>
+                                    <span class="usuarioNomeComentario">Nome do Usuario</span>
+                                </div>
+                            </div>
+                            <p class="conteudoComentario">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque illum voluptates amet quidem eius, ipsum, nulla dolorem debitis ab unde voluptate velit iusto exercitationem quo perferendis! Totam incidunt vero fuga.
+                            </p>
+                        </div>
+                        <div class="comentario d-flex flex-column gap-1 col-lg-8 col-10">
+                            <div class="perfilUsuarioComentario d-flex align-items-center gap-2">
+                                <div class="fotoUsuarioComentario">
+                                    <img src="<?= $BASE_URL ?>assets/usuarios/unknownUser.jpg" alt="Foto do usuario">
+                                </div>
+                                <div class="informacoesUsuarioComentario d-flex flex-column">
+                                    <span class="usuarioUsernameComentario">Username</span>
+                                    <span class="usuarioNomeComentario">Nome do Usuario</span>
+                                </div>
+                            </div>
+                            <p class="conteudoComentario">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque illum voluptates amet quidem eius, ipsum, nulla dolorem debitis ab unde voluptate velit iusto exercitationem quo perferendis! Totam incidunt vero fuga.
+                            </p>
                         </div>
                     </div>
                 </section>

@@ -80,6 +80,29 @@ function avaliaJogo() {
     });
 }
 
+function carregaComentarios() {
+    $.ajax({
+        url: BASE_URL + 'form/buscaComentario.php',
+        method: 'GET',
+        data: {
+            jogoID: gameID
+        },
+        success: function(result) {
+            if (result != '') {
+                result = JSON.parse(result);
+                console.log(result);
+                for (let i=0; i<result.length; i++) {
+                    let comentario = document.createElement('div');
+                    let perfilUsuario = document.createElement('div');
+                    comentario.classList.add('comentario', 'd-flex', 'flex-column', 'gap-1', 'col-lg-8', 'col-10');
+                    perfilUsuario.classList.add('perfilUsuarioComentario', 'd-flex', 'align-items-center', 'gap-2')
+                    
+                }
+            }
+        }
+    })
+}
+
 $('.buttonDrop').on('click', dropdown);
 
 $('#starScoreContainer').on('mouseenter', modoAvaliar);
@@ -135,3 +158,5 @@ $('#enviaComentarioBtn').on('click', function() {
         })
     }
 });
+
+$('body').load(carregaComentarios());

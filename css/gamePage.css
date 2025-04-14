@@ -228,6 +228,31 @@
     color: #335 !important;
 }
 
+.comentario {
+    margin-top: 2em;
+}
+
+.fotoUsuarioComentario img {
+    border: 2px solid #c4c4c4;
+    width: 2em;
+    border-radius: 1em;
+}
+
+.usuarioUsernameComentario {
+    font-size: 0.7em;
+    color: #c4c4c475;
+}
+
+.usuarioNomeComentario {
+    font-size: .85em;
+    line-height: .8em;
+    font-weight: 500;
+}
+
+.conteudoComentario {
+    font-size: .9em;
+}
+
 @media screen and (max-width: 768px) {
     #gamePageMain {
         font-size: .8em;
