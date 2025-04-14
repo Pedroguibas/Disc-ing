@@ -114,7 +114,13 @@ function carregaComentarios() {
                     fotoUsuarioContainer.classList.add('fotoUsuarioComentario');
 
                     fotoUsuario.alt = 'Foto de perfil de ' + result[i].username;
-                    fotoUsuario.src = BASE_URL + 'assets/usuarios/unknownUser.jpg';
+                    $.get(BASE_URL + 'assets/usuarios/profilePic' + result[i].comentarioUsuarioID + '.jpg')
+                        .done(function() {
+                            fotoUsuario.src = BASE_URL + 'assets/usuarios/profilePic' + result[i].comentarioUsuarioID + '.jpg';
+                        }).fail(function() {
+                            fotoUsuario.src = BASE_URL + 'assets/usuarios/unknownUser.jpg';
+                        })
+
 
                     informacoesUsuario.classList.add('informacoesUsuarioComentario', 'd-flex', 'flex-column');
                     username.classList.add('usuarioUsernameComentario');
@@ -130,7 +136,7 @@ function carregaComentarios() {
                         conteudo.classList.add('spoiler');
                         let removeSpoilerBtn = document.createElement('button');
                         removeSpoilerBtn.classList.add('removeSpoilerBtn');
-                        removeSpoilerBtn.innerHTML = 'Ver Comentário';
+                        removeSpoilerBtn.innerHTML = 'Ver Spoiler';
                         removeSpoilerBtn.addEventListener('click', toggleSpoiler);
                         conteudoContainer.appendChild(removeSpoilerBtn);
                     }
@@ -212,7 +218,3 @@ $('#enviaComentarioBtn').on('click', function() {
 });
 
 $('body').load(carregaComentarios());
-
-$('.removeSpoilerBtn').on('click', function() {
-
-});

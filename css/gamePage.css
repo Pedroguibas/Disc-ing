@@ -234,8 +234,8 @@
 
 .fotoUsuarioComentario img {
     border: 2px solid #c4c4c4;
-    width: 2em;
-    border-radius: 1em;
+    width: 3em;
+    border-radius: 50%;
 }
 
 .usuarioUsernameComentario {
