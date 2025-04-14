@@ -104,6 +104,7 @@ $('#novoComentario').on('focus', function() {
 $('#cancelaComentarioBtn').on('click', function() {
     $('#novoComentario').attr('placeholder', 'Adicione um comentário...');
     $('#novoComentario').val('');
+    $('#enviaComentarioBtn').removeClass('active');
     $('#novoComentarioBtnContainer').hide();
 });
 
@@ -112,4 +113,25 @@ $('#spoilerCheckContainer').on('click', function() {
         $(this).html('<i class="bi bi-check-square"></i><span>Spoiler</span>');
     else
         $(this).html('<i class="bi bi-square"></i><span>Spoiler</span>');
+});
+
+$('#enviaComentarioBtn').on('click', function() {
+    if($(this).hasClass('active')) {
+        $.ajax({
+            url: BASE_URL + "form/registraComentario.php",
+            method: 'GET',
+            data: {
+                usuarioID: 1, //trocar por id quando iniciar sessão
+                jogoID: gameID,
+                conteudo: $('#novoComentario').val(),
+                spoiler: $('#spoilerTag').is(":checked") ? 1 : 0 
+            },
+            success: function() {
+                $('#novoComentario').attr('placeholder', 'Adicione um comentário...');
+                $('#novoComentario').val('');
+                $('#enviaComentarioBtn').removeClass('active');
+                $('#novoComentarioBtnContainer').hide();
+            }
+        })
+    }
 });
