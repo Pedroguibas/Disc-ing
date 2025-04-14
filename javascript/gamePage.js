@@ -80,6 +80,11 @@ function avaliaJogo() {
     });
 }
 
+function toggleSpoiler() {
+    this.nextSibling.classList.remove('spoiler');
+    this.style = 'display: none';
+}
+
 function carregaComentarios() {
     $.ajax({
         url: BASE_URL + 'form/buscaComentario.php',
@@ -89,18 +94,64 @@ function carregaComentarios() {
         },
         success: function(result) {
             if (result != '') {
+                comentariosContainer = document.querySelector('#comentariosContainer');
+                comentariosContainer.innerHTML = '';
                 result = JSON.parse(result);
-                console.log(result);
+
                 for (let i=0; i<result.length; i++) {
                     let comentario = document.createElement('div');
                     let perfilUsuario = document.createElement('div');
+                    let fotoUsuarioContainer = document.createElement('div');
+                    let fotoUsuario = document.createElement('img');
+                    let informacoesUsuario = document.createElement('div');
+                    let username = document.createElement('span');
+                    let nomeUsuario = document.createElement('span');
+                    let conteudo = document.createElement('p');
+                    let conteudoContainer = document.createElement('div');
                     comentario.classList.add('comentario', 'd-flex', 'flex-column', 'gap-1', 'col-lg-8', 'col-10');
                     perfilUsuario.classList.add('perfilUsuarioComentario', 'd-flex', 'align-items-center', 'gap-2')
-                    
+
+                    fotoUsuarioContainer.classList.add('fotoUsuarioComentario');
+
+                    fotoUsuario.alt = 'Foto de perfil de ' + result[i].username;
+                    fotoUsuario.src = BASE_URL + 'assets/usuarios/unknownUser.jpg';
+
+                    informacoesUsuario.classList.add('informacoesUsuarioComentario', 'd-flex', 'flex-column');
+                    username.classList.add('usuarioUsernameComentario');
+                    username.textContent = result[i].username;
+
+                    nomeUsuario.classList.add('usuarioNomeComentario');
+                    nomeUsuario.textContent = result[i].usuarioNome + ' ' + result[i].usuarioSobrenome;
+
+                    conteudoContainer.classList.add('conteudoComentarioContainer');
+                    conteudo.classList.add('conteudoComentario');
+                    conteudo.innerHTML = result[i].conteudo.replace(/\n/g, "<br>");
+                    if (result[i].spoiler == 1) {
+                        conteudo.classList.add('spoiler');
+                        let removeSpoilerBtn = document.createElement('button');
+                        removeSpoilerBtn.classList.add('removeSpoilerBtn');
+                        removeSpoilerBtn.innerHTML = 'Ver Comentário';
+                        removeSpoilerBtn.addEventListener('click', toggleSpoiler);
+                        conteudoContainer.appendChild(removeSpoilerBtn);
+                    }
+
+                    fotoUsuarioContainer.appendChild(fotoUsuario);
+                    informacoesUsuario.appendChild(username);
+                    informacoesUsuario.appendChild(nomeUsuario);
+
+                    perfilUsuario.appendChild(fotoUsuarioContainer);
+                    perfilUsuario.appendChild(informacoesUsuario);
+
+                    conteudoContainer.appendChild(conteudo)
+
+                    comentario.appendChild(perfilUsuario);
+                    comentario.appendChild(conteudoContainer);
+
+                    comentariosContainer.appendChild(comentario);
                 }
             }
         }
-    })
+    });
 }
 
 $('.buttonDrop').on('click', dropdown);
@@ -154,9 +205,14 @@ $('#enviaComentarioBtn').on('click', function() {
                 $('#novoComentario').val('');
                 $('#enviaComentarioBtn').removeClass('active');
                 $('#novoComentarioBtnContainer').hide();
+                carregaComentarios();
             }
         })
     }
 });
 
 $('body').load(carregaComentarios());
+
+$('.removeSpoilerBtn').on('click', function() {
+
+});

@@ -249,8 +249,35 @@
     font-weight: 500;
 }
 
+.conteudoComentarioContainer {
+    position: relative;
+}
+
 .conteudoComentario {
     font-size: .9em;
+}
+
+.conteudoComentario.spoiler {
+    padding: 1em 0;
+    background: linear-gradient(-45deg, #c4c4c460 10%, #c4c4c497 20%, #c4c4c460 30%, #c4c4c460 40%, #c4c4c497 50%, #c4c4c460 60%, #c4c4c460 70%, #c4c4c497 80%, #c4c4c460 90%, #c4c4c460 100%);
+    color: transparent;
+}
+
+.conteudoComentarioContainer .removeSpoilerBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: .3em .7em;
+    border-radius: .5em;
+    background: #181818;
+    color: #c4c4c4;
+    cursor: pointer;
+}
+
+.conteudoComentarioContainer .removeSpoilerBtn:hover {
+    background: #272727;
+    color: #fff;
 }
 
 @media screen and (max-width: 768px) {

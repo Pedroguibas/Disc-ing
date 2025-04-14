@@ -185,34 +185,7 @@ include_once("../templates/header-template.php");
                         </div>
                     </div>
                     <div id="comentariosContainer" class="mt-5">
-                        <div class="comentario d-flex flex-column gap-1 col-lg-8 col-10">
-                            <div class="perfilUsuarioComentario d-flex align-items-center gap-2">
-                                <div class="fotoUsuarioComentario">
-                                    <img src="<?= $BASE_URL ?>assets/usuarios/unknownUser.jpg" alt="Foto do usuario">
-                                </div>
-                                <div class="informacoesUsuarioComentario d-flex flex-column">
-                                    <span class="usuarioUsernameComentario">Username</span>
-                                    <span class="usuarioNomeComentario">Nome do Usuario</span>
-                                </div>
-                            </div>
-                            <p class="conteudoComentario">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque illum voluptates amet quidem eius, ipsum, nulla dolorem debitis ab unde voluptate velit iusto exercitationem quo perferendis! Totam incidunt vero fuga.
-                            </p>
-                        </div>
-                        <div class="comentario d-flex flex-column gap-1 col-lg-8 col-10">
-                            <div class="perfilUsuarioComentario d-flex align-items-center gap-2">
-                                <div class="fotoUsuarioComentario">
-                                    <img src="<?= $BASE_URL ?>assets/usuarios/unknownUser.jpg" alt="Foto do usuario">
-                                </div>
-                                <div class="informacoesUsuarioComentario d-flex flex-column">
-                                    <span class="usuarioUsernameComentario">Username</span>
-                                    <span class="usuarioNomeComentario">Nome do Usuario</span>
-                                </div>
-                            </div>
-                            <p class="conteudoComentario">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque illum voluptates amet quidem eius, ipsum, nulla dolorem debitis ab unde voluptate velit iusto exercitationem quo perferendis! Totam incidunt vero fuga.
-                            </p>
-                        </div>
+                        
                     </div>
                 </section>
                 
