@@ -144,8 +144,8 @@ include_once("../templates/header-template.php");
                     </div>
                 </section>
 
-                <section id="plataformasSection" class="col-10 m-2">
-                    <div id="plataformasContainer" class="col-12">
+                <section id="plataformasSection" class="d-flex justify-content-center col-10 m-2">
+                    <div id="plataformasContainer" class="col-lg-8 col-12">
                         <div id="plataformasTitleContainer" class="p-2">
                             <h2>Plataformas:</h2>
                         </div>

@@ -131,7 +131,7 @@ function carregaComentarios() {
 
                     conteudoContainer.classList.add('conteudoComentarioContainer');
                     conteudo.classList.add('conteudoComentario');
-                    conteudo.innerHTML = result[i].conteudo.replace(/\n/g, "<br>");
+                    conteudo.innerHTML = (result[i].conteudo.replace(/\n/g, "<br>")).trim();
                     if (result[i].spoiler == 1) {
                         conteudo.classList.add('spoiler');
                         let removeSpoilerBtn = document.createElement('button');
