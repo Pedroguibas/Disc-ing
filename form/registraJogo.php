@@ -27,7 +27,7 @@ $stmt->execute([':so' => $requisitos['so'],
                 ':ram' => $requisitos['ram'],
                 ':armazenamento' => $requisitos['armazenamento']]);
 
-$stmt = $conn->prepare("SELECT id FROM requisitosJogo ORDER BY requisitosJogoID DESC LIMIT 1");
+$stmt = $conn->prepare("SELECT requisitosJogoID FROM requisitosJogo ORDER BY requisitosJogoID DESC LIMIT 1");
 $stmt->execute();
 $reqID = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -35,13 +35,13 @@ $stmt = $conn->prepare("INSERT INTO jogo (jogoNome, classificacao, sinopse, jogo
 $stmt->execute([':nome' => $jogo['nome'],
                 ':classificacao' => $jogo['classificacao'],
                 ':sinopse' => $jogo['sinopse'],
-                ':requisitosID' => $reqID['id'],
+                ':requisitosID' => $reqID['requisitosJogoID'],
                 ':playstation' => $plat['playstation'],
                 ':xbox' => $plat['xbox'],
                 ':nintendoSwitch' => $plat['switch'],
                 ':pc' => $plat['pc']]);
 
-$stmt = $conn->prepare("SELECT jogoID FROM jogo ORDER BY id DESC LIMIT 1");
+$stmt = $conn->prepare("SELECT jogoID FROM jogo ORDER BY jogoID DESC LIMIT 1");
 $stmt->execute();
 $gameID = $stmt->fetch(PDO::FETCH_ASSOC); //Pega id do jogo que acabou de ser registrado no banco para usar nos nomes das imagens
 $gameID = $gameID['jogoID'];
