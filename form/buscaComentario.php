@@ -11,8 +11,13 @@ $stmt = $conn->prepare("SELECT
                         WHERE comentario.comentarioJogoID = :jogoID
                         ORDER BY comentarioData DESC");
 $stmt->execute([':jogoID' => $_GET['jogoID']]);
-$comentarios = $stmt->fetchAll();
-echo json_encode($comentarios);
+$comentarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$lista = [];
+foreach($comentarios as $comentario) {
+    array_push($lista, $comentario);
+}
+echo json_encode($lista);
 
 
 ?>

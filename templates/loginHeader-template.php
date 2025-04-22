@@ -1,11 +1,6 @@
 <?php
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
-if (!isset($_SESSION))
-    session_start();
 
-if (!isset($_SESSION['loginStatus'])) {
-    header("Location: " . $BASE_URL . "paginasPrincipais/login.php");
-}
 ?>
 
 <!DOCTYPE html>
@@ -57,9 +52,6 @@ if (!isset($_SESSION['loginStatus'])) {
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/perfilDoUsuario.php">Perfil</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= $BASE_URL ?>paginasPrincipais/logout.php" class="nav-link btn btn-outline-light">Log-out</a>
                             </li>
                         </ul>
                     </div>

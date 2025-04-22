@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 include_once("../config/db.php");
 
@@ -20,15 +20,15 @@ $stmt = $conn->prepare("SELECT
                         WHERE jogo.jogoID = :jogoID
                         GROUP BY jogo.jogoID;");
 
-$stmt->execute([':usuarioID' => 1, //Trocar por variável quando sessão estiver iniciada
+$stmt->execute([':usuarioID' => $_SESSION['usuarioID'],
                 ':jogoID' => $_GET['gameID']]);
-$gameInfo = $stmt->fetch();
+$gameInfo = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 $stmt = $conn->prepare("SELECT nota FROM avaliacao WHERE avaliacaoJogoID = :jogoID AND avaliacaoUsuarioID = :usuarioID");
 $stmt->execute([':jogoID' => $_GET['gameID'],
-                ':usuarioID' => 1]); // Trocar por id do usuário assim que for possível iniciar sessão
-$notaUsuario = $stmt->fetch();
+                ':usuarioID' => $_SESSION['usuarioID']]);
+$notaUsuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 if ($notaUsuario !== false)

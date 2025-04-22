@@ -1,6 +1,6 @@
 <?php
 $bodyAttributes = 'id="gamePageBody"';
-include_once('../templates/header-template.php');
+include_once('../templates/admHeader-template.php');
 ?>
     <main id="formJogoMain">
         <form action="../form/registraJogo.php" method="POST" enctype="multipart/form-data">

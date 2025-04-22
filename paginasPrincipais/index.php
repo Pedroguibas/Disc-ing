@@ -10,11 +10,8 @@ FROM jogo
 LEFT JOIN avaliacao ON avaliacao.avaliacaoJogoID = jogo.jogoID
 GROUP BY jogo.jogoID;");
 $stmt->execute();
-$Jogos = $stmt->fetchAll();
+$Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-// if (usuario não logado)
-//header("Location: " . $BASE_URL . "paginasPrincipais/login.php");
 ?>
 
     <main id="indexmain" class="d-flex justify-content-center">

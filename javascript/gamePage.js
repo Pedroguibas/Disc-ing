@@ -97,6 +97,7 @@ function carregaComentarios() {
                 comentariosContainer = document.querySelector('#comentariosContainer');
                 comentariosContainer.innerHTML = '';
                 result = JSON.parse(result);
+                console.log(result);
 
                 for (let i=0; i<result.length; i++) {
                     let comentario = document.createElement('div');
@@ -201,7 +202,6 @@ $('#enviaComentarioBtn').on('click', function() {
             url: BASE_URL + "form/registraComentario.php",
             method: 'GET',
             data: {
-                usuarioID: 1, //trocar por id quando iniciar sessão
                 jogoID: gameID,
                 conteudo: $('#novoComentario').val(),
                 spoiler: $('#spoilerTag').is(":checked") ? 1 : 0 

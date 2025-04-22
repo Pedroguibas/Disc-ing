@@ -1,0 +1,85 @@
+CREATE TABLE usuario (
+    usuarioID INT AUTO_INCREMENT PRIMARY KEY,
+    usuarioNome VARCHAR(70) NOT NULL,
+    usuarioSobrenome VARCHAR(255) NOT NULL,
+   	username VARCHAR(127) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(127) NOT NULL,
+	adm TINYINT(1) DEFAULT 0);
+
+INSERT INTO usuario (email, senha, usuarioNome, usuarioSobrenome, username) VALUES ('pedroguibas123@gmail.com', 'senha123', 'Pedro', 'Bastos', 'Pedroguibas'),
+('erick@gmail.com', 'senha123', 'Erick', 'Neves', 'ErickNeves'),
+('eduarda@gmail.com', 'senha123', 'Eduarda', 'Solano', 'SolanoEd'),
+('jessica@gmail.com', 'senha123', 'Jessica', 'Cristina', 'CristinaJess'),
+('joao@gmail.com', 'senha123', 'Joao', 'Cardia', 'Jao'),
+('querino@gmail.com', 'senha123', 'Luiz', 'Querino', 'QuerinoLu');
+
+CREATE TABLE jogo (
+    jogoID INT AUTO_INCREMENT PRIMARY KEY,
+    jogoNome VARCHAR(255) NOT NULL UNIQUE,
+    sinopse VARCHAR(600) NOT NULL,
+    jogoRequisitosJogoID INT,
+    classificacao ENUM('livre', '10', '12', '14', '16', '18') NOT NULL,
+    playstation TINYINT(1) DEFAULT 0,
+    xbox TINYINT(1) DEFAULT 0,
+    nintendoSwitch TINYINT(1) DEFAULT 0,
+    pc TINYINT(1) DEFAULT 0);
+    
+CREATE TABLE requisitosJogo (
+    requisitosJogoID INT AUTO_INCREMENT PRIMARY KEY,
+    so VARCHAR(50) NOT NULL,
+    cpu VARCHAR(255) NOT NULL,
+    gpu VARCHAR(255) NOT NULL,
+    ram VARCHAR(255) NOT NULL,
+    armazenamento VARCHAR(127) NOT NULL);
+    
+ALTER TABLE jogo ADD CONSTRAINT fk_jogo_requisitos FOREIGN KEY (jogoRequisitosJogoID) REFERENCES requisitosJogo(requisitosJogoID);
+
+INSERT INTO requisitosJogo (so, cpu, gpu, ram, armazenamento)
+VALUES ('Windows 10 64-bit', 'Intel Core i5-8400 / AMD Ryzen 5 1600', 'NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 580 8GB', '16 GB de RAM', '130 GB de espaço disponível'), 
+('Windows 10 64-bit', 'Intel Core i5-8400 / AMD Ryzen 5 1600', 'NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 580 8GB', '16 GB de RAM', '130 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel Core i5-8400 / AMD Ryzen 5 1600', 'NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 580 8GB', '16 GB de RAM', '130 GB de espaço disponível'), 
+('Windows 10 64-bit', 'Intel Core i5-8400 / AMD Ryzen 5 1600', 'NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 580 8GB', '16 GB de RAM', '130 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel i5-4670k or AMD Ryzen 3 1200', 'NVIDIA GTX 1060 (6GB) or AMD RX 5500 XT (8GB) or Intel Arc A750', '8 GB de RAM', '190 GB de espaço disponível');
+
+INSERT INTO jogo (jogoNome, jogoRequisitosJogoID, sinopse, classificacao) VALUES ('Black Myth Wukong', 1, 'Macaco.', '16'),
+('Counter Strike 2', 2, 'Bomba.', '16'),
+ ('Zenless Zone Zero', 3, 'Wuaifus.', '12'),
+('Tekken 8', 4, 'Luta.', '12'),
+('God of War Ragnarök', 5, 'Do Santa Monica Studio, esta é a sequência da aclamada versão de 2018 de God of War. O Fimbulwinter já começou. Kratos e Atreus devem viajar pelos Nove Reinos em busca de respostas enquanto as forças asgardianas se preparam para uma batalha profetizada que causará o fim do mundo. Nessa jornada, eles explorarão paisagens míticas impressionantes e enfrentarão inimigos aterradores: deuses nórdicos e monstros. A ameaça do Ragnarök se aproxima. Kratos e Atreus terão de escolher entre a segurança deles próprios e a dos reinos.', '18');
+
+CREATE TABLE avaliacao (
+    avaliacaoUsuarioID INT NOT NULL,
+    avaliacaoJogoID INT NOT NULL,
+    nota INT NOT NULL);
+
+ALTER TABLE avaliacao ADD CONSTRAINT chaveCompostaAvaliacao PRIMARY KEY (avaliacaoUsuarioID, avaliacaoJogoID);
+
+ALTER TABLE avaliacao ADD CONSTRAINT fkAvaliacaoUsuario FOREIGN KEY (avaliacaoUsuarioID) REFERENCES usuario(usuarioID);
+
+ALTER TABLE avaliacao ADD CONSTRAINT fkAvaliacaoJogo FOREIGN KEY (avaliacaoJogoID) REFERENCES jogo(jogoID);
+
+INSERT INTO avaliacao (avaliacaoJogoID, avaliacaoUsuarioID, nota) VALUES (5, 1, 10), (5, 2, 7), (5, 3, 9), (5, 4, 8), (5, 5, 5), (5, 6, 9);
+
+CREATE TABLE lista (
+    listaUsuarioID INT NOT NULL,
+    listaJogoID INT NOT NULL,
+    naLista TINYINT(1));
+    
+ALTER TABLE lista ADD CONSTRAINT pk_lista PRIMARY KEY (listaUsuarioID, listaJogoID);
+ALTER TABLE lista ADD CONSTRAINT fk_usuarioLista FOREIGN KEY (listaUsuarioID) REFERENCES usuario(usuarioID);
+ALTER TABLE lista ADD CONSTRAINT fk_jogoLista FOREIGN KEY (listaJogoID) REFERENCES jogo(jogoID);
+
+CREATE TABLE comentario (
+	comentarioID INT AUTO_INCREMENT PRIMARY KEY,
+    conteudo VARCHAR(600) NOT NULL,
+    likes INT DEFAULT 0,
+    spoiler TINYINT(1) NOT NULL,
+    comentarioData TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    editado TINYINT(1) DEFAULT 0,
+    responde INT,
+   	comentarioUsuarioID INT NOT NULL,
+    comentarioJogoID INT NOT NULL
+);
+
+ALTER TABLE comentario ADD CONSTRAINT FK_comentarioUsuario FOREIGN KEY (comentarioUsuarioID) REFERENCES usuario(usuarioID);

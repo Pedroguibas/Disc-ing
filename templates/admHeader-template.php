@@ -3,9 +3,10 @@ $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 if (!isset($_SESSION))
     session_start();
 
-if (!isset($_SESSION['loginStatus'])) {
+if (!isset($_SESSION['loginStatus']))
     header("Location: " . $BASE_URL . "paginasPrincipais/login.php");
-}
+elseif ($_SESSION['usuarioAdm'] != 1)
+    header("Location: " . $BASE_URL . "paginasPrincipais/index.php");
 ?>
 
 <!DOCTYPE html>
