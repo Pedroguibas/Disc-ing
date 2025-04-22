@@ -1,0 +1,9 @@
+#perfilUsuarioMain #fotoDePerfilContainer #fotoDePerfil {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 6px solid #c4c4c4;
+}
+
+#perfilUsuarioMain #username {
+    color: #c4c4c4;
+}
