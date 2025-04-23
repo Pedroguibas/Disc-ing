@@ -23,7 +23,7 @@
 }
 
 #loginForm ::placeholder {
-    color: #ffffff60;
+    color: #ffffff60 !important;
 }
 
 #loginForm ::selection {
