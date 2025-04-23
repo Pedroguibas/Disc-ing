@@ -22,32 +22,32 @@ include_once("../templates/loginHeader-template.php");
                     </div>
                     <form action="<?= $BASE_URL ?>form/registraUsuario.php" method="POST" id="loginForm" class="d-flex flex-column align-items-center mt-4">
                         <div class="formContainer mb-5">
-                            <div class="loginInputContainer d-flex align-items-center m-2">
-                                <input type="email" id="email" name="email" placeholder="e-mail" size="25" required>
-                                <i class="bi bi-envelope"></i>
+                            <div class="loginInputContainer d-flex align-items-center m-4">
+                                <input class="loginInput" type="email" id="email" name="email" placeholder="e-mail" size="25" required>
+                                <i class="bi bi-envelope mb-2"></i>
                             </div>
                             <p id="emailCadastradoWarning" class="signinWarning">Já existe um usuário com este e-mail.</p>
                             <p id="emailInvalidoWarning" class="signinWarning">O e-mail digitado não é válido.</p>
-                            <div class="loginInputContainer d-flex align-items-center m-2">
-                                <input type="text" name="nome" placeholder="Nome" size="25" required>
-                                <i class="bi bi-person"></i>
+                            <div class="loginInputContainer d-flex align-items-center m-4">
+                                <input class="loginInput" type="text" name="nome" placeholder="Nome" size="25" required>
+                                <i class="bi bi-person mb-2"></i>
                             </div>
-                            <div class="loginInputContainer d-flex align-items-center m-2">
-                                <input type="text" name="sobrenome" placeholder="Sobrenome" size="25" required>
-                                <i class="bi bi-person"></i>
+                            <div class="loginInputContainer d-flex align-items-center m-4">
+                                <input class="loginInput" type="text" name="sobrenome" placeholder="Sobrenome" size="25" required>
+                                <i class="bi bi-person mb-2"></i>
                             </div>
-                            <div class="loginInputContainer d-flex align-items-center m-2">
-                                <input type="text" id="username" name="username" placeholder="Username" size="25" required>
-                                <i class="bi bi-person"></i>
+                            <div class="loginInputContainer d-flex align-items-center m-4">
+                                <input class="loginInput" type="text" id="username" name="username" placeholder="Username" size="25" required>
+                                <i class="bi bi-person mb-2"></i>
                             </div>
                             <p id="usuarioCadastradoWarning" class="signinWarning">Já existe um usuário com este username.</p>
-                            <div class="loginInputContainer d-flex align-items-center m-2">
-                                <input class="passwordInput" id="senha" type="password" name="senha" placeholder="Senha" minlength="8" size="25">
-                                <button type="button" tabindex="-1" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
+                            <div class="loginInputContainer d-flex align-items-center m-4">
+                                <input class="loginInput passwordInput" id="senha" type="password" name="senha" placeholder="Senha" minlength="8" size="25">
+                                <button type="button" tabindex="-1" class="showPasswordBtn mb-2"><i class="bi bi-eye-slash"></i></button>
                             </div>
-                            <div class="loginInputContainer d-flex align-items-center m-2">
-                                <input class="passwordInput" id="confirma-senha" type="password" name="confirma-senha" placeholder="Confirmar senha" minlength="8" size="25">
-                                <button type="button" tabindex="-1" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
+                            <div class="loginInputContainer d-flex align-items-center m-4">
+                                <input class="loginInput passwordInput" id="confirma-senha" type="password" name="confirma-senha" placeholder="Confirmar senha" minlength="8" size="25">
+                                <button type="button" tabindex="-1" class="showPasswordBtn mb-2"><i class="bi bi-eye-slash"></i></button>
                             </div>
 
                             <p id="wrongPasswordWarning" class="signinWarning">As senhas não conferem.</p>

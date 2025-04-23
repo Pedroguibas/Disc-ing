@@ -2,7 +2,7 @@ CREATE TABLE usuario (
     usuarioID INT AUTO_INCREMENT PRIMARY KEY,
     usuarioNome VARCHAR(70) NOT NULL,
     usuarioSobrenome VARCHAR(255) NOT NULL,
-   	username VARCHAR(127) NOT NULL UNIQUE,
+   	username VARCHAR(127) COLLATE utf8mb4_bin NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
     senha VARCHAR(127) NOT NULL,
 	adm TINYINT(1) DEFAULT 0);

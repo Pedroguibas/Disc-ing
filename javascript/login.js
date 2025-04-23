@@ -12,6 +12,12 @@ function togglePassword() {
     }
 }
 
+$('.loginInput').on('focusout', function() {
+    if ($(this).val() != '')
+        $(this).parent().addClass('preenchido');
+    else
+        $(this).parent().removeClass('preenchido');
+});
 
 $('.showPasswordBtn').on('click', togglePassword);
 

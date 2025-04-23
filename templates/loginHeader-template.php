@@ -33,29 +33,9 @@ $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="<?= $BASE_URL ?>paginasPrincipais/index.php">
+                <a class="navbar-brand" href="#">
                     <img src="<?= $BASE_URL ?>assets/LogoDisc-ing.png" alt="Logo Disc-ing" class="d-inline-block w-100">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent"
-                    aria-expanded="false" aria-label="Esconder a navegação">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="ms-auto">
-                        <ul class="navbar-nav ml-auto mb-2 mb-lh-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="<?= $BASE_URL ?>paginasPrincipais/index.php">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/sobre.php">Sobre</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/perfilDoUsuario.php">Perfil</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </nav>
         <div class="headerShadow"></div>

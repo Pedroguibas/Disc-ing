@@ -1,6 +1,7 @@
 let passwordVisible = false;
 
 function togglePassword() {
+    console.log($(this).parent().find('.passwordInput'));
     if (passwordVisible) {
         $(this).html('<i class="bi bi-eye-slash"></i>');
         $(this).parent().find('.passwordInput').attr('type', 'password');
@@ -11,6 +12,13 @@ function togglePassword() {
         passwordVisible = true;
     }
 }
+
+$('.loginInput').on('focusout', function() {
+    if ($(this).val() != '')
+        $(this).parent().addClass('preenchido');
+    else
+        $(this).parent().removeClass('preenchido');
+});
 
 function checkSenha() {
 
@@ -118,10 +126,11 @@ $('#loginForm').on('submit', function(e) {
         if (!checkSenha())
             count++
     
+    }).then(function() {
 
         if (count == 0)
             $('#loginForm')[0].submit();
-    })
+    });
 })
 
 $('#confirma-senha').on('focusout', checkSenha);

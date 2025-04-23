@@ -1,4 +1,5 @@
 <?php
+$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 include_once("../config/db.php");
 
 $email = htmlspecialchars($_POST['email']);
@@ -16,6 +17,6 @@ $stmt->execute([':nome' => $nome,
                 ':email' => $email,
                 ':senha' => $senha]);
 
-
+header("Location: " . $BASE_URL . "paginasPrincipais/login.php");
 
 ?>

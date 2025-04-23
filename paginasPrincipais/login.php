@@ -22,13 +22,13 @@ include_once("../templates/loginHeader-template.php");
             </div>
             <form action="<?= $BASE_URL ?>form/auth.php" method="POST" id="loginForm" class="d-flex flex-column align-items-center mt-4">
                 <div class="formContainer mb-5">
-                    <div class="loginInputContainer d-flex align-items-center m-2">
+                    <div class="loginInputContainer d-flex m-4">
                         <input type="text" name="usuario" placeholder="Username ou e-mail" size="25" id="usuario" class="loginInput" required>
-                        <i class="bi bi-person"></i>
+                        <i class="bi bi-person mb-2"></i>
                     </div>
-                    <div class="loginInputContainer d-flex align-items-center m-2">
+                    <div class="loginInputContainer d-flex m-4">
                         <input type="password" name="senha" placeholder="Senha" size="25" id="senha" class="loginInput" required>
-                        <button type="button" tabindex="-1" class="showPasswordBtn"><i class="bi bi-eye-slash"></i></button>
+                        <button type="button" tabindex="-1" class="showPasswordBtn mb-2"><i class="bi bi-eye-slash"></i></button>
                     </div>
                     <p id="usuarioOuSenhaWarning" class="loginWarning">Usuário ou senha inválidos.</p>
                     <div class="loginOptions d-flex flex-column align-items-center mt-3">

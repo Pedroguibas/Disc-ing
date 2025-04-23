@@ -12,12 +12,13 @@
     font-size: 2.5em;
 }
 
-#loginForm input {
+#loginForm .loginInput {
     all: unset;
+    z-index: 1;
 }
 
 #loginForm ::placeholder {
-    color: #ffffff59;
+    color: #ffffff60;
 }
 
 #loginForm ::selection {
@@ -26,9 +27,28 @@
 }
 
 #loginForm .loginInputContainer {
-    border-radius:  1.3em;
-    border: 3px solid #fff;
-    padding: .7em 1em;
+    position: relative;
+    border-bottom: 3px solid #ffffff60;
+    padding: 0 1.2em;
+}
+
+#loginForm .loginInputContainer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    margin: auto;
+    width: 0;
+    border-bottom: 3px solid #fff;
+    transition: all 200ms ease;
+}
+
+#loginForm .loginInputContainer:has(.loginInput:focus)::after,
+#loginForm .loginInputContainer.preenchido::after {
+    width: 100%;
+    transition: all 200ms ease;
 }
 
 #loginForm .loginInputContainer i {
@@ -39,6 +59,7 @@
 .showPasswordBtn {
     all: unset;
     cursor: pointer;
+    z-index: 3;
 }
 
 #loginForm .btn-outline-light {
@@ -64,6 +85,7 @@
     margin-left: 1em;
     font-size: .8em;
     display: none;
+    text-align: center;
 }
 
 @media screen and (max-width: 769px) {
