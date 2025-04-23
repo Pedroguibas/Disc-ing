@@ -95,8 +95,9 @@
     color: #fff;
 }
 
-.cardScore i {
+.cardScore .cardScoreStar {
     font-size: .8em;
+    color: #fff;
 }
 
 .swiper-pagination-bullet {

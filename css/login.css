@@ -14,7 +14,6 @@
 
 #loginForm .loginInput {
     all: unset;
-    z-index: 1;
 }
 
 #loginForm .loginInput:-webkit-autofill {
@@ -41,7 +40,6 @@
 #loginForm .loginInputContainer::after {
     content: '';
     position: absolute;
-    top: 0;
     left: 0;
     right: 0;
     bottom: -3px;
@@ -65,7 +63,6 @@
 .showPasswordBtn {
     all: unset;
     cursor: pointer;
-    z-index: 3;
 }
 
 #loginForm .btn-outline-light {

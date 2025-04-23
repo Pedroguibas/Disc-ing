@@ -48,7 +48,7 @@ $Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                                     <img class="cardClassificacao" alt="Classificação ' . $Jogo['classificacao'] . ' anos" src="' . $BASE_URL . 'assets/Jogos/classificacao/age' . $Jogo['classificacao'] . '.png">
                                                 </div>
                                                 <div class="cardScoreContainer">
-                                                    <span class="cardScore d-flex align-items-center gap-2"><i class="bi bi-star-fill"></i> '. $cardScore .'</span>
+                                                    <span class="cardScore d-flex align-items-center gap-2"><i class="bi bi-star-fill cardScoreStar"></i> '. $cardScore .'</span>
                                                 </div>
                                             </button>
                                         </li> 
