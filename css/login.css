@@ -17,6 +17,11 @@
     z-index: 1;
 }
 
+#loginForm .loginInput:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff;
+}
+
 #loginForm ::placeholder {
     color: #ffffff60;
 }
@@ -24,6 +29,7 @@
 #loginForm ::selection {
     background: #fff;
     color: #1900a8;
+    -webkit-text-fill-color: #1900a8;
 }
 
 #loginForm .loginInputContainer {
