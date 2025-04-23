@@ -3,8 +3,11 @@ include_once("../config/db.php");
 session_start();
 
 $title = $_SESSION['username'] . ' (' . $_SESSION['usuarioNome'] . ' ' . $_SESSION['usuarioSobrenome'] . ')'; //Trocar pelo username e nome do usuário
-include_once("../templates/header-template.php");
 
+if ($_SESSION['usuarioAdm'] == 1)
+    include_once("../templates/admHeader-template.php");
+else
+    include_once("../templates/header-template.php");
 $stmt = $conn->prepare("SELECT
                             usuario.*,
                             (SELECT COUNT(*) FROM avaliacao WHERE avaliacaoUsuarioID = :usuarioID GROUP BY avaliacaoUsuarioID) AS nAvaliacao 

@@ -45,8 +45,11 @@ else
 
 $title = $gameInfo['jogoNome'];
 $bodyAttributes = 'onload="changeScoreColor();"';
-include_once("../templates/header-template.php");
 
+if ($_SESSION['usuarioAdm'] == 1)
+    include_once("../templates/admHeader-template.php");
+else
+    include_once("../templates/header-template.php");
 ?>
 
         <main id="gamePageMain">

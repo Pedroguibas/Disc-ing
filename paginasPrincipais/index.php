@@ -1,10 +1,14 @@
 <?php
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 include_once("../config/db.php");
+session_start();
 
 $aditionalTags = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">';
-include_once('../templates/header-template.php');
 
+if ($_SESSION['usuarioAdm'] == 1)
+    include_once("../templates/admHeader-template.php");
+else
+    include_once("../templates/header-template.php");
 $stmt = $conn->prepare("SELECT jogo.*, SUM(avaliacao.nota) AS nota, COUNT(avaliacao.avaliacaoJogoID) AS nAvaliacoes
 FROM jogo
 LEFT JOIN avaliacao ON avaliacao.avaliacaoJogoID = jogo.jogoID
