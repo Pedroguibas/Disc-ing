@@ -21,8 +21,5 @@ $stmt = $conn->prepare("SELECT SUM(nota) AS nota, COUNT(avaliacaoJogoID) AS tota
 $stmt->execute([':jogoID' => $_GET['gameID']]);
 
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
-if ($result['total'] > 0)
-    echo $result['nota'] / $result['total'];
-else
-    echo 0;
+echo json_encode($result);
 ?>

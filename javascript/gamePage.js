@@ -71,10 +71,13 @@ function avaliaJogo() {
             nota: notaNova
         },
         success: function(result) {
-            result = parseFloat(result);
+            result = JSON.parse(result);
+            result.total = parseInt(result.total);
+            result.nota = parseFloat(result.nota);
             $('.scoreStarActive').removeClass('scoreStarActive');
             $('.scoreStar')[notaNova - 1].classList.add('scoreStarActive');
-            $('#gameScore').html(result.toFixed(2));
+            $('#gameScore').html((result.nota / result.total).toFixed(2));
+            $('#totalAvaliacoesJogo').html(result.total);
             avaliado = 1;
         }
     });
@@ -97,7 +100,6 @@ function carregaComentarios() {
                 comentariosContainer = document.querySelector('#comentariosContainer');
                 comentariosContainer.innerHTML = '';
                 result = JSON.parse(result);
-                console.log(result);
 
                 for (let i=0; i<result.length; i++) {
                     let comentario = document.createElement('div');

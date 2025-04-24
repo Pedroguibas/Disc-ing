@@ -75,7 +75,7 @@ else
                                 ?>
                                 
                             </span>
-                            <p><?= $gameInfo['nAvaliacoes'] ?> avaliações</p>
+                            <p><span id="totalAvaliacoesJogo"><?= $gameInfo['nAvaliacoes'] ?></span> avaliações</p>
                         </div>
                         <div id="starAvaliacaoContainer" class="mt-2">
                             <div id="starScoreContainer" class="d-flex gap-1">
