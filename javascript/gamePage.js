@@ -38,23 +38,23 @@ function modoMostrarAvaliacao() {
     $(this).find('.scoreStar').addClass('mouseOut');
 }
 
-function toggleLista() {
+function togglelistaJogado() {
     $.ajax({
-        url: BASE_URL + 'form/adicionaNaLista.php',
+        url: BASE_URL + 'form/marcarJogado.php',
         method: 'GET',
         data: {
             gameID: gameID,
-            naLista: naLista
+            jogado: jogado
         },
         success: function(result) {
             result = parseInt(result);
 
             if (result) {
-                naLista = 1;
-                $('#listaBtn').html('<i class="bi bi-check-lg"></i> Minha lista');
+                jogado = 1;
+                $('#listaJogadoBtn').html('<i class="bi bi-check-lg"></i> Jogado');
             } else {
-                naLista = 0;
-                $('#listaBtn').html('<i class="bi bi-plus-square"></i> Minha lista');
+                jogado = 0;
+                $('#listaJogadoBtn').html('<i class="bi bi-plus-square"></i> Marcar como Jogado');
             }
         }
     });
@@ -168,7 +168,7 @@ $('.buttonDrop').on('click', dropdown);
 $('#starScoreContainer').on('mouseenter', modoAvaliar);
 $('#starScoreContainer').on('mouseleave', modoMostrarAvaliacao);
 
-$('#listaBtn').on('click', toggleLista);
+$('#listaJogadoBtn').on('click', togglelistaJogado);
 
 $('.scoreStar').on('click', avaliaJogo);
 

@@ -6,4 +6,30 @@
 
 #perfilUsuarioMain #username {
     color: #c4c4c4;
+    font-size: 2em;
+}
+
+#perfilUsuarioMain #nomeUsuario {
+    color: #999;
+    font-size: 1.3em;
+}
+
+#perfilUsuarioContainer {
+    width: 30em;
+}
+
+#fotoDePerfilContainer {
+    width: 40%;
+}
+
+@media screen and (max-width: 425px) {
+    #perfilUsuarioMain {
+        font-size: .8em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #perfilUsuarioMain {
+        font-size: .8em;
+    }
 }

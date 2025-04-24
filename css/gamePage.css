@@ -114,9 +114,9 @@
     background: #1e1e34;
 }
 
-/* -=-= Botão de adicionar na lista =-=- */
+/* -=-= Botão de adicionar na listaJogado =-=- */
 
-#listaBtnContainer #listaBtn {
+#listaJogadoBtnContainer #listaJogadoBtn {
     cursor: pointer;
     font-size: 1.2em;
     border-radius: 10px;
@@ -125,7 +125,7 @@
     transition: all ease 300ms;
 }
 
-#listaBtnContainer #listaBtn:hover {
+#listaJogadoBtnContainer #listaJogadoBtn:hover {
     background-color: #000046;
     transition: all ease 300ms;
 }
@@ -293,7 +293,7 @@
     #gamePageMain {
         font-size: .7em;
     }
-    #listaBtnContainer #listaBtn {
+    #listaJogadoBtnContainer #listaJogadoBtn {
         font-size: .8em;
     }
     #novoComentarioBtnContainer {

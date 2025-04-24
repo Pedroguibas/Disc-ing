@@ -61,14 +61,14 @@ ALTER TABLE avaliacao ADD CONSTRAINT fkAvaliacaoJogo FOREIGN KEY (avaliacaoJogoI
 
 INSERT INTO avaliacao (avaliacaoJogoID, avaliacaoUsuarioID, nota) VALUES (5, 1, 10), (5, 2, 7), (5, 3, 9), (5, 4, 8), (5, 5, 5), (5, 6, 9);
 
-CREATE TABLE lista (
-    listaUsuarioID INT NOT NULL,
-    listaJogoID INT NOT NULL,
-    naLista TINYINT(1));
+CREATE TABLE listaJogado (
+    listaJogadoUsuarioID INT NOT NULL,
+    listaJogadoJogoID INT NOT NULL,
+    jogado TINYINT(1));
     
-ALTER TABLE lista ADD CONSTRAINT pk_lista PRIMARY KEY (listaUsuarioID, listaJogoID);
-ALTER TABLE lista ADD CONSTRAINT fk_usuarioLista FOREIGN KEY (listaUsuarioID) REFERENCES usuario(usuarioID);
-ALTER TABLE lista ADD CONSTRAINT fk_jogoLista FOREIGN KEY (listaJogoID) REFERENCES jogo(jogoID);
+ALTER TABLE listaJogado ADD CONSTRAINT pk_listaJogado PRIMARY KEY (listaJogadoUsuarioID, listaJogadoJogoID);
+ALTER TABLE listaJogado ADD CONSTRAINT fk_usuariolistaJogado FOREIGN KEY (listaJogadoUsuarioID) REFERENCES usuario(usuarioID);
+ALTER TABLE listaJogado ADD CONSTRAINT fk_jogolistaJogado FOREIGN KEY (listaJogadoJogoID) REFERENCES jogo(jogoID);
 
 CREATE TABLE comentario (
 	comentarioID INT AUTO_INCREMENT PRIMARY KEY,

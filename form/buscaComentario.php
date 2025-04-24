@@ -13,11 +13,11 @@ $stmt = $conn->prepare("SELECT
 $stmt->execute([':jogoID' => $_GET['jogoID']]);
 $comentarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$lista = [];
+$listaJogado = [];
 foreach($comentarios as $comentario) {
-    array_push($lista, $comentario);
+    array_push($listaJogado, $comentario);
 }
-echo json_encode($lista);
+echo json_encode($listaJogado);
 
 
 ?>

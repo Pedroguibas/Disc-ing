@@ -12,11 +12,11 @@ $stmt = $conn->prepare("SELECT
                             requisitosjogo.armazenamento,
                             SUM(avaliacao.nota) AS nota,
                             COUNT(avaliacao.avaliacaoJogoID) AS nAvaliacoes,
-                            lista.naLista
+                            listaJogado.jogado
                         FROM jogo
                         LEFT JOIN requisitosjogo ON jogo.jogoRequisitosJogoID = requisitosjogo.requisitosJogoID
                         LEFT JOIN avaliacao ON avaliacao.avaliacaoJogoID = jogo.jogoID
-                        LEFT JOIN lista ON lista.listajogoID = jogo.jogoID AND lista.listaUsuarioID = :usuarioID
+                        LEFT JOIN listaJogado ON listaJogado.listaJogadojogoID = jogo.jogoID AND listaJogado.listaJogadoUsuarioID = :usuarioID
                         WHERE jogo.jogoID = :jogoID
                         GROUP BY jogo.jogoID;");
 
@@ -37,10 +37,10 @@ else
     $notaUsuario = 0;
 
 
-if ($gameInfo['naLista'] !== NULL) 
-    $lista = $gameInfo['naLista'];
+if ($gameInfo['jogado'] !== NULL) 
+    $listaJogado = $gameInfo['jogado'];
 else
-    $lista = -1;
+    $listaJogado = -1;
 
 
 $title = $gameInfo['jogoNome'];
@@ -94,15 +94,15 @@ else
                         </div>
                     </div>
 
-                    <div id="listaBtnContainer">
-                        <button id="listaBtn">
+                    <div id="listaJogadoBtnContainer">
+                        <button id="listaJogadoBtn">
                             <?php 
                             
-                            if ($lista == 1)
+                            if ($listaJogado == 1)
                                 echo '<i class="bi bi-check-lg"></i>';
                             else
                                 echo '<i class="bi bi-plus-square"></i>';
-                            ?> Minha lista</button>
+                            ?> Marcar como Jogado</button>
                     </div>
                     
                 </section>
@@ -196,7 +196,7 @@ else
         </main>
         <script>
             let avaliado = <?= $notaUsuario ?> != 0 ? 1 : 0;
-            let naLista = <?= $lista ?>;
+            let jogado = <?= $listaJogado ?>;
             let gameID = <?= $_GET['gameID'] ?>;
             let BASE_URL = '<?= $BASE_URL ?>';
         </script>

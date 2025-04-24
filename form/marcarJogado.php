@@ -3,20 +3,20 @@ session_start();
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 include_once("../config/db.php");
 
-$naLista = $_GET['naLista'];
+$jogado = $_GET['jogado'];
 
-if ($naLista == -1) {
-    $stmt = $conn->prepare("INSERT INTO lista (listaJogoID, listaUsuarioID, naLista) VALUES (:jogoID, :usuarioID, 1)");
+if ($jogado == -1) {
+    $stmt = $conn->prepare("INSERT INTO listaJogado (listaJogadoJogoID, listaJogadoUsuarioID, jogado) VALUES (:jogoID, :usuarioID, 1)");
     $stmt->execute([':jogoID' => $_GET['gameID'],
                     ':usuarioID' => $_SESSION['usuarioID']]);
     echo 1;
-} elseif ($naLista) {
-    $stmt = $conn->prepare("UPDATE lista SET naLista = 0 WHERE listaJogoID = :jogoID AND listaUsuarioID = :usuarioID");
+} elseif ($jogado) {
+    $stmt = $conn->prepare("UPDATE listaJogado SET jogado = 0 WHERE listaJogadoJogoID = :jogoID AND listaJogadoUsuarioID = :usuarioID");
     $stmt->execute([':jogoID' => $_GET['gameID'],
                     ':usuarioID' => $_SESSION['usuarioID']]);
     echo 0;
 } else {
-    $stmt = $conn->prepare("UPDATE lista SET naLista = 1 WHERE listaJogoID = :jogoID AND listaUsuarioID = :usuarioID");
+    $stmt = $conn->prepare("UPDATE listaJogado SET jogado = 1 WHERE listaJogadoJogoID = :jogoID AND listaJogadoUsuarioID = :usuarioID");
     $stmt->execute([':jogoID' => $_GET['gameID'],
                     ':usuarioID' => $_SESSION['usuarioID']]);
     echo 1;
