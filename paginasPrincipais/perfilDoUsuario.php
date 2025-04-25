@@ -25,7 +25,9 @@ $userInfo = $stmt->fetch(PDO::FETCH_ASSOC);
             <section id="perfilInfoContainer" class="d-flex align-items-center justify-content-between flex-wrap col-10">
                 <div id="perfilUsuarioContainer" class="d-flex align-items-center gap-lg-3 gap-md-3 gap-1">
                     <div id="fotoDePerfilContainer">
-                        <img id="fotoDePerfil" class="w-100" src="<?= $BASE_URL ?>assets/usuarios/profilePic<?= $_SESSION['usuarioID'] ?>.jpg" alt="Foto de <?= $_SESSION['username'] ?>" onerror="if (this.src != '<?= $BASE_URL ?>assets/usuarios/unknownUser.jpg') this.src = '<?= $BASE_URL ?>assets/usuarios/unknownUser.jpg';">
+                        <img id="fotoDePerfil" class="w-100" 
+                        src="<?= $BASE_URL ?>assets/usuarios/<?php echo file_exists('../assets/usuarios/profilePic' . $_SESSION['usuarioID'] . '.jpg') ? 'profilePic' . $_SESSION['usuarioID'] : 'unknownUser' ?>.jpg"
+                        alt="Foto de <?= $_SESSION['username'] ?>">
                     </div>
                     <div class="d-flex flex-column">
                         <h1 id="username"><?= $_SESSION['username'] ?></h1>

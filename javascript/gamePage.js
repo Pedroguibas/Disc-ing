@@ -102,6 +102,7 @@ function carregaComentarios() {
                 result = JSON.parse(result);
 
                 for (let i=0; i<result.length; i++) {
+                    let comentarioUsuarioID = result[i].comentarioUsuarioID;
                     let comentario = document.createElement('div');
                     let perfilUsuario = document.createElement('div');
                     let fotoUsuarioContainer = document.createElement('div');
@@ -117,12 +118,6 @@ function carregaComentarios() {
                     fotoUsuarioContainer.classList.add('fotoUsuarioComentario');
 
                     fotoUsuario.alt = 'Foto de perfil de ' + result[i].username;
-                    $.get(BASE_URL + 'assets/usuarios/profilePic' + result[i].comentarioUsuarioID + '.jpg')
-                        .done(function() {
-                            fotoUsuario.src = BASE_URL + 'assets/usuarios/profilePic' + result[i].comentarioUsuarioID + '.jpg';
-                        }).fail(function() {
-                            fotoUsuario.src = BASE_URL + 'assets/usuarios/unknownUser.jpg';
-                        })
 
 
                     informacoesUsuario.classList.add('informacoesUsuarioComentario', 'd-flex', 'flex-column');
@@ -135,28 +130,40 @@ function carregaComentarios() {
                     conteudoContainer.classList.add('conteudoComentarioContainer');
                     conteudo.classList.add('conteudoComentario');
                     conteudo.innerHTML = (result[i].conteudo.replace(/\n/g, "<br>")).trim();
-                    if (result[i].spoiler == 1) {
-                        conteudo.classList.add('spoiler');
-                        let removeSpoilerBtn = document.createElement('button');
-                        removeSpoilerBtn.classList.add('removeSpoilerBtn');
-                        removeSpoilerBtn.innerHTML = 'Ver Spoiler';
-                        removeSpoilerBtn.addEventListener('click', toggleSpoiler);
-                        conteudoContainer.appendChild(removeSpoilerBtn);
-                    }
+                    $.ajax({
+                        url: BASE_URL + 'form/checaArquivo.php',
+                        method: 'GET',
+                        data: {
+                            path: '../assets/usuarios/profilePic' + comentarioUsuarioID + '.jpg'
+                        },
+                        success: function(result) {
+                            fotoUsuario.src = result == 1 ? BASE_URL + 'assets/usuarios/profilePic' + comentarioUsuarioID + '.jpg' : BASE_URL + 'assets/usuarios/unknownUser.jpg';
+                        }
+                    }).then(function() {
+                        if (result[i].spoiler == 1) {
+                            conteudo.classList.add('spoiler');
+                            let removeSpoilerBtn = document.createElement('button');
+                            removeSpoilerBtn.classList.add('removeSpoilerBtn');
+                            removeSpoilerBtn.innerHTML = 'Ver Spoiler';
+                            removeSpoilerBtn.addEventListener('click', toggleSpoiler);
+                            conteudoContainer.appendChild(removeSpoilerBtn);
+                        }
+    
+                        fotoUsuarioContainer.appendChild(fotoUsuario);
+                        informacoesUsuario.appendChild(username);
+                        informacoesUsuario.appendChild(nomeUsuario);
+    
+                        perfilUsuario.appendChild(fotoUsuarioContainer);
+                        perfilUsuario.appendChild(informacoesUsuario);
+    
+                        conteudoContainer.appendChild(conteudo)
+    
+                        comentario.appendChild(perfilUsuario);
+                        comentario.appendChild(conteudoContainer);
+    
+                        comentariosContainer.appendChild(comentario);
 
-                    fotoUsuarioContainer.appendChild(fotoUsuario);
-                    informacoesUsuario.appendChild(username);
-                    informacoesUsuario.appendChild(nomeUsuario);
-
-                    perfilUsuario.appendChild(fotoUsuarioContainer);
-                    perfilUsuario.appendChild(informacoesUsuario);
-
-                    conteudoContainer.appendChild(conteudo)
-
-                    comentario.appendChild(perfilUsuario);
-                    comentario.appendChild(conteudoContainer);
-
-                    comentariosContainer.appendChild(comentario);
+                    });
                 }
             }
         }
