@@ -1,13 +1,15 @@
 <?php
+$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 $bodyAttributes = 'id="gamePageBody"';
 include_once('../templates/admHeader-template.php');
 ?>
     <main id="formJogoMain">
-        <form action="../form/registraJogo.php" method="POST" enctype="multipart/form-data">
+        <form id="formRegistroJogo" action="../form/registraJogo.php" method="POST" enctype="multipart/form-data">
             <div class="registroContentContainer container mt-5">
                 <div class="gameInput mt-3">
                     <h1>Nome</h1>
-                    <input type="text" name="nome" class="textInput col-3" required>
+                    <input id="nomeJogoInput" type="text" name="nome" class="textInput col-3" required>
+                    <span class="formJogoWarning" id="nomeJaExisteWarning">Já existe um jogo com este nome, confira se o jogo não está cadastrado.</span>
                 </div>
                 <div class="gameInput mt-3">
                     <h1>Classificação indicativa</h1>
@@ -58,19 +60,21 @@ include_once('../templates/admHeader-template.php');
                     </div>
                 </div>
                 <h1 class="tituloPlat m-2">Plataformas</h1>
-                <div class="gameInput d-flex justify-content-around align-items-center mt-3 mb-5">
+                <div class="gameInput mt-3 mb-5">
+                    <div class="d-flex justify-content-around align-items-center">
+                        <input class="platCheckInput" id="plat1" type="checkbox" name="plataforma[]" value="switch">
+                        <label class="plataformaCheck" for="plat1"><i class="bi bi-nintendo-switch"></i></label>
 
-                    <input id="plat1" type="checkbox" name="plataforma[]" value="switch">
-                    <label class="plataformaCheck" for="plat1"><i class="bi bi-nintendo-switch"></i></label>
+                        <input class="platCheckInput" id="plat2" type="checkbox" name="plataforma[]" value="playstation">
+                        <label class="plataformaCheck" for="plat2"><i class="bi bi-playstation"></i></label>
 
-                    <input id="plat2" type="checkbox" name="plataforma[]" value="playstation">
-                    <label class="plataformaCheck" for="plat2"><i class="bi bi-playstation"></i></label>
+                        <input class="platCheckInput" id="plat3" type="checkbox" name="plataforma[]" value="xbox">
+                        <label class="plataformaCheck" for="plat3"><i class="bi bi-xbox"></i></label>
 
-                    <input id="plat3" type="checkbox" name="plataforma[]" value="xbox">
-                    <label class="plataformaCheck" for="plat3"><i class="bi bi-xbox"></i></label>
-
-                    <input id="plat4" type="checkbox" name="plataforma[]" value="pc">
-                    <label class="plataformaCheck" for="plat4"><i class="bi bi-pc-display"></i></label>
+                        <input class="platCheckInput" id="plat4" type="checkbox" name="plataforma[]" value="pc">
+                        <label class="plataformaCheck" for="plat4"><i class="bi bi-pc-display"></i></label>
+                    </div>
+                    <span class="formJogoWarning" id="nenhumaPlataformaWarning">Selecione ao menos uma plataforma.</span>
                 </div>
             </div>
 
@@ -79,7 +83,8 @@ include_once('../templates/admHeader-template.php');
                 </div>
         </form>
     </main>
-
+    <script>let BASE_URL = '<?= $BASE_URL ?>'</script>
+    <script src="../javascript/formJogo.js"></script>
 <?php
 include_once('../templates/footer-template.php');
 ?>

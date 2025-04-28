@@ -60,3 +60,8 @@ input[type="checkbox"]:checked+.plataformaCheck {
     border-color: #c4c4c4;
     transition: all ease 250ms;
 }
+
+.formJogoWarning {
+    color: #f00;
+    display: none;
+}
