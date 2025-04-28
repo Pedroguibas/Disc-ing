@@ -105,32 +105,30 @@ $('#loginForm').on('submit', function(e) {
                     count ++;
                 }
             }
-        });
-    } else {
-        cont++;
+        }).then(function() {
+            $.ajax({
+                url: BASE_URL + "form/checaUsuarioUsername.php?username=" + $('#username').val(),
+                success: function(result) {
+                    result = parseInt(result);
+        
+                    if (result == 1) { 
+                        $('#usuarioCadastradoWarning').show();
+                        count ++;
+                    }
+                }
+            }).then(function() {
+                checkSenha();
+        
+                if (!checkSenha())
+                    count++
+            
+            }).then(function() {
+        
+                if (count == 0)
+                    $('#loginForm')[0].submit();
+            });
+        })
     }
-
-    $.ajax({
-        url: BASE_URL + "form/checaUsuarioUsername.php?username=" + $('#username').val(),
-        success: function(result) {
-            result = parseInt(result);
-
-            if (result == 1) { 
-                $('#usuarioCadastradoWarning').show();
-                count ++;
-            }
-        }
-    }).then(function() {
-        checkSenha();
-
-        if (!checkSenha())
-            count++
-    
-    }).then(function() {
-
-        if (count == 0)
-            $('#loginForm')[0].submit();
-    });
 })
 
 $('#confirma-senha').on('focusout', checkSenha);
