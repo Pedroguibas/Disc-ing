@@ -5,63 +5,75 @@ include_once('../templates/admHeader-template.php');
 ?>
     <main id="formJogoMain">
         <form id="formRegistroJogo" action="../form/registraJogo.php" method="POST" enctype="multipart/form-data">
-            <div class="registroContentContainer container mt-5">
-                <div class="gameInput mt-3">
-                    <h1>Nome</h1>
-                    <input id="nomeJogoInput" type="text" name="nome" class="textInput col-3" required>
-                    <span class="formJogoWarning" id="nomeJaExisteWarning">Já existe um jogo com este nome, confira se o jogo não está cadastrado.</span>
+            <div class="registroContentContainer container mt-3">
+                <div id="formRegistroJogoTitleContainer" class="d-flex justify-content-center mb-5">
+                    <h1>Cadastro de jogo</h1>
                 </div>
-                <div class="gameInput mt-3">
-                    <h1>Classificação indicativa</h1>
+                <h2>Informações Gerais</h2>
+                <div class="formRegistroJogoSection d-flex flex-wrap">
+                    <div class="gameInput gameInputLeft d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
+                        <label for="nomeJogoInput">Nome do jogo:</label>
+                        <input id="nomeJogoInput" type="text" name="nome" class="textInput" required>
+                        <span class="formJogoWarning" id="nomeJaExisteWarning">Já existe um jogo com este nome, confira se o jogo não está cadastrado.</span>
+                    </div>
+                    <div class="gameInput mt-3">
+                        <label for="selectClassificacaoIndicativa">Classificação indicativa:</label>
 
-                    <div class="col-3">
-                        <select name="classificacao" class="form-select">
-                            <option value="livre">Livre</option>
-                            <option value="10">10 Anos</option>
-                            <option value="12">12 Anos</option>
-                            <option value="14">14 Anos</option>
-                            <option value="16">16 Anos</option>
-                            <option value="18">18 Anos</option>
-                        </select>
+                        <div>
+                            <select id="selectClassificacaoIndicativa" name="classificacao" class="form-select">
+                                <option value="livre" selected>Livre</option>
+                                <option value="10">10 Anos</option>
+                                <option value="12">12 Anos</option>
+                                <option value="14">14 Anos</option>
+                                <option value="16">16 Anos</option>
+                                <option value="18">18 Anos</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="formRegistroJogoSection d-flex flex-wrap">
+                    <div class="gameInput gameInputLeft mt-3">
+                        <label for="gameBannerInput">Banner do jogo:</label>
+                        <input class="form-control form-control-sm" id="gameBannerInput" type="file" name="banner" accept="image/jpeg" required />
+                    </div>
+                    <div class="gameInput mt-3">
+                        <label for="gameCoverInput">Capa do jogo</label>
+                        <input class="form-control form-control-sm" id="gameCoverInput" type="file" name="cover" accept="image/jpeg" required />
                     </div>
                 </div>
                 <div class="gameInput mt-3">
-                    <h1>Banner do jogo</h1>
-                    <input type="file" name="banner" accept="image/jpeg" required />
-                </div>
-                <div class="gameInput mt-3">
-                    <h1>Capa do jogo</h1>
-                    <input type="file" name="cover" accept="image/jpeg" required />
-                </div>
-                <div class="gameInput mt-3">
-                    <h1>Sinopse:</h1>
+                    <label for="sinopseTextarea">Sinopse:</label>
                     <textarea name="sinopse" id="sinopseTextarea" class="col-12 textInput" required></textarea>
                 </div>
                 
-                <div class="gameInput mt-3">
-                    <div>
-                        <h1>Requisistos Mínimos:</h1>
-                        <h2 class="mt-3">Sistema Operacional: </h2>
-                        <input type="text" name="so" class="col-3 textInput" required>
-                        
-                        <h2 class="mt-3">Processador: </h2>
-                        <input type="text" name="cpu" class="col-3 textInput" required>
-                        
-                        <h2 class="mt-3">Placa de Vídeo: </h2>
-                        <input type="text" name="gpu" class="col-3 textInput" required>
-                        
-                        <h2 class="mt-3">Memória: </h2>
-                        <input type="text" name="ram" class="col-3 textInput" required>
-                        
-                        <h2 class="mt-3">Armazenamento: </h2>
-                        <input type="text" name="armazenamento" class="col-3 textInput" required>
-                        
-
+                <h2 class="mt-5">Requisistos Mínimos</h2>
+                <div class="formRegistroJogoSection d-flex flex-wrap">
+                    <div class="gameInput gameInputLeft d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
+                        <label for="soInput">Sistema Operacional: </label>
+                        <input id="soInput" type="text" name="so" class="textInput" required>
+                    </div>
+                    <div class="gameInput mt-3 d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
+                        <label for="cpuInput">Processador: </label>
+                        <input id="cpuInput" type="text" name="cpu" class="textInput" required>
                     </div>
                 </div>
-                <h1 class="tituloPlat m-2">Plataformas</h1>
+                <div class="formRegistroJogoSection d-flex flex-wrap">
+                    <div class="gameInput gameInputLeft mt-3 d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
+                        <label for="gpuInput">Placa de Vídeo: </label>
+                        <input id="gpuInput" type="text" name="gpu" class="textInput" required>
+                    </div>
+                    <div class="gameInput mt-3 d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
+                        <label for="ramInput">Memória: </label>
+                        <input id="ramInput" type="text" name="ram" class="textInput" required>
+                    </div>
+                </div>
+                <div class="gameInput mt-3 d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
+                    <label for="armazenamentoInput">Armazenamento: </label>
+                    <input id="armazenamentoInput" type="text" name="armazenamento" class="textInput" required>
+                </div>
+                <h2 class="tituloPlat mt-5">Plataformas</h2>
                 <div class="gameInput mt-3 mb-5">
-                    <div class="d-flex justify-content-around align-items-center">
+                    <div class="d-flex align-items-center gap-3">
                         <input class="platCheckInput" id="plat1" type="checkbox" name="plataforma[]" value="switch">
                         <label class="plataformaCheck" for="plat1"><i class="bi bi-nintendo-switch"></i></label>
 
@@ -79,7 +91,7 @@ include_once('../templates/admHeader-template.php');
             </div>
 
                 <div class="d-flex justify-content-center mt-3">
-                    <input type="submit">
+                    <input id="enviaFormJogoBtn" type="submit">
                 </div>
         </form>
     </main>

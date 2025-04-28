@@ -41,8 +41,8 @@ $stmt->execute([':nome' => $jogo['nome'],
                 ':nintendoSwitch' => $plat['switch'],
                 ':pc' => $plat['pc']]);
 
-$stmt = $conn->prepare("SELECT jogoID FROM jogo ORDER BY jogoID DESC LIMIT 1");
-$stmt->execute();
+$stmt = $conn->prepare("SELECT jogoID FROM jogo WHERE jogoNome = :jogoNome");
+$stmt->execute([':jogoNome' => $jogo['nome']]);
 $gameID = $stmt->fetch(PDO::FETCH_ASSOC); //Pega id do jogo que acabou de ser registrado no banco para usar nos nomes das imagens
 $gameID = $gameID['jogoID'];
 
@@ -55,6 +55,6 @@ $cover = $diretorio . basename($_FILES['cover']['name']);
 move_uploaded_file($_FILES['cover']['tmp_name'], $cover);
 rename($cover, $diretorio . 'cover' . $gameID . '.jpg');
 
-
+header("Location: " . $BASE_URL . 'paginasPrincipais/gamePage.php?gameID=' . $gameID);
 
 ?>

@@ -48,7 +48,7 @@ if (!isset($_SESSION['loginStatus'])) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="ms-auto">
-                        <ul class="navbar-nav d-flex align-items-center ml-auto mb-2 mb-lh-0">
+                        <ul class="navbar-nav d-flex ml-auto mb-2 mb-lh-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="<?= $BASE_URL ?>paginasPrincipais/index.php">Home</a>
                             </li>
@@ -59,7 +59,7 @@ if (!isset($_SESSION['loginStatus'])) {
                                 <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/perfilDoUsuario.php">Perfil</a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?= $BASE_URL ?>paginasPrincipais/logout.php" class="nav-link"><button class="btn btn-outline-light">Log-out</button></a>
+                                <button id="logoutBtn" class="btn btn-outline-light"><a href="<?= $BASE_URL ?>paginasPrincipais/logout.php" class="nav-link">Log-out</a></button>
                             </li>
                         </ul>
                     </div>
