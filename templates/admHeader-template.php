@@ -50,20 +50,20 @@ elseif ($_SESSION['usuarioAdm'] != 1)
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="ms-auto">
                         <ul class="navbar-nav ml-auto mb-2 mb-lh-0">
-                            <li class="nav-item">
+                            <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link active" aria-current="page" href="<?= $BASE_URL ?>paginasPrincipais/index.php">Home</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/sobre.php">Sobre</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/perfilDoUsuario.php">Perfil</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item d-flex align-items-center">
                                 <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/admin/index.php">Administradores</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="<?= $BASE_URL ?>form/logout.php" class="nav-link btn btn-outline-light">Log-out</a>
+                            <li class="nav-item d-flex align-items-center">
+                                <button id="logoutBtn" class="btn btn-outline-light"><a href="<?= $BASE_URL ?>form/logout.php" class="nav-link">Log-out</a></button>
                             </li>
                         </ul>
                     </div>
