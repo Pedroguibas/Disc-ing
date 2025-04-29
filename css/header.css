@@ -1,10 +1,6 @@
 header{
     background: #3e68ff;
 }
-.headerShadow{
-    height: .8rem;
-    background: #004BAD;
-}
 .navbar-brand img {
     width: 2em !important;
 }

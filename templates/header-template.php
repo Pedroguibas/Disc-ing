@@ -59,12 +59,11 @@ if (!isset($_SESSION['loginStatus'])) {
                                 <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/perfilDoUsuario.php">Perfil</a>
                             </li>
                             <li class="nav-item">
-                                <button id="logoutBtn" class="btn btn-outline-light"><a href="<?= $BASE_URL ?>paginasPrincipais/logout.php" class="nav-link">Log-out</a></button>
+                                <button id="logoutBtn" class="btn btn-outline-light"><a href="<?= $BASE_URL ?>form/logout.php" class="nav-link">Log-out</a></button>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
-        <div class="headerShadow"></div>
     </header>

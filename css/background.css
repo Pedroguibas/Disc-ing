@@ -15,3 +15,8 @@ body {
 #signinMain {
     background: linear-gradient(#121D46, #472BE0);
 }
+
+#admMain,
+#formJogoMain {
+    background: #32323e;
+}

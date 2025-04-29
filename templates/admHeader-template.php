@@ -60,15 +60,14 @@ elseif ($_SESSION['usuarioAdm'] != 1)
                                 <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/perfilDoUsuario.php">Perfil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/formJogo.php">Add Jogo</a>
+                                <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/admin/index.php">Administradores</a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?= $BASE_URL ?>paginasPrincipais/logout.php" class="nav-link btn btn-outline-light">Log-out</a>
+                                <a href="<?= $BASE_URL ?>form/logout.php" class="nav-link btn btn-outline-light">Log-out</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
-        <div class="headerShadow"></div>
     </header>

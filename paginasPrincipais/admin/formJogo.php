@@ -1,7 +1,7 @@
 <?php
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 $bodyAttributes = 'id="gamePageBody"';
-include_once('../templates/admHeader-template.php');
+include_once('../../templates/admHeader-template.php');
 ?>
     <main id="formJogoMain">
         <form id="formRegistroJogo" action="../form/registraJogo.php" method="POST" enctype="multipart/form-data">
@@ -98,5 +98,5 @@ include_once('../templates/admHeader-template.php');
     <script>let BASE_URL = '<?= $BASE_URL ?>'</script>
     <script src="../javascript/formJogo.js"></script>
 <?php
-include_once('../templates/footer-template.php');
+include_once('../../templates/footer-template.php');
 ?>
