@@ -71,9 +71,11 @@ $Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 ?>
 
                             </ul>
+                            <div class="cardControls">
                                 <div class="swiper-pagination"></div>
                                 <div class="swiper-button-prev"></div>
                                 <div class="swiper-button-next"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,14 +97,20 @@ $Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="itemListaJogoPlatContainer d-flex gap-1">
                             <?php
                             
-                            if($Jogo['pc'])
-                            echo '<i class="bi bi-pc-display itemListaJogoPlat"></i>';
+                            if($Jogo['windowsOS'])
+                            echo '<i class="bi bi-microsoft itemListaJogoPlat"></i>';
+                            if ($Jogo['linuxOS'])
+                                echo '<i class="bi bi-ubuntu itemListaJogoPlat"></i>';
+                            if ($Jogo['macOS'])
+                                echo '<i class="bi bi-apple itemListaJogoPlat"></i>';
                             if($Jogo['playstation'])
                                 echo '<i class="bi bi-playstation itemListaJogoPlat"></i>';
                             if($Jogo['xbox'])
                                 echo '<i class="bi bi-xbox itemListaJogoPlat"></i>';
                             if($Jogo['nintendoSwitch'])
                                 echo '<i class="bi bi-nintendo-switch itemListaJogoPlat"></i>';
+                            if ($Jogo['androidOS'])
+                                echo '<i class="bi bi-android2 itemListaJogoPlat"></i>';
 
                             ?>
                         </div>

@@ -6,7 +6,7 @@ $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 include_once("../config/db.php");
 
 if ($_GET['avaliado']) {
-    $stmt = $conn->prepare("UPDATE avaliacao SET nota = :nota WHERE avaliacaoUsuarioID = :usuarioID AND avaliacaoJogoID = :jogoID");
+    $stmt = $conn->prepare("UPDATE avaliacao SET nota = :nota, avaliacaoData = CURRENT_TIMESTAMP WHERE avaliacaoUsuarioID = :usuarioID AND avaliacaoJogoID = :jogoID");
     $stmt->execute([':nota' => $_GET['nota'],
                     ':jogoID' => $_GET['gameID'],
                     ':usuarioID' => $_SESSION['usuarioID']]);

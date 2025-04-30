@@ -73,7 +73,7 @@ include_once('../../templates/admHeader-template.php');
                 </div>
                 <h2 class="tituloPlat mt-5">Plataformas</h2>
                 <div class="gameInput mt-3 mb-5">
-                    <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-3 flex-wrap">
                         <input class="platCheckInput" id="plat1" type="checkbox" name="plataforma[]" value="switch">
                         <label class="plataformaCheck" for="plat1"><i class="bi bi-nintendo-switch"></i></label>
 
@@ -83,8 +83,18 @@ include_once('../../templates/admHeader-template.php');
                         <input class="platCheckInput" id="plat3" type="checkbox" name="plataforma[]" value="xbox">
                         <label class="plataformaCheck" for="plat3"><i class="bi bi-xbox"></i></label>
 
-                        <input class="platCheckInput" id="plat4" type="checkbox" name="plataforma[]" value="pc">
-                        <label class="plataformaCheck" for="plat4"><i class="bi bi-pc-display"></i></label>
+                        <input class="platCheckInput" id="plat4" type="checkbox" name="plataforma[]" value="windowsOS">
+                        <label class="plataformaCheck" for="plat4"><i class="bi bi-microsoft"></i></label>
+
+                        <input class="platCheckInput" id="plat5" type="checkbox" name="plataforma[]" value="linuxOS">
+                        <label class="plataformaCheck" for="plat5"><i class="bi bi-ubuntu"></i></label>
+
+                        <input class="platCheckInput" id="plat6" type="checkbox" name="plataforma[]" value="macOS">
+                        <label class="plataformaCheck" for="plat6"><i class="bi bi-apple"></i></label>
+
+                        <input class="platCheckInput" id="plat7" type="checkbox" name="plataforma[]" value="androidOS">
+                        <label class="plataformaCheck" for="plat7"><i class="bi bi-android2"></i></label>
+
                     </div>
                     <span class="formJogoWarning" id="nenhumaPlataformaWarning">Selecione ao menos uma plataforma.</span>
                 </div>
@@ -96,7 +106,7 @@ include_once('../../templates/admHeader-template.php');
         </form>
     </main>
     <script>let BASE_URL = '<?= $BASE_URL ?>'</script>
-    <script src="../javascript/formJogo.js"></script>
+    <script src="../../javascript/formJogo.js"></script>
 <?php
 include_once('../../templates/footer-template.php');
 ?>

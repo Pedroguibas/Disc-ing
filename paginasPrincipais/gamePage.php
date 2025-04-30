@@ -117,7 +117,7 @@ else
                             </div>
                             <div class="gameDropContent gameDropHidden">
                                 <div class="d-flex justify-content-center">
-                                    <p class="col-11 mt-2"><?= $gameInfo['sinopse'] ?></p>
+                                    <p class="col-11 mt-2"><?= nl2br($gameInfo['sinopse']) ?></p>
                                 </div>
                             </div>
                         </div>
@@ -147,22 +147,28 @@ else
                     </div>
                 </section>
 
-                <section id="plataformasSection" class="d-flex justify-content-center col-10 m-2">
-                    <div id="plataformasContainer" class="col-lg-8 col-12">
+                <section id="plataformasSection" class="d-flex col-10 m-2">
+                    <div id="plataformasContainer">
                         <div id="plataformasTitleContainer" class="p-2">
                             <h2>Plataformas:</h2>
                         </div>
-                        <div id="plataformas" class="d-flex justify-content-around m-3">
+                        <div id="plataformas" class="d-flex gap-4 m-3">
                             <?php   
 
-                                if($gameInfo['pc'])
-                                echo '<i class="bi bi-pc-display"></i>';
-                                if($gameInfo['playstation'])
+                                if ($gameInfo['windowsOS'])
+                                    echo '<i class="bi bi-microsoft"></i>';
+                                if ($gameInfo['linuxOS'])
+                                    echo '<i class="bi bi-ubuntu"></i>';
+                                if ($gameInfo['macOS'])
+                                    echo '<i class="bi bi-apple"></i>';
+                                if ($gameInfo['playstation'])
                                     echo '<i class="bi bi-playstation"></i>';
-                                if($gameInfo['xbox'])
+                                if ($gameInfo['xbox'])
                                     echo '<i class="bi bi-xbox"></i>';
-                                if($gameInfo['nintendoSwitch'])
+                                if ($gameInfo['nintendoSwitch'])
                                     echo '<i class="bi bi-nintendo-switch"></i>';
+                                if ($gameInfo['androidOS'])
+                                    echo '<i class="bi bi-android2"></i>';
                             
                             ?>
                         </div>

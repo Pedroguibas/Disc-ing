@@ -14,7 +14,10 @@ $jogo['classificacao'] = $_POST['classificacao'];
 $plat['switch'] = 0;
 $plat['playstation'] = 0;
 $plat['xbox'] = 0;
-$plat['pc'] = 0;
+$plat['windowsOS'] = 0;
+$plat['macOS'] = 0;
+$plat['linuxOS'] = 0;
+$plat['androidOS'] = 0;
 
 foreach($_POST['plataforma'] as $plataforma)
     $plat[$plataforma] = 1;
@@ -31,7 +34,7 @@ $stmt = $conn->prepare("SELECT requisitosJogoID FROM requisitosJogo ORDER BY req
 $stmt->execute();
 $reqID = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$stmt = $conn->prepare("INSERT INTO jogo (jogoNome, classificacao, sinopse, jogoRequisitosJogoID, playstation, xbox, nintendoSwitch, pc) VALUES (:nome, :classificacao, :sinopse, :requisitosID, :playstation, :xbox, :nintendoSwitch, :pc)");
+$stmt = $conn->prepare("INSERT INTO jogo (jogoNome, classificacao, sinopse, jogoRequisitosJogoID, playstation, xbox, nintendoSwitch, windowsOS, macOS, linuxOS, androidOS) VALUES (:nome, :classificacao, :sinopse, :requisitosID, :playstation, :xbox, :nintendoSwitch, :windowsOS, :macOS, :linuxOS :androidOS)");
 $stmt->execute([':nome' => $jogo['nome'],
                 ':classificacao' => $jogo['classificacao'],
                 ':sinopse' => $jogo['sinopse'],
@@ -39,7 +42,10 @@ $stmt->execute([':nome' => $jogo['nome'],
                 ':playstation' => $plat['playstation'],
                 ':xbox' => $plat['xbox'],
                 ':nintendoSwitch' => $plat['switch'],
-                ':pc' => $plat['pc']]);
+                ':windowsOS' => $plat['windowsOS'],
+                ':macOS' => $plat['macOS'],
+                ':linuxOS' => $plat['linuxOS'],
+                ':androidOS' => $plat['androidOS']]);
 
 $stmt = $conn->prepare("SELECT jogoID FROM jogo WHERE jogoNome = :jogoNome");
 $stmt->execute([':jogoNome' => $jogo['nome']]);
