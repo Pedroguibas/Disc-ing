@@ -1,0 +1,40 @@
+#listaJogo .itemListaJogo {
+    position: relative;
+    padding: .5em;
+    border-radius: .3em;
+    background: #00000040;
+}
+
+#listaJogo .itemListaJogo:hover {
+    background: #00000060;
+    transition: background 200ms ease;
+}
+
+.itemListaJogo .itemListaJogoImg {
+    width: 7em;
+}
+
+.itemListaJogoImg img {
+    border-radius: 5px;
+}
+
+.itemListaJogo .itemListaJogoInfo .itemListaJogoTitulo {
+    font-size: 1.3em;
+}
+
+.itemListaJogo .itemListaJogoClassificacao {
+    position: absolute;
+    bottom: .5em;
+    right: .5em;
+    width: 3em;
+}
+
+.itemListaJogoInfo .itemListaJogoPlatContainer .itemListaJogoPlat {
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 425px) {
+    #listaJogo {
+        font-size: 0.8em;
+    }
+}

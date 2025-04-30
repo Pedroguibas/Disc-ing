@@ -192,6 +192,7 @@
 
 #enviaComentarioBtn.active {
     background: #00005c;
+    color: #c4c4c4;
     cursor: pointer;
 }
 

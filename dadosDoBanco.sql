@@ -44,14 +44,15 @@ VALUES ('Windows 10 64-bit', 'Intel Core i5-8400 / AMD Ryzen 5 1600', 'NVIDIA Ge
 
 INSERT INTO jogo (jogoNome, jogoRequisitosJogoID, sinopse, classificacao) VALUES ('Black Myth Wukong', 1, 'Macaco.', '16'),
 ('Counter Strike 2', 2, 'Bomba.', '16'),
- ('Zenless Zone Zero', 3, 'Wuaifus.', '12'),
+('Zenless Zone Zero', 3, 'Wuaifus.', '12'),
 ('Tekken 8', 4, 'Luta.', '12'),
 ('God of War Ragnarök', 5, 'Do Santa Monica Studio, esta é a sequência da aclamada versão de 2018 de God of War. O Fimbulwinter já começou. Kratos e Atreus devem viajar pelos Nove Reinos em busca de respostas enquanto as forças asgardianas se preparam para uma batalha profetizada que causará o fim do mundo. Nessa jornada, eles explorarão paisagens míticas impressionantes e enfrentarão inimigos aterradores: deuses nórdicos e monstros. A ameaça do Ragnarök se aproxima. Kratos e Atreus terão de escolher entre a segurança deles próprios e a dos reinos.', '18');
 
 CREATE TABLE avaliacao (
     avaliacaoUsuarioID INT NOT NULL,
     avaliacaoJogoID INT NOT NULL,
-    nota INT NOT NULL);
+    nota INT NOT NULL,
+    avaliacaoData TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 
 ALTER TABLE avaliacao ADD CONSTRAINT chaveCompostaAvaliacao PRIMARY KEY (avaliacaoUsuarioID, avaliacaoJogoID);
 
@@ -83,3 +84,6 @@ CREATE TABLE comentario (
 );
 
 ALTER TABLE comentario ADD CONSTRAINT FK_comentarioUsuario FOREIGN KEY (comentarioUsuarioID) REFERENCES usuario(usuarioID);
+
+CREATE VIEW vw_jogosPopulares AS
+SELECT `j`.`jogoID` AS `jogoID`,`j`.`jogoNome` AS `jogoNome`,`j`.`sinopse` AS `sinopse`,`j`.`jogoRequisitosJogoID` AS `jogoRequisitosJogoID`,`j`.`classificacao` AS `classificacao`,`j`.`playstation` AS `playstation`,`j`.`xbox` AS `xbox`,`j`.`nintendoSwitch` AS `nintendoSwitch`,`j`.`pc` AS `pc` from (`disc-ing`.`jogo` `j` left join `disc-ing`.`avaliacao` `a` on(`a`.`avaliacaoJogoID` = `j`.`jogoID`)) where `a`.`avaliacaoData` >= cast(current_timestamp() as date) - interval 1 week group by `j`.`jogoID` order by avg(`a`.`nota`) desc limit 10;

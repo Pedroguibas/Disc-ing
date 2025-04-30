@@ -2,8 +2,11 @@ body {
     background: #1e1e34;
 }
 
-#indexmain {
-    background: linear-gradient(#121D46, #472BE0);
+#perfilUsuarioMain,
+#indexmain,
+#admMain,
+#formJogoMain {
+    background:#203170;
 }
 
 #gamePageMain {
@@ -14,9 +17,4 @@ body {
 #loginMain,
 #signinMain {
     background: linear-gradient(#121D46, #472BE0);
-}
-
-#admMain,
-#formJogoMain {
-    background: #32323e;
 }

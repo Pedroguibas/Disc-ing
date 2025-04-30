@@ -155,14 +155,14 @@ else
                         <div id="plataformas" class="d-flex justify-content-around m-3">
                             <?php   
 
-                                if($gameInfo['nintendoSwitch'])
-                                    echo '<i class="bi bi-nintendo-switch"></i>';
+                                if($gameInfo['pc'])
+                                echo '<i class="bi bi-pc-display"></i>';
                                 if($gameInfo['playstation'])
                                     echo '<i class="bi bi-playstation"></i>';
                                 if($gameInfo['xbox'])
                                     echo '<i class="bi bi-xbox"></i>';
-                                if($gameInfo['pc'])
-                                    echo '<i class="bi bi-pc-display"></i>';
+                                if($gameInfo['nintendoSwitch'])
+                                    echo '<i class="bi bi-nintendo-switch"></i>';
                             
                             ?>
                         </div>
