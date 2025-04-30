@@ -4,7 +4,7 @@ $bodyAttributes = 'id="gamePageBody"';
 include_once('../../templates/admHeader-template.php');
 ?>
     <main id="formJogoMain">
-        <form id="formRegistroJogo" action="../form/registraJogo.php" method="POST" enctype="multipart/form-data">
+        <form id="formRegistroJogo" action="../../form/registraJogo.php" method="POST" enctype="multipart/form-data">
             <div class="registroContentContainer container mt-3">
                 <div id="formRegistroJogoTitleContainer" class="d-flex justify-content-center mb-5">
                     <h1>Cadastro de jogo</h1>

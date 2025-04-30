@@ -71,11 +71,9 @@ $Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 ?>
 
                             </ul>
-                            <div class="cardControls">
                                 <div class="swiper-pagination"></div>
                                 <div class="swiper-button-prev"></div>
                                 <div class="swiper-button-next"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,7 +91,9 @@ $Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <img src="<?= $BASE_URL ?>assets/Jogos/cover<?= $Jogo['jogoID'] ?>.jpg" alt="Capa <?= $Jogo['jogoNome'] ?>" class="w-100">
                     </div>
                     <div class="itemListaJogoInfo d-flex flex-column">
-                        <span class="itemListaJogoTitulo"><?= $Jogo['jogoNome'] ?></span>
+                        <div class="itemListaJogoTituloContainer">
+                            <span class="itemListaJogoTitulo"><?= $Jogo['jogoNome'] ?></span>
+                        </div>
                         <div class="itemListaJogoPlatContainer d-flex gap-1">
                             <?php
                             

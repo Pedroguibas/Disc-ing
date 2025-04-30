@@ -25,7 +25,8 @@
 
 .gameInput .textInput,
 .form-select option,
-.form-select {
+.form-select,
+.form-control {
     color: #000 !important;
 }
 

@@ -34,7 +34,7 @@ $stmt = $conn->prepare("SELECT requisitosJogoID FROM requisitosJogo ORDER BY req
 $stmt->execute();
 $reqID = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$stmt = $conn->prepare("INSERT INTO jogo (jogoNome, classificacao, sinopse, jogoRequisitosJogoID, playstation, xbox, nintendoSwitch, windowsOS, macOS, linuxOS, androidOS) VALUES (:nome, :classificacao, :sinopse, :requisitosID, :playstation, :xbox, :nintendoSwitch, :windowsOS, :macOS, :linuxOS :androidOS)");
+$stmt = $conn->prepare("INSERT INTO jogo (jogoNome, classificacao, sinopse, jogoRequisitosJogoID, playstation, xbox, nintendoSwitch, windowsOS, macOS, linuxOS, androidOS) VALUES (:nome, :classificacao, :sinopse, :requisitosID, :playstation, :xbox, :nintendoSwitch, :windowsOS, :macOS, :linuxOS, :androidOS)");
 $stmt->execute([':nome' => $jogo['nome'],
                 ':classificacao' => $jogo['classificacao'],
                 ':sinopse' => $jogo['sinopse'],

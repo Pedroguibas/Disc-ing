@@ -16,9 +16,17 @@
 
 .itemListaJogoImg img {
     border-radius: 5px;
+    aspect-ratio: 1/1;
 }
 
-.itemListaJogo .itemListaJogoInfo .itemListaJogoTitulo {
+.itemListaJogoInfo .itemListaJogoTituloContainer {
+    max-width: 17em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+ .itemListaJogoInfo .itemListaJogoTituloContainer .itemListaJogoTitulo {
     font-size: 1.3em;
 }
 
@@ -34,6 +42,9 @@
 }
 
 @media screen and (max-width: 425px) {
+    .itemListaJogoInfo .itemListaJogoTituloContainer {
+        max-width: 13em;
+    }
     #listaJogo {
         font-size: 0.8em;
     }

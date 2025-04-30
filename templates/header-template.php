@@ -59,7 +59,7 @@ if (!isset($_SESSION['loginStatus'])) {
                                 <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/perfilDoUsuario.php">Perfil</a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
-                                <button id="logoutBtn" class="btn btn-outline-light"><a href="<?= $BASE_URL ?>form/logout.php" class="nav-link">Log-out</a></button>
+                                <a href="<?= $BASE_URL ?>form/logout.php" class="nav-link"><button id="logoutBtn" class="btn btn-outline-light">Log-out</button></a>
                             </li>
                         </ul>
                     </div>

@@ -2,16 +2,12 @@ body {
     background: #1e1e34;
 }
 
-#perfilUsuarioMain,
-#indexmain,
-#admMain,
-#formJogoMain {
+main {
     background:#203170;
 }
 
 #gamePageMain {
     padding-top: 0;
-    background: #335;
 }
 
 #loginMain,

@@ -9,9 +9,5 @@ header{
 }
 
 #logoutBtn {
-    padding: 0 1em;
-}
-
-#logoutBtn a {
-    padding: 0.3em 0;
+    padding: .3em 1em;
 }

@@ -63,7 +63,7 @@ elseif ($_SESSION['usuarioAdm'] != 1)
                                 <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/admin/index.php">Administradores</a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
-                                <button id="logoutBtn" class="btn btn-outline-light"><a href="<?= $BASE_URL ?>form/logout.php" class="nav-link">Log-out</a></button>
+                                <a href="<?= $BASE_URL ?>form/logout.php" class="nav-link"><button id="logoutBtn" class="btn btn-outline-light">Log-out</button></a>
                             </li>
                         </ul>
                     </div>
