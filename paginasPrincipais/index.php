@@ -4,7 +4,7 @@ include_once("../config/db.php");
 session_start();
 
 $aditionalTags = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">';
-
+$bodyAttributes = 'onload="swiperCheck();"';
 if ($_SESSION['usuarioAdm'] == 1)
     include_once("../templates/admHeader-template.php");
 else

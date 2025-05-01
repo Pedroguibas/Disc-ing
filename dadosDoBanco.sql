@@ -94,7 +94,7 @@ ALTER TABLE avaliacao ADD CONSTRAINT fkAvaliacaoUsuario FOREIGN KEY (avaliacaoUs
 
 ALTER TABLE avaliacao ADD CONSTRAINT fkAvaliacaoJogo FOREIGN KEY (avaliacaoJogoID) REFERENCES jogo(jogoID);
 
-INSERT INTO avaliacao (avaliacaoJogoID, avaliacaoUsuarioID, nota) VALUES (5, 1, 10), (5, 2, 7), (5, 3, 9), (5, 4, 8), (5, 5, 5), (5, 6, 9);
+INSERT INTO avaliacao (avaliacaoJogoID, avaliacaoUsuarioID, nota) VALUES (5, 1, 10), (5, 2, 7), (5, 3, 9), (5, 4, 8), (5, 5, 5), (5, 6, 9), (11, 3, 10), (8, 4, 7), (2, 1, 4), (3, 5, 1), (11, 4, 7);
 
 CREATE TABLE listaJogado (
     listaJogadoUsuarioID INT NOT NULL,

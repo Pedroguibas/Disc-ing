@@ -26,8 +26,8 @@ new Swiper('.cardWrapper', {
   }
 });
 
-$('body').on('load', function() {
+function swiperCheck() {
   if ($('.cardItem').length < 2) {
     $('.sectionJogosPopulares').hide();
   }
-});
+};
