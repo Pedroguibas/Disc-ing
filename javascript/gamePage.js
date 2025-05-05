@@ -103,6 +103,7 @@ function carregaComentarios() {
 
                 for (let i=0; i<result.length; i++) {
                     let comentarioUsuarioID = result[i].comentarioUsuarioID;
+                    let comentarioIDInput = document.createElement('input');
                     let comentario = document.createElement('div');
                     let perfilUsuario = document.createElement('div');
                     let fotoUsuarioContainer = document.createElement('div');
@@ -112,6 +113,10 @@ function carregaComentarios() {
                     let nomeUsuario = document.createElement('span');
                     let conteudo = document.createElement('p');
                     let conteudoContainer = document.createElement('div');
+                    let comentarioLikeContainer = document.createElement('div');
+                    let likeBtn = document.createElement('button');
+                    let likeCounter = document.createElement('span');
+
                     comentario.classList.add('comentario', 'd-flex', 'flex-column', 'gap-1', 'col-lg-8', 'col-10');
                     perfilUsuario.classList.add('perfilUsuarioComentario', 'd-flex', 'align-items-center', 'gap-2')
 
@@ -131,6 +136,15 @@ function carregaComentarios() {
                     conteudoContainer.classList.add('conteudoComentarioContainer');
                     conteudo.classList.add('conteudoComentario');
                     conteudo.innerHTML = (result[i].conteudo.replace(/\n/g, "<br>")).trim();
+
+                    comentarioLikeContainer.classList.add('comentarioLikeContainer', 'd-flex', 'align-items-center', 'gap-1');
+                    likeBtn.classList.add('likeBtn', 'd-flex', 'align-items-center', 'justify-content-center');
+                    likeBtn.innerHTML = '<i class="bi bi-hand-thumbs-up"></i>';
+                    likeCounter.classList.add('likeCounter');
+                    likeCounter.textContent = result[i].likes>0 ? result[i].likes : '';
+                    comentarioIDInput.type = 'hidden';
+                    comentarioIDInput.value = result[i].comentarioID;
+
                     $.ajax({
                         url: BASE_URL + 'form/checaArquivo.php',
                         method: 'GET',
@@ -158,9 +172,15 @@ function carregaComentarios() {
                         perfilUsuario.appendChild(informacoesUsuario);
     
                         conteudoContainer.appendChild(conteudo)
+
+                        comentarioLikeContainer.appendChild(likeBtn);
+                        comentarioLikeContainer.appendChild(likeCounter);
+                        comentarioLikeContainer.appendChild(comentarioIDInput);
+
     
                         comentario.appendChild(perfilUsuario);
                         comentario.appendChild(conteudoContainer);
+                        comentario.appendChild(comentarioLikeContainer);
     
                         comentariosContainer.appendChild(comentario);
 

@@ -273,6 +273,23 @@
     color: #fff;
 }
 
+/* -=-= Likes Comentário =-=- */
+
+.comentarioLikeContainer .likeBtn {
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.comentarioLikeContainer .likeBtn:hover {
+    background: #00000030
+}
+
+.comentarioLikeContainer .likeBtn i {
+    font-size: 1.3em;
+}
+
 @media screen and (max-width: 767px) {
     #plataformas i {
         font-size: 3em;
