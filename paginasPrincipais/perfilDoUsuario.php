@@ -30,7 +30,7 @@ else
                 <div id="perfilUsuarioContainer" class="d-flex align-items-center gap-lg-3 gap-md-3 gap-1">
                     <div id="fotoDePerfilContainer">
                         <img id="fotoDePerfil" class="w-100" 
-                        src="<?= $BASE_URL ?>assets/usuarios/<?php echo file_exists('../assets/usuarios/profilePic' . $_SESSION['usuarioID'] . '.jpg') ? 'profilePic' . $_SESSION['usuarioID'] : 'unknownUser' ?>.jpg"
+                        src="<?= $BASE_URL ?>assets/usuarios/<?php echo file_exists('../assets/usuarios/profilePic' . $userInfo['usuarioID'] . '.jpg') ? 'profilePic' . $userInfo['usuarioID'] : 'unknownUser' ?>.jpg"
                         alt="Foto de <?= $userInfo['username'] ?>">
                     </div>
                     <div class="d-flex flex-column">
