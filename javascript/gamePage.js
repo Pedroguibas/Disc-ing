@@ -108,7 +108,7 @@ function carregaComentarios() {
                     let fotoUsuarioContainer = document.createElement('div');
                     let fotoUsuario = document.createElement('img');
                     let informacoesUsuario = document.createElement('div');
-                    let username = document.createElement('span');
+                    let username = document.createElement('a');
                     let nomeUsuario = document.createElement('span');
                     let conteudo = document.createElement('p');
                     let conteudoContainer = document.createElement('div');
@@ -122,6 +122,7 @@ function carregaComentarios() {
 
                     informacoesUsuario.classList.add('informacoesUsuarioComentario', 'd-flex', 'flex-column');
                     username.classList.add('usuarioUsernameComentario');
+                    username.href = BASE_URL + 'paginasPrincipais/perfilDoUsuario.php?u=' + comentarioUsuarioID;
                     username.textContent = result[i].username;
 
                     nomeUsuario.classList.add('usuarioNomeComentario');

@@ -56,7 +56,7 @@ if (!isset($_SESSION['loginStatus'])) {
                                 <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/sobre.php">Sobre</a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/perfilDoUsuario.php">Perfil</a>
+                                <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/perfilDoUsuario.php?u=<?= $_SESSION['usuarioID'] ?>">Perfil</a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
                                 <a href="<?= $BASE_URL ?>form/logout.php" class="nav-link"><button id="logoutBtn" class="btn btn-outline-light">Log-out</button></a>

@@ -18,7 +18,7 @@ VALUES ('pedroguibas123@gmail.com', 'senha123', 'Pedro', 'Bastos', 'Pedroguibas'
 CREATE TABLE jogo (
     jogoID INT AUTO_INCREMENT PRIMARY KEY,
     jogoNome VARCHAR(255) NOT NULL UNIQUE,
-    sinopse VARCHAR(2500) NOT NULL,
+    sinopse TEXT(2500) NOT NULL,
     jogoRequisitosJogoID INT,
     classificacao ENUM('livre', '10', '12', '14', '16', '18') NOT NULL,
     playstation TINYINT(1) DEFAULT 0,
@@ -107,7 +107,7 @@ ALTER TABLE listaJogado ADD CONSTRAINT fk_jogolistaJogado FOREIGN KEY (listaJoga
 
 CREATE TABLE comentario (
 	comentarioID INT AUTO_INCREMENT PRIMARY KEY,
-    conteudo VARCHAR(600) NOT NULL,
+    conteudo TEXT(600) NOT NULL,
     likes INT DEFAULT 0,
     spoiler TINYINT(1) NOT NULL,
     comentarioData TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

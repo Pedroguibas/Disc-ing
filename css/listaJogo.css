@@ -19,6 +19,10 @@
     aspect-ratio: 1/1;
 }
 
+.itemListaJogo {
+    text-decoration: none;
+}
+
 .itemListaJogoInfo .itemListaJogoTituloContainer {
     max-width: 17em;
     overflow: hidden;
@@ -47,5 +51,11 @@
     }
     #listaJogo {
         font-size: 0.8em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .itemListaJogoInfo .itemListaJogoTituloContainer {
+        max-width: 25em;
     }
 }

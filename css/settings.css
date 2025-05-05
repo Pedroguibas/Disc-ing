@@ -11,8 +11,3 @@ html * {
 main {
     padding: 5em 0;
 }
-
-a,
-a * {
-    text-decoration: none;
-}
