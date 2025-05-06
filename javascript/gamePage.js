@@ -104,6 +104,7 @@ function carregaComentarios() {
                 for (let i=0; i<result.length; i++) {
                     let comentarioUsuarioID = result[i].comentarioUsuarioID;
                     let comentarioIDInput = document.createElement('input');
+                    let comentarioLikedInput = document.createElement('input');
                     let comentario = document.createElement('div');
                     let perfilUsuario = document.createElement('div');
                     let fotoUsuarioContainer = document.createElement('div');
@@ -139,11 +140,23 @@ function carregaComentarios() {
 
                     comentarioLikeContainer.classList.add('comentarioLikeContainer', 'd-flex', 'align-items-center', 'gap-1');
                     likeBtn.classList.add('likeBtn', 'd-flex', 'align-items-center', 'justify-content-center');
-                    likeBtn.innerHTML = '<i class="bi bi-hand-thumbs-up"></i>';
+                    if (result[i].liked == 1)
+                        likeBtn.innerHTML = '<i class="bi bi-hand-thumbs-up-fill"></i>';
+                    else
+                        likeBtn.innerHTML = '<i class="bi bi-hand-thumbs-up"></i>';
+
+                    likeBtn.addEventListener('click', curtirComentario);
                     likeCounter.classList.add('likeCounter');
-                    likeCounter.textContent = result[i].likes>0 ? result[i].likes : '';
+                    likeCounter.textContent = result[i].likes;
+                    if (likeCounter.textContent == '0') {
+                        likeCounter.style = 'display: none';
+                    }
                     comentarioIDInput.type = 'hidden';
+                    comentarioIDInput.classList.add('comentarioIDInput');
                     comentarioIDInput.value = result[i].comentarioID;
+                    comentarioLikedInput.type = 'hidden';
+                    comentarioLikedInput.classList.add('comentarioLikedInput');
+                    comentarioLikedInput.value = result[i].liked;
 
                     $.ajax({
                         url: BASE_URL + 'form/checaArquivo.php',
@@ -176,6 +189,7 @@ function carregaComentarios() {
                         comentarioLikeContainer.appendChild(likeBtn);
                         comentarioLikeContainer.appendChild(likeCounter);
                         comentarioLikeContainer.appendChild(comentarioIDInput);
+                        comentarioLikeContainer.appendChild(comentarioLikedInput);
 
     
                         comentario.appendChild(perfilUsuario);
@@ -186,6 +200,41 @@ function carregaComentarios() {
 
                     });
                 }
+            }
+        }
+    });
+}
+
+function curtirComentario() {
+    let btn = $(this);
+    let comentID = btn.parent().find($('.comentarioIDInput')).val();
+    let comentLiked = btn.parent().find($('.comentarioLikedInput'));
+    let likeCounter = btn.parent().find($('.likeCounter'));
+    $.ajax({
+        url: BASE_URL + 'form/curtirComentario.php',
+        method: 'POST',
+        data: {
+            comentarioID: comentID,
+            liked: comentLiked.val()
+        },
+        success: function() {
+            let likes = likeCounter.text();
+            if (comentLiked.val() == 1) {
+                btn.find($('i')).removeClass('bi-hand-thumbs-up-fill');
+                btn.find($('i')).addClass('bi-hand-thumbs-up');
+                comentLiked.val(0);
+                likeCounter.text(parseInt(likes) - 1);
+                if (likeCounter.text() == 0)
+                    likeCounter.hide();
+                else
+                    likeCounter.show();
+            } else {
+                btn.find($('i')).removeClass('bi-hand-thumbs-up');
+                btn.find($('i')).addClass('bi-hand-thumbs-up-fill');
+                comentLiked.val(1);
+                likeCounter.text(parseInt(likes) + 1);
+                if (likeCounter.text() != 0)
+                    likeCounter.show();
             }
         }
     });

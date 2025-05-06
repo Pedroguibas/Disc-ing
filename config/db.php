@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$dbname = "disc-ing";
+$dbname = "discing";
 $username = "discing";
 $password = "532262";
 
@@ -12,4 +12,5 @@ try {
 } catch (PDOexception $e) {
     die("Erro de conexão: " . $e->getMessage());
 }
+
 ?>

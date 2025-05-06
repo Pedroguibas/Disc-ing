@@ -1,3 +1,7 @@
+CREATE DATABASE discing;
+
+USE discing;
+
 CREATE TABLE usuario (
     usuarioID INT AUTO_INCREMENT PRIMARY KEY,
     usuarioNome VARCHAR(70) NOT NULL,
@@ -119,6 +123,15 @@ CREATE TABLE comentario (
 
 ALTER TABLE comentario ADD CONSTRAINT FK_comentarioUsuario FOREIGN KEY (comentarioUsuarioID) REFERENCES usuario(usuarioID);
 
+CREATE TABLE usuarioLikeComentario (
+    likeUsuarioID INT,
+    likeComentarioID INT,
+    liked TINYINT(1) DEFAULT 1,
+	PRIMARY KEY(likeUsuarioID, likeComentarioID));
+
+ALTER TABLE usuarioLikeComentario ADD CONSTRAINT fk_like_usuario FOREIGN KEY (likeUsuarioID) REFERENCES usuario(usuarioID);
+ALTER TABLE usuarioLikeComentario ADD CONSTRAINT fk_like_comentario FOREIGN KEY (likeComentarioID) REFERENCES comentario(comentarioID);
+
 CREATE VIEW vw_jogosPopulares AS
 SELECT 
 	J.*
@@ -128,3 +141,8 @@ WHERE A.avaliacaoData >= DATE(NOW()) - INTERVAL 1 WEEK
 GROUP BY J.jogoID
 ORDER BY AVG(A.nota) DESC
 LIMIT 6;
+
+
+
+CREATE USER discing IDENTIFIED BY '532262';
+GRANT ALL ON discing.* TO discing;
