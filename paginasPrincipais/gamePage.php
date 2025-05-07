@@ -99,10 +99,10 @@ else
                             <?php 
                             
                             if ($listaJogado == 1)
-                                echo '<i class="bi bi-check-lg"></i>';
+                                echo '<i class="bi bi-check-lg"></i> Jogado';
                             else
-                                echo '<i class="bi bi-plus-square"></i>';
-                            ?> Marcar como Jogado</button>
+                                echo '<i class="bi bi-plus-square"></i> Marcar como Jogado';
+                            ?></button>
                     </div>
                     
                 </section>

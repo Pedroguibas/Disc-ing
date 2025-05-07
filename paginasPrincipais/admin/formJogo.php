@@ -1,6 +1,7 @@
 <?php
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 $bodyAttributes = 'id="gamePageBody"';
+$active = 'adm';
 include_once('../../templates/admHeader-template.php');
 ?>
     <main id="formJogoMain">

@@ -1,0 +1,39 @@
+.jogosJogadosContainer .containerCardJogo .cardJogo {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #c4c4c4;
+    box-shadow: 3px 3px 5px #00000080;
+    background: #000;
+}
+
+.cardJogo .cardJogoCoverContainer img {
+    aspect-ratio: 16/9;
+    transition: all ease 200ms;
+}
+
+.cardJogo:hover .cardJogoCoverContainer img {
+    transform: scale(1.3);
+    filter: blur(3px); 
+    opacity: 60%;
+    transition: all ease 200ms;
+}
+
+.cardJogo .cardJogoTitleContainer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-top: 25px;
+    background: linear-gradient(transparent 0%, #18181865 15%, 40%, #181818 100%);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: all ease 200ms;
+}
+
+.jogosJogadosContainer .noGameFiller {
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 600;
+}

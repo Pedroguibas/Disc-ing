@@ -103,7 +103,8 @@ INSERT INTO avaliacao (avaliacaoJogoID, avaliacaoUsuarioID, nota) VALUES (5, 1, 
 CREATE TABLE listaJogado (
     listaJogadoUsuarioID INT NOT NULL,
     listaJogadoJogoID INT NOT NULL,
-    jogado TINYINT(1));
+    jogado TINYINT(1) DEFAULT 1,
+    dataMarcacaoJogado TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
     
 ALTER TABLE listaJogado ADD CONSTRAINT pk_listaJogado PRIMARY KEY (listaJogadoUsuarioID, listaJogadoJogoID);
 ALTER TABLE listaJogado ADD CONSTRAINT fk_usuariolistaJogado FOREIGN KEY (listaJogadoUsuarioID) REFERENCES usuario(usuarioID);

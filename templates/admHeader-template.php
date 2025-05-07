@@ -51,16 +51,16 @@ elseif ($_SESSION['usuarioAdm'] != 1)
                     <div class="ms-auto">
                         <ul class="navbar-nav ml-auto mb-2 mb-lh-0">
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link active" aria-current="page" href="<?= $BASE_URL ?>paginasPrincipais/index.php">Home</a>
+                                <a class="nav-link <?php echo $active == 'home' ? 'active" aria-current="page"' : '"'; ?> href="<?= $BASE_URL ?>paginasPrincipais/index.php">Home</a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/sobre.php">Sobre</a>
+                                <a class="nav-link <?php echo $active == 'sobre' ? 'active" aria-current="page"' : '"'; ?> href="<?= $BASE_URL ?>paginasPrincipais/sobre.php">Sobre</a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/perfilDoUsuario.php?u=<?= $_SESSION['usuarioID'] ?>">Perfil</a>
+                                <a class="nav-link <?php echo $active == 'perfil' ? 'active" aria-current="page"' : '"'; ?> href="<?= $BASE_URL ?>paginasPrincipais/perfilDoUsuario.php?u=<?= $_SESSION['usuarioID'] ?>">Perfil</a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
-                                <a class="nav-link" href="<?= $BASE_URL ?>paginasPrincipais/admin/index.php">Administradores</a>
+                                <a class="nav-link <?php echo $active == 'adm' ? 'active" aria-current="page"' : '"'; ?> href="<?= $BASE_URL ?>paginasPrincipais/admin/index.php">Administradores</a>
                             </li>
                             <li class="nav-item d-flex align-items-center">
                                 <a href="<?= $BASE_URL ?>form/logout.php" class="nav-link"><button id="logoutBtn" class="btn btn-outline-light">Log-out</button></a>
