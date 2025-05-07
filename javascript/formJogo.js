@@ -8,7 +8,7 @@ $('#formRegistroJogo').on('submit', function(e) {
     }
     $.ajax({
         url: BASE_URL + 'form/validaNomeJogo.php',
-        method: 'GET',
+        method: 'POST',
         data:{
             nome: $('#nomeJogoInput').val()
         },

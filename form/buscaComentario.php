@@ -15,7 +15,7 @@ $stmt = $conn->prepare("SELECT
                         ORDER BY C.comentarioData DESC");
 
 $stmt->execute([':usuarioID' => $_SESSION['usuarioID'],
-                ':jogoID' => $_GET['jogoID'],]);
+                ':jogoID' => $_POST['jogoID'],]);
 $comentarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $listaJogado = [];

@@ -2,12 +2,12 @@
 include_once("../config/db.php");
 session_start();
 
-$conteudo = htmlspecialchars($_GET['conteudo']);
+$conteudo = htmlspecialchars($_POST['conteudo']);
 
 $stmt = $conn->prepare("INSERT INTO comentario (conteudo, spoiler, comentarioUsuarioID, comentarioJogoID)
                         VALUES (:conteudo, :spoiler, :comentarioUsuarioID, :comentarioJogoID)");
 $stmt->execute([':conteudo' => $conteudo,
-                ':spoiler' => $_GET['spoiler'],
+                ':spoiler' => $_POST['spoiler'],
                 ':comentarioUsuarioID' => $_SESSION['usuarioID'],
-                ':comentarioJogoID' => $_GET['jogoID']]);
+                ':comentarioJogoID' => $_POST['jogoID']]);
 ?>

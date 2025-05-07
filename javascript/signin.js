@@ -95,7 +95,7 @@ $('#loginForm').on('submit', function(e) {
     if(validaEmail()) {
         $.ajax({
             url: BASE_URL + "form/checaUsuarioEmail.php",
-            method: 'GET',
+            method: 'POST',
             data: {
                 email: $('#email').val()
             },
@@ -107,7 +107,11 @@ $('#loginForm').on('submit', function(e) {
             }
         }).then(function() {
             $.ajax({
-                url: BASE_URL + "form/checaUsuarioUsername.php?username=" + $('#username').val(),
+                url: BASE_URL + 'form/checaUsuarioUsername.php',
+                method: 'POST',
+                data: {
+                    username: $('#username').val()
+                },
                 success: function(result) {
                     result = parseInt(result);
         

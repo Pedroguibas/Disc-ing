@@ -41,7 +41,7 @@ function modoMostrarAvaliacao() {
 function togglelistaJogado() {
     $.ajax({
         url: BASE_URL + 'form/marcarJogado.php',
-        method: 'GET',
+        method: 'POST',
         data: {
             gameID: gameID,
             jogado: jogado
@@ -64,7 +64,7 @@ function avaliaJogo() {
     let notaNova = parseFloat($(this).val());
     $.ajax({
         url: BASE_URL + 'form/avaliaJogo.php',
-        method: 'GET',
+        method: 'POST',
         data: {
             gameID: gameID,
             avaliado: avaliado,
@@ -91,7 +91,7 @@ function toggleSpoiler() {
 function carregaComentarios() {
     $.ajax({
         url: BASE_URL + 'form/buscaComentario.php',
-        method: 'GET',
+        method: 'POST',
         data: {
             jogoID: gameID
         },
@@ -279,7 +279,7 @@ $('#enviaComentarioBtn').on('click', function() {
     if($(this).hasClass('active')) {
         $.ajax({
             url: BASE_URL + "form/registraComentario.php",
-            method: 'GET',
+            method: 'POST',
             data: {
                 jogoID: gameID,
                 conteudo: $('#novoComentario').val(),

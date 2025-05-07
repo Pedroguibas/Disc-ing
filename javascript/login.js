@@ -27,7 +27,12 @@ $('#loginForm').on('submit', function(e) {
     if($('#senha').val().length >= 8) {
         
         $.ajax({
-            url: BASE_URL + 'form/validaLogin.php?usuario=' + $('#usuario').val() + '&senha=' + $('#senha').val(),
+            url: BASE_URL + 'form/validaLogin.php',
+            method: 'POST',
+            data: {
+                usuario: $('#usuario').val(),
+                senha: $('#senha').val()
+            },
             success: function(result) {
                 result = parseInt(result);
                 
