@@ -31,13 +31,16 @@
     text-overflow: ellipsis;
 }
 
-.jogosJogadosContainer .cardJogo:hover .cardJogoTitleContainer {
+.cardJogo:hover .cardJogoTitleContainer {
     bottom: 50%;
     text-align: center;
     transform: translateY(50%);
-    color: #fff !important;
     font-size: 1.5em;
     font-weight: bold;
     background: transparent;
     transition: all ease 200ms;
+}
+
+.cardJogo:hover .cardJogoTitleContainer * {
+    color: #fff;
 }
