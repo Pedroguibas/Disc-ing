@@ -16,7 +16,8 @@ $stmt = $conn->prepare("SELECT
                             COUNT(A.avaliacaoJogoID) AS nAvaliacoes
                         FROM vw_jogosPopulares J
                         LEFT JOIN avaliacao A ON A.avaliacaoJogoID = J.jogoID
-                        GROUP BY J.jogoID;");
+                        GROUP BY J.jogoID
+                        LIMIT 6;");
 $stmt->execute();
 $JogosPopulares = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -26,7 +27,8 @@ $stmt = $conn->prepare("SELECT
                             COUNT(A.avaliacaoJogoID) AS nAvaliacoes
                         FROM jogo J
                         LEFT JOIN avaliacao A ON A.avaliacaoJogoID = J.jogoID
-                        GROUP BY J.jogoID;");
+                        GROUP BY J.jogoID
+                        ORDER BY J.jogoNome;");
 $stmt->execute();
 $Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -98,26 +100,34 @@ $Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="itemListaJogoPlatContainer d-flex gap-1">
                             <?php
                             
-                            if($Jogo['windowsOS'])
-                            echo '<i class="bi bi-microsoft itemListaJogoPlat"></i>';
-                            if ($Jogo['linuxOS'])
-                                echo '<i class="bi bi-ubuntu itemListaJogoPlat"></i>';
-                            if ($Jogo['macOS'])
-                                echo '<i class="bi bi-apple itemListaJogoPlat"></i>';
-                            if($Jogo['playstation'])
-                                echo '<i class="bi bi-playstation itemListaJogoPlat"></i>';
-                            if($Jogo['xbox'])
-                                echo '<i class="bi bi-xbox itemListaJogoPlat"></i>';
-                            if($Jogo['nintendoSwitch'])
-                                echo '<i class="bi bi-nintendo-switch itemListaJogoPlat"></i>';
-                            if ($Jogo['androidOS'])
-                                echo '<i class="bi bi-android2 itemListaJogoPlat"></i>';
+                                if($Jogo['windowsOS'])
+                                    echo '<i class="bi bi-microsoft itemListaJogoPlat"></i>';
+                                if ($Jogo['linuxOS'])
+                                    echo '<i class="bi bi-ubuntu itemListaJogoPlat"></i>';
+                                if ($Jogo['macOS'])
+                                    echo '<i class="bi bi-apple itemListaJogoPlat"></i>';
+                                if($Jogo['playstation'])
+                                    echo '<i class="bi bi-playstation itemListaJogoPlat"></i>';
+                                if($Jogo['xbox'])
+                                    echo '<i class="bi bi-xbox itemListaJogoPlat"></i>';
+                                if($Jogo['nintendoSwitch'])
+                                    echo '<i class="bi bi-nintendo-switch itemListaJogoPlat"></i>';
+                                if ($Jogo['androidOS'])
+                                    echo '<i class="bi bi-android2 itemListaJogoPlat"></i>';
 
                             ?>
                         </div>
                     </div>
                     <div class="itemListaJogoClassificacao">
                         <img src="<?= $BASE_URL ?>assets/Jogos/classificacao/age<?= $Jogo['classificacao'] ?>.png" alt="Classificação <?= $Jogo['classificacao'] ?>" class="w-100">
+                    </div>
+                    <div class="itemListaJogoNotaContainer">
+                        <span class="itemListaJogoNota"><i class="bi bi-star-fill"></i> <?php
+                            if ($Jogo['nAvaliacoes'] > 0)
+                                echo number_format($Jogo['nota'] / $Jogo['nAvaliacoes'], 2);
+                            else
+                                echo '0.00';
+                        ?></span>
                     </div>
                 </a>
             <?php } ?>

@@ -32,6 +32,8 @@ CREATE TABLE IF NOT EXISTS jogo (
     macOS TINYINT(1) DEFAULT 0,
     linuxOS TINYINT(1) DEFAULT 0,
     androidOS TINYINT(1) DEFAULT 0);
+
+CREATE INDEX IF NOT EXISTS idx_jogoNome ON jogo(jogoNome);
     
 CREATE TABLE IF NOT EXISTS requisitosJogo (
     requisitosJogoID INT AUTO_INCREMENT PRIMARY KEY,
@@ -133,16 +135,14 @@ CREATE TABLE IF NOT EXISTS usuarioLikeComentario (
 ALTER TABLE usuarioLikeComentario ADD CONSTRAINT fk_like_usuario FOREIGN KEY (likeUsuarioID) REFERENCES usuario(usuarioID);
 ALTER TABLE usuarioLikeComentario ADD CONSTRAINT fk_like_comentario FOREIGN KEY (likeComentarioID) REFERENCES comentario(comentarioID);
 
-CREATE VIEW vw_jogosPopulares IF NOT EXISTS AS
+CREATE VIEW IF NOT EXISTS vw_jogosPopulares AS
 SELECT 
 	J.*
 FROM jogo J
 LEFT JOIN avaliacao A ON A.avaliacaoJogoID = J.jogoID
 WHERE A.avaliacaoData >= DATE(NOW()) - INTERVAL 1 WEEK
 GROUP BY J.jogoID
-ORDER BY AVG(A.nota) DESC
-LIMIT 6;
-
+ORDER BY AVG(A.nota) DESC;
 
 
 CREATE USER discing IDENTIFIED BY '532262';

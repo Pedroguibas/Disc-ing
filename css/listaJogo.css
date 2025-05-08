@@ -45,6 +45,15 @@
     font-size: 1.5em;
 }
 
+.itemListaJogo .itemListaJogoNotaContainer .itemListaJogoNota {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1.3em;
+}
+
 @media screen and (max-width: 425px) {
     .itemListaJogoInfo .itemListaJogoTituloContainer {
         max-width: 13em;
