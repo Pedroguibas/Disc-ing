@@ -21,6 +21,18 @@
     width: 40%;
 }
 
+.jogosJogadosContainer {
+    border-radius: 5px;
+    padding: .5em .3em;
+    background: #1e1e34;
+}
+
+.jogosJogadosContainer .noGameFiller {
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 600;
+}
+
 @media screen and (max-width: 425px) {
     #perfilUsuarioMain {
         font-size: .8em;

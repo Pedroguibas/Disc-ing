@@ -1,8 +1,8 @@
-CREATE DATABASE discing;
+CREATE DATABASE IF NOT EXISTS discing;
 
 USE discing;
 
-CREATE TABLE usuario (
+CREATE TABLE IF NOT EXISTS usuario (
     usuarioID INT AUTO_INCREMENT PRIMARY KEY,
     usuarioNome VARCHAR(70) NOT NULL,
     usuarioSobrenome VARCHAR(255) NOT NULL,
@@ -19,7 +19,7 @@ VALUES ('pedroguibas123@gmail.com', 'senha123', 'Pedro', 'Bastos', 'Pedroguibas'
 ('joao@gmail.com', 'senha123', 'Joao', 'Cardia', 'Jao', 0),
 ('querino@gmail.com', 'senha123', 'Luiz', 'Querino', 'QuerinoLu', 0);
 
-CREATE TABLE jogo (
+CREATE TABLE IF NOT EXISTS jogo (
     jogoID INT AUTO_INCREMENT PRIMARY KEY,
     jogoNome VARCHAR(255) NOT NULL UNIQUE,
     sinopse TEXT(2500) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE jogo (
     linuxOS TINYINT(1) DEFAULT 0,
     androidOS TINYINT(1) DEFAULT 0);
     
-CREATE TABLE requisitosJogo (
+CREATE TABLE IF NOT EXISTS requisitosJogo (
     requisitosJogoID INT AUTO_INCREMENT PRIMARY KEY,
     so VARCHAR(255) NOT NULL,
     cpu VARCHAR(255) NOT NULL,
@@ -86,7 +86,7 @@ Na era dos vikings, uma guerreira celta parte numa jornada pessoal arrepiante at
 Criado em parceria com neurocientistas e pessoas que vivenciam psicose, Hellblade: Senua’s Sacrifice vai te levar para as profundezas da mente de Senua.
 ', '16', 1, 1, 1, 1, 0, 0, 0);
 
-CREATE TABLE avaliacao (
+CREATE TABLE IF NOT EXISTS avaliacao (
     avaliacaoUsuarioID INT NOT NULL,
     avaliacaoJogoID INT NOT NULL,
     nota INT NOT NULL,
@@ -100,7 +100,7 @@ ALTER TABLE avaliacao ADD CONSTRAINT fkAvaliacaoJogo FOREIGN KEY (avaliacaoJogoI
 
 INSERT INTO avaliacao (avaliacaoJogoID, avaliacaoUsuarioID, nota) VALUES (5, 1, 10), (5, 2, 7), (5, 3, 9), (5, 4, 8), (5, 5, 5), (5, 6, 9), (11, 3, 10), (8, 4, 7), (2, 1, 4), (3, 5, 1), (11, 4, 7);
 
-CREATE TABLE listaJogado (
+CREATE TABLE IF NOT EXISTS listaJogado (
     listaJogadoUsuarioID INT NOT NULL,
     listaJogadoJogoID INT NOT NULL,
     jogado TINYINT(1) DEFAULT 1,
@@ -110,7 +110,7 @@ ALTER TABLE listaJogado ADD CONSTRAINT pk_listaJogado PRIMARY KEY (listaJogadoUs
 ALTER TABLE listaJogado ADD CONSTRAINT fk_usuariolistaJogado FOREIGN KEY (listaJogadoUsuarioID) REFERENCES usuario(usuarioID);
 ALTER TABLE listaJogado ADD CONSTRAINT fk_jogolistaJogado FOREIGN KEY (listaJogadoJogoID) REFERENCES jogo(jogoID);
 
-CREATE TABLE comentario (
+CREATE TABLE IF NOT EXISTS comentario (
 	comentarioID INT AUTO_INCREMENT PRIMARY KEY,
     conteudo TEXT(600) NOT NULL,
     likes INT DEFAULT 0,
@@ -124,7 +124,7 @@ CREATE TABLE comentario (
 
 ALTER TABLE comentario ADD CONSTRAINT FK_comentarioUsuario FOREIGN KEY (comentarioUsuarioID) REFERENCES usuario(usuarioID);
 
-CREATE TABLE usuarioLikeComentario (
+CREATE TABLE IF NOT EXISTS usuarioLikeComentario (
     likeUsuarioID INT,
     likeComentarioID INT,
     liked TINYINT(1) DEFAULT 1,
@@ -133,7 +133,7 @@ CREATE TABLE usuarioLikeComentario (
 ALTER TABLE usuarioLikeComentario ADD CONSTRAINT fk_like_usuario FOREIGN KEY (likeUsuarioID) REFERENCES usuario(usuarioID);
 ALTER TABLE usuarioLikeComentario ADD CONSTRAINT fk_like_comentario FOREIGN KEY (likeComentarioID) REFERENCES comentario(comentarioID);
 
-CREATE VIEW vw_jogosPopulares AS
+CREATE VIEW vw_jogosPopulares IF NOT EXISTS AS
 SELECT 
 	J.*
 FROM jogo J
