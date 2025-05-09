@@ -60,9 +60,11 @@ else
                 <div class="jogosJogadosContainer row mt-1">
 
                 <?php 
-                    if (!empty($jogados))
-                        foreach($jogados as $jogo) { ?>
-                    <div class="containerCardJogo p-2 col-3">
+                    if (!empty($jogados)) {
+                        $i=0;
+                        foreach($jogados as $jogo) {
+                    ?>
+                    <div class="containerCardJogo p-2 d-lg-flex col-lg-3 col-md-4 <?php echo $i<3? 'd-md-flex' : 'd-md-none'; echo $i<2? ' col-6' : ' d-none' ;?>">
                         <a href="<?= $BASE_URL . 'paginasPrincipais/gamePage.php?gameID=' . $jogo['jogoID'] ?>" class="cardJogo d-flex flex-column align-items-center p-0">
                             <div class="cardJogoCoverContainer w-100">
                                 <img src="../assets/Jogos/banner<?= $jogo['jogoID'] ?>.jpg" alt="Banner <?= $jogo['jogoNome'] ?>" class="w-100">
@@ -72,9 +74,11 @@ else
                             </div>
                         </a>
                     </div>
-                <?php   } 
-                    else
+                <?php       $i++;
+                        } 
+                    } else {
                         echo '<span class="noGameFiller col-12 mt-5 mb-5">Nenhum jogo jogado :(</span>';
+                    }
                 ?>
 
                 </div>

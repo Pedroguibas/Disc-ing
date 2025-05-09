@@ -90,13 +90,18 @@ function carregaJogos() {
 
 function mudaPagina() {
     if ($(this).attr('id') == 'rightPageBtn') {
-        Pagination.curPage++;
+        
+        if (Pagination.curPage != Pagination.totalPages)
+            Pagination.curPage++;
+
         if (Pagination.curPage == Pagination.totalPages)
             $(this).removeClass('active');
 
         $('#leftPageBtn').addClass('active');
     } else {
-        Pagination.curPage--;
+        if (Pagination.curPage > 1)
+            Pagination.curPage--;
+
         if (Pagination.curPage == 1)
             $(this).removeClass('active');
 
