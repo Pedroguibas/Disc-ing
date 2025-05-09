@@ -56,7 +56,8 @@ VALUES ('Windows 10 64-bit', 'Intel Core i5-8400 / AMD Ryzen 5 1600', 'NVIDIA Ge
 ('Windows 10', 'Intel Celeron J4105 / AMD FX-4100', 'Intel HD Graphics 4000 / AMD Radeon R5', '4 GB de RAM', 'pelo menos 1 GB de espaço disponível'),
 ('Windows 10', 'Intel Core i5-2300 / AMD FX-4350', 'NVIDIA GeForce GTX 650 Ti, 2 GB / AMD Radeon HD 7850, 2 GB', '8 GB de RAM', '30 GB de espaço disponível'),
 ('Console Nintendo Switch', 'Console Nintendo Switch', 'Console Nintendo Switch', 'Console Nintendo Switch', 'Mídia física / 10 GB de espaço disponível'),
-('Windows 7', 'Intel i5 3570K / AMD FX-8350', 'GTX 770 with 2GB VRAM / Radeon R9 280X 3GB', '8 GB de RAM', '30 GB de espaço disponível');
+('Windows 7', 'Intel i5 3570K / AMD FX-8350', 'GTX 770 with 2GB VRAM / Radeon R9 280X 3GB', '8 GB de RAM', '30 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel i5-2500k (4 core 3.3 GHz) or AMD Ryzen 3 1200 (4 core 3.1 GHz)', 'NVIDIA GTX 960 (4 GB) or AMD R9 290X (4 GB)', '8 GB de RAM', '70 GB de espaço disponível');
 
 INSERT INTO jogo (jogoNome, jogoRequisitosJogoID, sinopse, classificacao, playstation, xbox, nintendoSwitch, windowsOS, macOS, linuxOS, androidOS)
 VALUES ('Black Myth Wukong', 1, '"Um mundo desconhecido onde maravilhas reluzem
@@ -86,7 +87,14 @@ Sem reino. Sem memória. Após um sono de 100 anos, Link acorda sozinho num mund
 Na era dos vikings, uma guerreira celta parte numa jornada pessoal arrepiante até ao inferno viking para lutar pela alma de seu falecido amado.
 
 Criado em parceria com neurocientistas e pessoas que vivenciam psicose, Hellblade: Senua’s Sacrifice vai te levar para as profundezas da mente de Senua.
-', '16', 1, 1, 1, 1, 0, 0, 0);
+', '16', 1, 1, 1, 1, 0, 0, 0),
+('God of War', 12, 'Kratos é pai novamente. Como mentor e protetor de Atreus, um filho determinado a ganhar seu respeito, ele é forçado a encarar e controlar a fúria que há muito tempo o define enquanto viaja por um mundo ameaçador com o seu filho.
+
+Com a vingança contra os deuses do Olimpo no passado, Kratos agora vive no reino das divindades e monstros nórdicos.
+
+É nesse mundo duro e impiedoso que ele deve lutar para sobreviver enquanto ensina seu filho a fazer o mesmo e tenta impedi-lo de repetir os erros cruéis do Fantasma de Esparta.
+
+Esta impressionante repaginação de God of War reúne todas as características marcantes dessa famosa franquia — combate brutal, lutas épicas contra chefes e uma grandiosidade de tirar o fôlego — e as mescla a uma narrativa poderosa e emocionante que reestabelece o mundo de Kratos.', '18', 1, 0, 0, 1, 0, 0, 0);
 
 CREATE TABLE IF NOT EXISTS avaliacao (
     avaliacaoUsuarioID INT NOT NULL,

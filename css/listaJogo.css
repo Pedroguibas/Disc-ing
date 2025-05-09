@@ -54,6 +54,24 @@
     font-size: 1.3em;
 }
 
+.listaJogoPaginationContainer .paginationBtn {
+    all: unset;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    opacity: .5;
+}
+
+.listaJogoPaginationContainer .paginationBtn.active {
+    opacity: 1;
+}
+
+.listaJogoPaginationContainer .paginationBtn.active:hover {
+    background: #00000060;
+    transition: background ease 200ms;
+    cursor:pointer;
+}
+
 @media screen and (max-width: 425px) {
     .itemListaJogoInfo .itemListaJogoTituloContainer {
         max-width: 13em;

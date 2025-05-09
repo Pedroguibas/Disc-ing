@@ -4,7 +4,7 @@ include_once("../config/db.php");
 session_start();
 
 $aditionalTags = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">';
-$bodyAttributes = 'onload="swiperCheck();"';
+$bodyAttributes = 'onload="swiperCheck(); carregaJogos();"';
 $active = 'home';
 if ($_SESSION['usuarioAdm'] == 1)
     include_once("../templates/admHeader-template.php");
@@ -31,6 +31,11 @@ $stmt = $conn->prepare("SELECT
                         ORDER BY J.jogoNome;");
 $stmt->execute();
 $Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$stmt = $conn->prepare("SELECT COUNT(*) AS total FROM jogo;");
+$stmt->execute();
+$totalJogos = $stmt->fetch(PDO::FETCH_ASSOC);
+$totalPaginas = ceil($totalJogos['total'] / 10);
 
 ?>
 
@@ -87,55 +92,25 @@ $Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h1>Todos os Jogos</h1>
             </div>
             <div id="listaJogo" class="mt-2">
-                
-            <?php foreach($Jogos as $Jogo) { ?>
-                <a  href="<?= $BASE_URL ?>/paginasPrincipais/gamePage.php?gameID=<?= $Jogo['jogoID'] ?>" class="itemListaJogo d-flex gap-2 col-md-8 col-12 mt-2">
-                    <div class="itemListaJogoImg">
-                        <img src="<?= $BASE_URL ?>assets/Jogos/cover<?= $Jogo['jogoID'] ?>.jpg" alt="Capa <?= $Jogo['jogoNome'] ?>" class="w-100">
-                    </div>
-                    <div class="itemListaJogoInfo d-flex flex-column">
-                        <div class="itemListaJogoTituloContainer">
-                            <span class="itemListaJogoTitulo"><?= $Jogo['jogoNome'] ?></span>
-                        </div>
-                        <div class="itemListaJogoPlatContainer d-flex gap-1">
-                            <?php
-                            
-                                if($Jogo['windowsOS'])
-                                    echo '<i class="bi bi-microsoft itemListaJogoPlat"></i>';
-                                if ($Jogo['linuxOS'])
-                                    echo '<i class="bi bi-ubuntu itemListaJogoPlat"></i>';
-                                if ($Jogo['macOS'])
-                                    echo '<i class="bi bi-apple itemListaJogoPlat"></i>';
-                                if($Jogo['playstation'])
-                                    echo '<i class="bi bi-playstation itemListaJogoPlat"></i>';
-                                if($Jogo['xbox'])
-                                    echo '<i class="bi bi-xbox itemListaJogoPlat"></i>';
-                                if($Jogo['nintendoSwitch'])
-                                    echo '<i class="bi bi-nintendo-switch itemListaJogoPlat"></i>';
-                                if ($Jogo['androidOS'])
-                                    echo '<i class="bi bi-android2 itemListaJogoPlat"></i>';
-
-                            ?>
-                        </div>
-                    </div>
-                    <div class="itemListaJogoClassificacao">
-                        <img src="<?= $BASE_URL ?>assets/Jogos/classificacao/age<?= $Jogo['classificacao'] ?>.png" alt="Classificação <?= $Jogo['classificacao'] ?>" class="w-100">
-                    </div>
-                    <div class="itemListaJogoNotaContainer">
-                        <span class="itemListaJogoNota"><i class="bi bi-star-fill"></i> <?php
-                            if ($Jogo['nAvaliacoes'] > 0)
-                                echo number_format($Jogo['nota'] / $Jogo['nAvaliacoes'], 2);
-                            else
-                                echo '0.00';
-                        ?></span>
-                    </div>
-                </a>
-            <?php } ?>
+            
+            </div>
+            <div class="listaJogoPaginationContainer d-flex justify-content-center align-items-center gap-2 col-md-8 col-12 mt-2">
+                <button id="leftPageBtn" class="paginationBtn d-flex align-items-center justify-content-center"><i class="bi bi-arrow-left"></i></button>
+                <div class="listaJogoPaginationInfo"><span id="currentPage">1</span> de <span class="totalPages"><?= $totalPaginas ?></span></div>
+                <button id="rightPageBtn" class="paginationBtn active d-flex align-items-center justify-content-center"><i class="bi bi-arrow-right"></i></button>
             </div>
         </section>
     </main>
+    <script>
+        let BASE_URL = '<?= $BASE_URL ?>';
+        class Pagination {
+            static curPage = 1;
+            static totalPages = <?= $totalPaginas; ?>;
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="../javascript/index.js"></script>
+    <script src="../javascript/listaJogoPagination.js"></script>
 <?php
 include_once('../templates/footer-template.php');
 ?>
