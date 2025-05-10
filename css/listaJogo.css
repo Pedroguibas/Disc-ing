@@ -46,9 +46,9 @@
 }
 
 .itemListaJogo .itemListaJogoNotaContainer .itemListaJogoNota {
-    position: absolute;
+    /* position: absolute;
     top: .5em;
-    right: .5em;
+    right: .5em; */
     width: fit-content;
     height: fit-content;
     font-size: 1.3em;

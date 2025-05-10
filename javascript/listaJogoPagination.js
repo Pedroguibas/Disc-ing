@@ -35,7 +35,7 @@ function carregaJogos() {
                 cover.alt = 'Capa ' + result[i].jogoNome;
                 cover.src = BASE_URL + 'assets/Jogos/cover' + result[i].jogoID + '.jpg';
 
-                jogoInfo.classList.add('itemListaJogoInfo', 'd-flex', 'flex-column');
+                jogoInfo.classList.add('itemListaJogoInfo', 'd-flex', 'flex-column', 'justify-content-between');
                 tituloContainer.classList.add('itemListaJogoTituloContainer');
                 titulo.classList.add('itemListaJogoTitulo');
                 titulo.textContent = result[i].jogoNome;
@@ -72,6 +72,7 @@ function carregaJogos() {
                 tituloContainer.appendChild(titulo);
                 jogoInfo.appendChild(tituloContainer);
                 jogoInfo.appendChild(platContainer);
+                jogoInfo.appendChild(notaContainer);
 
                 classificacaoContainer.appendChild(classificacao);
 
@@ -80,7 +81,6 @@ function carregaJogos() {
                 itemListaJogo.appendChild(coverContainer);
                 itemListaJogo.appendChild(jogoInfo);
                 itemListaJogo.appendChild(classificacaoContainer);
-                itemListaJogo.appendChild(notaContainer);
 
                 listaJogo.appendChild(itemListaJogo);
             }
