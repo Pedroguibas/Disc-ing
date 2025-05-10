@@ -91,12 +91,15 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
             <div class="titleContainer">
                 <h1>Todos os Jogos</h1>
             </div>
+            <div class="col-md-4 col-10 mt-2">
+                <input class="form-control" id="gameSearchbar" type="search" placeholder="Search" aria-label="Search">
+            </div>
             <div id="listaJogo" class="mt-2">
             
             </div>
             <div class="listaJogoPaginationContainer d-flex justify-content-center align-items-center gap-2 col-md-8 col-12 mt-2">
                 <button id="leftPageBtn" class="paginationBtn d-flex align-items-center justify-content-center"><i class="bi bi-arrow-left"></i></button>
-                <div class="listaJogoPaginationInfo"><span id="currentPage">1</span> de <span class="totalPages"><?= $totalPaginas ?></span></div>
+                <div class="listaJogoPaginationInfo"><span id="currentPage">1</span> de <span id="totalPages"><?= $totalPaginas ?></span></div>
                 <button id="rightPageBtn" class="paginationBtn active d-flex align-items-center justify-content-center"><i class="bi bi-arrow-right"></i></button>
             </div>
         </section>

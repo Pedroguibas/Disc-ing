@@ -3,13 +3,14 @@ function carregaJogos() {
         url: BASE_URL + 'form/buscaJogos.php',
         method: 'POST',
         data:{
-            offset: (Pagination.curPage - 1) * 10
+            offset: (Pagination.curPage - 1) * 10,
+            search: "%" + $('#gameSearchbar').val() + "%"
         },
         success: function(result) {
             result = JSON.parse(result);
             listaJogo = document.querySelector('#listaJogo');
             listaJogo.innerHTML = '';
-
+            
             for (let i=0; i<result.length; i++) {
                 let itemListaJogo = document.createElement('a');
                 let coverContainer = document.createElement('div');
@@ -113,4 +114,29 @@ function mudaPagina() {
     carregaJogos();
 }
 
+function search() {
+    $.ajax({
+        url: BASE_URL + 'form/buscaTotalJogosPesquisa.php',
+        method: 'POST',
+        data: {
+            search: '%' + $('#gameSearchbar').val() + '%'
+        },
+        success: function(result) {
+            $('#totalPages').text(Math.ceil(result / 10));
+            Pagination.totalPages = Math.ceil(result / 10);
+            Pagination.curPage = 1;
+            if (Pagination.curPage == Pagination.totalPages) {
+                $('#rightPageBtn').removeClass('active');
+                $('#rightPageBtn').off();
+            }
+
+            $('#leftPageBtn').removeClass('active');
+            $('#leftPageBtn').off();
+        }
+    }).then(function() {
+        carregaJogos();
+    });
+}
+
+$('#gameSearchbar').on('input', search);
 $('.paginationBtn.active').on('click', mudaPagina);

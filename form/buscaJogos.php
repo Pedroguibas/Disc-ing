@@ -9,11 +9,12 @@ $stmt = $conn->prepare("SELECT
                             COUNT(A.avaliacaoJogoID) AS nAvaliacoes
                         FROM jogo J
                         LEFT JOIN avaliacao A ON A.avaliacaoJogoID = J.jogoID
+                        WHERE J.jogoNome LIKE :search
                         GROUP BY J.jogoID
                         ORDER BY J.jogoNome
                         LIMIT 10
                         OFFSET ".$offset);
-$stmt->execute();
+$stmt->execute([':search' => $_POST['search']]);
 $Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode($Jogos);
