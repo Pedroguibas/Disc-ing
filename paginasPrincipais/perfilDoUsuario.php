@@ -7,7 +7,7 @@ session_start();
 $stmt = $conn->prepare("SELECT
                             U.*,
                             (SELECT COUNT(*) FROM avaliacao WHERE avaliacaoUsuarioID = U.usuarioID) AS nAvaliacoesUsuario,
-                            (SELECT COUNT(*) FROM listaJogado WHERE listaJogadoUsuarioID = U.usuarioID) AS nJogados
+                            (SELECT COUNT(*) FROM listaJogado WHERE listaJogadoUsuarioID = U.usuarioID AND jogado = 1) AS nJogados
                         FROM usuario U
                         LEFT JOIN avaliacao A ON A.avaliacaoUsuarioID = U.usuarioID
                         WHERE usuarioID = :usuarioID
@@ -20,7 +20,7 @@ $stmt = $conn->prepare("SELECT
                             J.jogoID
                         FROM listaJogado L
                         RIGHT JOIN jogo J ON J.jogoID  = L.listaJogadoJogoID
-                        WHERE L.listaJogadoUsuarioID = :usuarioID
+                        WHERE L.listaJogadoUsuarioID = :usuarioID AND jogado = 1
                         GROUP BY J.jogoID
                         ORDER BY L.dataMarcacaoJogado DESC
                         LIMIT 4;");

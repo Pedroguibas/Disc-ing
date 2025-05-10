@@ -10,13 +10,15 @@
     margin: 2rem 0;
 }
 
-#formJogoMain input[type="checkbox"] {
+#formRegistroJogo input[type="checkbox"] {
     display: none;
 }
 
-.sinposeTextarea {
+#sinopseTextarea {
+    field-sizing: content;
     min-height: 5em;
-    color: #000 !important;
+    color: #000;
+    resize: none;
 }
 
 .gameInputLeft {

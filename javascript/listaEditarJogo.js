@@ -1,3 +1,88 @@
+function buscaDadosJogo() {
+    let search = '%' + $(this).find($('.inputJogoNome')).val() + '%';
+    let gameID;
+    $.ajax({
+        url: BASE_URL + 'form/buscaJogos.php',
+        method: 'POST',
+        data: {
+            search: search,
+            offset: 0
+        },
+        success: function(result) {
+            r = JSON.parse(result)[0];
+
+            $('#inputJogoID').val(r.jogoID);
+
+            $('#nomeJogoInput').val(r.jogoNome);
+            $('option[value="'+ r.classificacao +'"]').attr('selected', 'selected');
+
+            $('#imagemBannerJogo').attr('src', BASE_URL + 'assets/Jogos/banner' + r.jogoID + '.jpg');
+            $('#imagemCoverJogo').attr('src', BASE_URL + 'assets/Jogos/cover' + r.jogoID + '.jpg');
+
+            $('#sinopseTextarea').val(r.sinopse);
+            
+            if (r.nintendoSwitch)
+                $('.platCheckInput[value="switch"]').prop('checked', true);
+            else
+                $('.platCheckInput[value="switch"]').prop('checked', false);
+
+            if (r.playstation)
+                $('.platCheckInput[value="playstation"]').prop('checked', true);
+            else
+                $('.platCheckInput[value="playstation"]').prop('checked', false);
+
+            if (r.xbox)
+                $('.platCheckInput[value="xbox"]').prop('checked', true);
+            else
+                $('.platCheckInput[value="xbox"]').prop('checked', false);
+
+            if (r.windowsOS)
+                $('.platCheckInput[value="windowsOS"]').prop('checked', true);
+            else
+                $('.platCheckInput[value="windowsOS"]').prop('checked', false);
+
+            if (r.linuxOS)
+                $('.platCheckInput[value="linuxOS"]').prop('checked', true);
+            else
+                $('.platCheckInput[value="linuxOS"]').prop('checked', false);
+
+            if (r.macOS)
+                $('.platCheckInput[value="macOS"]').prop('checked', true);
+            else
+                $('.platCheckInput[value="macOS"]').prop('checked', false);
+
+            if (r.androidOS)
+                $('.platCheckInput[value="androidOS"]').prop('checked', true);
+            else
+                $('.platCheckInput[value="androidOS"]').prop('checked', false);
+
+            gameID = r.jogoID;
+
+        }
+    }).then(function () {
+        $.ajax({
+                url: BASE_URL + 'form/buscaRequisitos.php',
+                method: 'POST',
+                data: {
+                    j: r.jogoID
+                },
+                success: function(result) {
+                    r = JSON.parse(result);
+                    console.log(r);
+                    $('#inputReqID').val(r.requisitosJogoID)
+                    $('#soInput').val(r.so);
+                    $('#cpuInput').val(r.cpu);
+                    $('#gpuInput').val(r.gpu);
+                    $('#ramInput').val(r.ram);
+                    $('#armazenamentoInput').val(r.armazenamento);
+                }
+            })
+    }).then(function () {
+        $('#formUpdateJogo').show();
+        $('#formUpdateJogo').get(0).scrollIntoView({behavior: 'smooth'});
+    });
+}
+
 function carregaJogos() {
     $.ajax({
         url: BASE_URL + 'form/buscaJogos.php',
@@ -12,7 +97,8 @@ function carregaJogos() {
             listaJogo.innerHTML = '';
             
             for (let i=0; i<result.length; i++) {
-                let itemListaJogo = document.createElement('a');
+                r = result[i];
+                let itemListaJogo = document.createElement('button');
                 let coverContainer = document.createElement('div');
                 let cover = document.createElement('img');
 
@@ -27,46 +113,52 @@ function carregaJogos() {
                 let notaContainer = document.createElement('div');
                 let nota = document.createElement('span');
 
-                let notaJogo = result[i].nAvaliacoes > 0 ? (result[i].nota / result[i].nAvaliacoes).toFixed(2) : '0.00';
+                let inputJogoNome = document.createElement('input');
 
-                itemListaJogo.href = BASE_URL + 'paginasPrincipais/gamePage.php?gameID=' + result[i].jogoID;
+
+                let notaJogo = r.nAvaliacoes > 0 ? (r.nota / r.nAvaliacoes).toFixed(2) : '0.00';
+
                 itemListaJogo.classList.add('itemListaJogo', 'd-flex', 'gap-2', 'col-md-8', 'col-12', 'mt-2');
                 coverContainer.classList.add('itemListaJogoImg');
                 cover.classList.add('w-100');
-                cover.alt = 'Capa ' + result[i].jogoNome;
-                cover.src = BASE_URL + 'assets/Jogos/cover' + result[i].jogoID + '.jpg';
+                cover.alt = 'Capa ' + r.jogoNome;
+                cover.src = BASE_URL + 'assets/Jogos/cover' + r.jogoID + '.jpg';
 
                 jogoInfo.classList.add('itemListaJogoInfo', 'd-flex', 'flex-column', 'justify-content-between');
                 tituloContainer.classList.add('itemListaJogoTituloContainer');
                 titulo.classList.add('itemListaJogoTitulo');
-                titulo.textContent = result[i].jogoNome;
+                titulo.textContent = r.jogoNome;
                 platContainer.classList.add('itemListaJogoPlatContainer', 'd-flex', 'gap-1');
                 let plat = '';
-                if (result[i].windowsOS)
+                if (r.windowsOS)
                     plat += '<i class="bi bi-microsoft itemListaJogoPlat"></i>';
-                if (result[i].linuxOS)
+                if (r.linuxOS)
                     plat += '<i class="bi bi-ubuntu itemListaJogoPlat"></i>';
-                if (result[i].macOS)
+                if (r.macOS)
                     plat += '<i class="bi bi-apple itemListaJogoPlat"></i>';
-                if (result[i].playstation)
+                if (r.playstation)
                     plat += '<i class="bi bi-playstation itemListaJogoPlat"></i>';
-                if (result[i].xbox)
+                if (r.xbox)
                     plat += '<i class="bi bi-xbox itemListaJogoPlat"></i>';
-                if (result[i].nintendoSwitch)
+                if (r.nintendoSwitch)
                     plat += '<i class="bi bi-nintendo-switch itemListaJogoPlat"></i>';
-                if (result[i].androidOS)
+                if (r.androidOS)
                     plat += '<i class="bi bi-android2 itemListaJogoPlat"></i>';
 
                 platContainer.innerHTML = plat;
 
                 classificacaoContainer.classList.add('itemListaJogoClassificacao');
                 classificacao.classList.add('w-100');
-                classificacao.alt = 'Classificacao ' + result[i].classificacao;
-                classificacao.src = BASE_URL + 'assets/Jogos/classificacao/age' + result[i].classificacao + '.png';
+                classificacao.alt = 'Classificacao ' + r.classificacao;
+                classificacao.src = BASE_URL + 'assets/Jogos/classificacao/age' + r.classificacao + '.png';
 
                 notaContainer.classList.add('itemListaJogoNotaContainer');
                 nota.classList.add('itemListaJogoNota');
                 nota.innerHTML = '<i class="bi bi-star-fill"></i> ' + notaJogo;
+
+                inputJogoNome.type = 'hidden';
+                inputJogoNome.classList.add('inputJogoNome');
+                inputJogoNome.value = r.jogoNome;
                 
                 coverContainer.appendChild(cover);
 
@@ -82,7 +174,9 @@ function carregaJogos() {
                 itemListaJogo.appendChild(coverContainer);
                 itemListaJogo.appendChild(jogoInfo);
                 itemListaJogo.appendChild(classificacaoContainer);
+                itemListaJogo.appendChild(inputJogoNome);
 
+                itemListaJogo.addEventListener('click', buscaDadosJogo);
                 listaJogo.appendChild(itemListaJogo);
             }
         }
