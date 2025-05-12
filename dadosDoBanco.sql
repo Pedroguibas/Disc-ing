@@ -61,7 +61,8 @@ VALUES ('Windows 10 64-bit', 'Intel Core i5-8400 / AMD Ryzen 5 1600', 'NVIDIA Ge
 ('Windows® 10 64-bit', 'Intel® Core™ i3 / AMD Phenom™ X3 865', 'NVIDIA® GeForce® GTX 600 / AMD Radeon™ HD 7000', '6 GB de RAM', '50 GB de espaço disponível'),
 ('Windows 10 64-bit', 'Intel Core 2 Duo E8400 (Intel) / Athlon 200GE (AMD)', 'Intel HD 4000 / Radeon R5 200', '8 GB de RAM', '50 GB de espaço disponível'),
 ('Windows 10 64-bit', 'Intel I5 4690 / AMD FX 8350', 'Nvidia GTX 970 / RX 480 (4GB+ of VRAM)', '8 GB de RAM', '150 GB de espaço disponível'),
-('Windows 10 64-bit', 'Intel Core i5', 'Geforce GT 1030', '8GB de RAM', '100GB de espaço disponível');
+('Windows 10 64-bit', 'Intel Core i5', 'Geforce GT 1030', '8GB de RAM', '100GB de espaço disponível'),
+('Windows 10 64-bit', 'AMD FX 4350 / Intel Core i3 6300', 'AMD Radeon™ HD 7790 / NVIDIA GeForce® GTX 950', '6 GB de RAM', '75 GB de espaço disponível');
 
 INSERT INTO jogo (jogoNome, jogoRequisitosJogoID, sinopse, classificacao, playstation, xbox, nintendoSwitch, windowsOS, macOS, linuxOS, androidOS)
 VALUES ('Black Myth Wukong', 1, '"Um mundo desconhecido onde maravilhas reluzem
@@ -111,7 +112,10 @@ Habilidades misteriosas despertam em você, semeadas por um parasita devorador d
 Dos criadores de Divinity: Original Sin 2, este é um RPG da nova geração situado no mundo de Dungeons and Dragons.', '16', 1, 1, 0, 1, 1, 0, 0),
 ('Genshin Impact', 15, '"Genshin Impact" é um novo RPG de aventura de mundo aberto, onde você irá explorar um mundo de fantasia chamado "Teyvat" no jogo.
 Neste vasto mundo, você pode viajar por sete nações, encontrar companheiros com diferentes personalidades e habilidades únicas, e lutar contra poderosos inimigos com eles e embarcar na estrada para reencontrar seus parentes de sangue. Você também pode vagar sem destino e mergulhar por completo em um mundo vivo, deixe-se levar pela curiosidade para descobrir os mistérios de cada canto...
-Até que você se reúna com os parentes de sangue separados, testemunhe a precipitação de tudo no final.', '12', 1, 0, 0, 1, 1, 0, 1);
+Até que você se reúna com os parentes de sangue separados, testemunhe a precipitação de tudo no final.', '12', 1, 0, 0, 1, 1, 0, 1),
+('Apex Legends', 16, 'Domine com personalidade em Apex Legends, um jogo de tiro grátis* no qual personagens lendários com habilidades poderosas se unem para lutar por fama e fortuna na Fronteira.
+
+Domine um elenco diverso de Lendas, jogabilidade tática de equipe e inovações ousadas que elevam o nível da experiência battle royale, tudo dentro de um mundo inóspito onde vale tudo. Esta é a próxima evolução do jogo de tiro de heroísmo.', '14', 1, 1, 1, 1, 1, 0, 1,);
 
 CREATE TABLE IF NOT EXISTS avaliacao (
     avaliacaoUsuarioID INT NOT NULL,
