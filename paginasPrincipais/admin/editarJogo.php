@@ -51,7 +51,6 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
                     <div class="gameInput gameInputLeft d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
                         <label for="nomeJogoInput">Nome do jogo:</label>
                         <input id="nomeJogoInput" type="text" name="nome" class="textInput" required>
-                        <span class="formJogoWarning" id="nomeJaExisteWarning">Já existe um jogo com este nome, confira se o jogo não está cadastrado.</span>
                     </div>
                     <div class="gameInput mt-3">
                         <label for="selectClassificacaoIndicativa">Classificação indicativa:</label>
@@ -71,13 +70,23 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
                 <div class="formRegistroJogoSection d-flex flex-wrap">
                     <div class="gameInput gameInputLeft mt-3">
                         <label for="gameBannerInput">Banner do jogo:</label>
-                        <input class="form-control form-control-sm col-md-4" id="gameBannerInput" type="file" name="banner" accept="image/jpeg" />
-                        <img src="" alt="" id="imagemBannerJogo" class="col-md-6 mt-3">
+                        <div id="coverPreviewContainer" class="col-lg-6 col-md-8 col-10">
+                            <img src="" alt="" id="bannerPreview" class="formJogoImgPreview w-100">
+                        </div>
+                        <div class="imageInputEditarJogo" style="display: none;">
+                            <input class="formJogoImgInput form-control form-control-sm col-md-4 mt-2" id="gameBannerInput" type="file" name="banner" accept="image/jpeg" />
+                        </div>
+                        <button type="button" class="mostrarInputEditarJogoBtn btn btn-outline-light mt-2">alterar</button>
                     </div>
                     <div class="gameInput mt-3">
                         <label for="gameCoverInput">Capa do jogo:</label>
-                        <input class="form-control form-control-sm" id="gameCoverInput" type="file" name="cover" accept="image/jpeg" />
-                        <img src="" alt="" id="imagemCoverJogo" class="col-md-6 mt-3">
+                        <div id="coverPreviewContainer" class="col-lg-3 col-md-6 col-8">
+                            <img src="" alt="" id="coverPreview" class="formJogoImgPreview w-100">
+                        </div>
+                        <div class="imageInputEditarJogo" style="display: none;">
+                            <input class="formJogoImgInput form-control form-control-sm mt-2" id="gameCoverInput" type="file" name="cover" accept="image/jpeg" />
+                        </div>
+                        <button type="button" class="mostrarInputEditarJogoBtn btn btn-outline-light mt-2">alterar</button>
                     </div>
                 </div>
                 <div class="gameInput mt-3">
@@ -155,7 +164,6 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
         }
 </script>
 <script src="<?= $BASE_URL ?>javascript/listaEditarJogo.js"></script>
-<script src="../../javascript/formJogo.js"></script>
 <?php
 include_once('../../templates/footer-template.php');
 ?>

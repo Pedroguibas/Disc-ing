@@ -35,3 +35,15 @@ $('.platCheckInput').on('change', function() {
 $('#nomeJogoInput').on('focus', function() {
     $('#nomeJaExisteWarning').hide();
 });
+
+$('.formJogoImgInput').on('change', function() {
+    file = $(this).val();
+    src = '';
+    const fr = new FileReader();
+    fr.addEventListener('load', () => {
+        src = fr.result
+        $(this).parent().find('.formJogoImgPreview').attr('src', src);
+        $(this).parent().find('.formJogoImgContainerPreview').show();
+    });
+    fr.readAsDataURL($(this).prop('files')[0]);
+});

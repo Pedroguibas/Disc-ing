@@ -65,6 +65,16 @@
     display: none;
 }
 
+#bannerPreview {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+#coverPreviewContainer #coverPreview {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
 @media screen and (max-width: 768px) {
     .plataformaCheck {
         border: 2px solid #c4c4c430;

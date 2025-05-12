@@ -32,16 +32,20 @@ include_once('../../templates/admHeader-template.php');
                         </div>
                     </div>
                 </div>
-                <div class="formRegistroJogoSection d-flex flex-wrap">
                     <div class="gameInput gameInputLeft mt-3">
                         <label for="gameBannerInput">Banner do jogo:</label>
-                        <input class="form-control form-control-sm" id="gameBannerInput" type="file" name="banner" accept="image/jpeg" required />
+                        <div id="bannerPreviewContainer" style="display: none;" class="formJogoImgContainerPreview col-lg-6 col-md-8 col-10 mb-3">
+                            <img src="" alt="Preview banner" id="bannerPreview" class="formJogoImgPreview w-100">
+                        </div>
+                        <input class="formJogoImgInput form-control form-control-sm" id="gameBannerInput" type="file" name="banner" accept="image/jpeg" required />
                     </div>
                     <div class="gameInput mt-3">
                         <label for="gameCoverInput">Capa do jogo</label>
-                        <input class="form-control form-control-sm" id="gameCoverInput" type="file" name="cover" accept="image/jpeg" required />
+                        <div id="coverPreviewContainer" style="display: none;" class="formJogoImgContainerPreview col-lg-3 col-md-6 col-8 mb-3">
+                            <img src="" alt="Preview cover" id="coverPreview" class="formJogoImgPreview w-100">
+                        </div>
+                        <input class="formJogoImgInput form-control form-control-sm" id="gameCoverInput" type="file" name="cover" accept="image/jpeg" required />
                     </div>
-                </div>
                 <div class="gameInput mt-3">
                     <label for="sinopseTextarea">Sinopse:</label>
                     <textarea name="sinopse" id="sinopseTextarea" class="col-12 textInput" required></textarea>

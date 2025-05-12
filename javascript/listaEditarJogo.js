@@ -1,3 +1,6 @@
+let bannersrc = '';
+let coversrc = '';
+
 function buscaDadosJogo() {
     let search = '%' + $(this).find($('.inputJogoNome')).val() + '%';
     let gameID;
@@ -16,10 +19,15 @@ function buscaDadosJogo() {
             $('#nomeJogoInput').val(r.jogoNome);
             $('option[value="'+ r.classificacao +'"]').attr('selected', 'selected');
 
-            $('#imagemBannerJogo').attr('src', BASE_URL + 'assets/Jogos/banner' + r.jogoID + '.jpg');
-            $('#imagemCoverJogo').attr('src', BASE_URL + 'assets/Jogos/cover' + r.jogoID + '.jpg');
+            bannersrc = BASE_URL + 'assets/Jogos/banner' + r.jogoID + '.jpg';
+            coversrc = BASE_URL + 'assets/Jogos/cover' + r.jogoID + '.jpg';
 
-            $('#sinopseTextarea').val(r.sinopse);
+            $('#bannerPreview').attr('src', bannersrc);
+            $('#bannerPreview').attr('alt', 'Banner ' + r.jogoNome);
+            $('#coverPreview').attr('src', coversrc);
+            $('#coverPreview').attr('alt', 'Cover ' + r.jogoNome);
+
+            $('#sinopseTextarea').val((r.sinopse).replace(/&quot;/g, '"'));
             
             if (r.nintendoSwitch)
                 $('.platCheckInput[value="switch"]').prop('checked', true);
@@ -235,5 +243,53 @@ function search() {
     });
 }
 
+function mostraInputImagem() {
+    $(this).parent().find('.imageInputEditarJogo').show();
+    $(this).text('Cancelar');
+    $(this).addClass('esconderInputEditarJogoBtn');
+    $(this).removeClass('mostrarInputEditarJogoBtn');
+    $('.esconderInputEditarJogoBtn').on('click', escondeInputImagem);
+}
+
+function escondeInputImagem () {
+    $(this).parent().find('.imageInputEditarJogo input').val('');
+    $(this).parent().find('.imageInputEditarJogo').hide();
+    $(this).text('Alterar');
+    $(this).addClass('mostrarInputEditarJogoBtn');
+    $(this).removeClass('esconderInputEditarJogoBtn');
+    $('.mostrarInputEditarJogoBtn').on('click', mostraInputImagem);
+    $(this).parent().find('#bannerPreview').attr('src', bannersrc);
+    $(this).parent().find('#coverPreview').attr('src', coversrc);
+}
+
+$('.formJogoImgInput').on('change', function() {
+    file = $(this).val();
+    src = '';
+    const fr = new FileReader();
+    fr.addEventListener('load', () => {
+        src = fr.result
+        $(this).parent().parent().find('.formJogoImgPreview').attr('src', src);
+    });
+    fr.readAsDataURL($(this).prop('files')[0]);
+});
+
+$('#formRegistroJogo').on('submit', function(e) {
+    e.preventDefault();
+
+    if($('.platCheckInput:checked').length == 0)
+        $('#nenhumaPlataformaWarning').show();
+    else
+        $('#formRegistroJogo')[0].submit();
+});
+
+$('.platCheckInput').on('change', function() {
+    if ($('.platCheckInput:checked').length != 0) {
+        $('#nenhumaPlataformaWarning').hide ();
+    }
+});
+
+
+$('.mostrarInputEditarJogoBtn').on('click', mostraInputImagem);
+$('.esconderInputEditarJogoBtn').on('click', escondeInputImagem);
 $('#gameSearchbar').on('input', search);
 $('.paginationBtn.active').on('click', mudaPagina);

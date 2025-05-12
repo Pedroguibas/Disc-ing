@@ -61,4 +61,22 @@ $stmt->execute([':nome' => $jogo['nome'],
                 ':androidOS' => $plat['androidOS'],
                 ':jogoID' => $_POST['jogoID']]);
 
+
+
+$diretorio = '../assets/Jogos/';
+
+if (!$_FILES['banner']['error'] > UPLOAD_ERR_OK) {
+    $banner = $diretorio . basename($_FILES['banner']['name']);
+    unlink($diretorio . 'banner' . $_POST['jogoID'] . '.jpg');
+    move_uploaded_file($_FILES['banner']['tmp_name'], $banner);
+    rename($banner, $diretorio . 'banner' . $_POST['jogoID'] . '.jpg');
+}
+if (!$_FILES['cover']['error'] > UPLOAD_ERR_OK) {
+    $cover = $diretorio . basename($_FILES['cover']['name']);
+    unlink($diretorio . 'cover' . $_POST['jogoID'] . '.jpg');
+    move_uploaded_file($_FILES['cover']['tmp_name'], $cover);
+    rename($cover, $diretorio . 'cover' . $_POST['jogoID'] . '.jpg');
+}
+    
+header('Location: '. $BASE_URL . 'paginasPrincipais/gamePage.php?gameID=' . $_POST['jogoID']);
 ?>
