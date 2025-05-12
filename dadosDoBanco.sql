@@ -57,7 +57,11 @@ VALUES ('Windows 10 64-bit', 'Intel Core i5-8400 / AMD Ryzen 5 1600', 'NVIDIA Ge
 ('Windows 10', 'Intel Core i5-2300 / AMD FX-4350', 'NVIDIA GeForce GTX 650 Ti, 2 GB / AMD Radeon HD 7850, 2 GB', '8 GB de RAM', '30 GB de espaço disponível'),
 ('Console Nintendo Switch', 'Console Nintendo Switch', 'Console Nintendo Switch', 'Console Nintendo Switch', 'Mídia física / 10 GB de espaço disponível'),
 ('Windows 7', 'Intel i5 3570K / AMD FX-8350', 'GTX 770 with 2GB VRAM / Radeon R9 280X 3GB', '8 GB de RAM', '30 GB de espaço disponível'),
-('Windows 10 64-bit', 'Intel i5-2500k (4 core 3.3 GHz) or AMD Ryzen 3 1200 (4 core 3.1 GHz)', 'NVIDIA GTX 960 (4 GB) or AMD R9 290X (4 GB)', '8 GB de RAM', '70 GB de espaço disponível');
+('Windows 10 64-bit', 'Intel i5-2500k (4 core 3.3 GHz) or AMD Ryzen 3 1200 (4 core 3.1 GHz)', 'NVIDIA GTX 960 (4 GB) or AMD R9 290X (4 GB)', '8 GB de RAM', '70 GB de espaço disponível'),
+('Windows® 10 64-bit', 'Intel® Core™ i3 / AMD Phenom™ X3 865', 'NVIDIA® GeForce® GTX 600 / AMD Radeon™ HD 7000', '6 GB de RAM', '50 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel Core 2 Duo E8400 (Intel) / Athlon 200GE (AMD)', 'Intel HD 4000 / Radeon R5 200', '8 GB de RAM', '50 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel I5 4690 / AMD FX 8350', 'Nvidia GTX 970 / RX 480 (4GB+ of VRAM)', '8 GB de RAM', '150 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel Core i5', 'Geforce GT 1030', '8GB de RAM', '100GB de espaço disponível');
 
 INSERT INTO jogo (jogoNome, jogoRequisitosJogoID, sinopse, classificacao, playstation, xbox, nintendoSwitch, windowsOS, macOS, linuxOS, androidOS)
 VALUES ('Black Myth Wukong', 1, '"Um mundo desconhecido onde maravilhas reluzem
@@ -94,7 +98,20 @@ Com a vingança contra os deuses do Olimpo no passado, Kratos agora vive no rein
 
 É nesse mundo duro e impiedoso que ele deve lutar para sobreviver enquanto ensina seu filho a fazer o mesmo e tenta impedi-lo de repetir os erros cruéis do Fantasma de Esparta.
 
-Esta impressionante repaginação de God of War reúne todas as características marcantes dessa famosa franquia — combate brutal, lutas épicas contra chefes e uma grandiosidade de tirar o fôlego — e as mescla a uma narrativa poderosa e emocionante que reestabelece o mundo de Kratos.', '18', 1, 0, 0, 1, 0, 0, 0);
+Esta impressionante repaginação de God of War reúne todas as características marcantes dessa famosa franquia — combate brutal, lutas épicas contra chefes e uma grandiosidade de tirar o fôlego — e as mescla a uma narrativa poderosa e emocionante que reestabelece o mundo de Kratos.', '18', 1, 0, 0, 1, 0, 0, 0),
+('Overwatch 2', 13, 'Seja um herói, monte uma equipe e ganhe a luta!
+Overwatch 2 é um jogo de ação em equipe grátis para jogar que se passa em um futuro otimista, no qual cada partida é um campo de batalha 5v5 definitivo. Jogue como uma lutadora da liberdade viajante do tempo, um DJ do campo batalha ou outro dos mais de 30 heróis únicos em suas lutas ao redor do mundo.', '12', 1, 1, 1, 1, 0, 0, 0),
+('Valorant', 13, 'DESAFIE SEUS LIMITES
+
+Misture o seu estilo e experiência em um cenário global e competitivo. Você terá 13 rodadas para atacar e defender com disparos certeiros e habilidades táticas. Com apenas uma vida por rodada, você deve pensar mais rápido que o oponente se quiser sobreviver. Encare inimigos nos modos Competitivo e Sem Ranque, além da Disputa da Spike e do Mata-Mata!', '16', 1, 1, 0, 1, 0, 0, 0),
+("Baldur's Gate 3", 14, 'Reúna seu grupo e volte aos Reinos Esquecidos em uma história de amizade e traição, sacrifício e sobrevivência, e tentação pelo poder absoluto.
+
+Habilidades misteriosas despertam em você, semeadas por um parasita devorador de mentes no seu cérebro. Resista e faça a escuridão ruir a si mesma, ou aceite a corrupção e torne-se o mal supremo.
+
+Dos criadores de Divinity: Original Sin 2, este é um RPG da nova geração situado no mundo de Dungeons and Dragons.', '16', 1, 1, 0, 1, 1, 0, 0),
+('Genshin Impact', 15, '"Genshin Impact" é um novo RPG de aventura de mundo aberto, onde você irá explorar um mundo de fantasia chamado "Teyvat" no jogo.
+Neste vasto mundo, você pode viajar por sete nações, encontrar companheiros com diferentes personalidades e habilidades únicas, e lutar contra poderosos inimigos com eles e embarcar na estrada para reencontrar seus parentes de sangue. Você também pode vagar sem destino e mergulhar por completo em um mundo vivo, deixe-se levar pela curiosidade para descobrir os mistérios de cada canto...
+Até que você se reúna com os parentes de sangue separados, testemunhe a precipitação de tudo no final.', '12', 1, 0, 0, 1, 1, 0, 1);
 
 CREATE TABLE IF NOT EXISTS avaliacao (
     avaliacaoUsuarioID INT NOT NULL,
