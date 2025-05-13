@@ -4,17 +4,6 @@ include_once("../../config/db.php");
 $bodyAttributes = 'onload="carregaJogos();"';
 include_once('../../templates/admHeader-template.php');
 
-$stmt = $conn->prepare("SELECT
-                            J.*,
-                            SUM(A.nota) AS nota,
-                            COUNT(A.avaliacaoJogoID) AS nAvaliacoes
-                        FROM jogo J
-                        LEFT JOIN avaliacao A ON A.avaliacaoJogoID = J.jogoID
-                        GROUP BY J.jogoID
-                        ORDER BY J.jogoNome;");
-$stmt->execute();
-$Jogos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 $stmt = $conn->prepare("SELECT COUNT(*) AS total FROM jogo;");
 $stmt->execute();
 $totalJogos = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -23,7 +12,7 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
 
 <main>
     <div class="container">
-<section id="sectionListaEditarJogo">
+        <section id="sectionListaEditarJogo">
         <h1>Editar Jogos</h1>
             
             <div class="col-md-4 col-10 mt-2">
@@ -164,7 +153,7 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
         }
 </script>
 <script src="<?= $BASE_URL ?>javascript/listaEditarJogo.js"></script>
-<script src="../javascript/formReset.js"></script>
+<script src="../../javascript/formReset.js"></script>
 
 <?php
 include_once('../../templates/footer-template.php');

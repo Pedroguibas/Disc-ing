@@ -63,7 +63,7 @@ VALUES ('Windows 10 64-bit', 'Intel Core i5-8400 / AMD Ryzen 5 1600', 'NVIDIA Ge
 ('Windows 10 64-bit', 'Intel I5 4690 / AMD FX 8350', 'Nvidia GTX 970 / RX 480 (4GB+ of VRAM)', '8 GB de RAM', '150 GB de espaço disponível'),
 ('Windows 10 64-bit', 'Intel Core i5', 'Geforce GT 1030', '8GB de RAM', '100GB de espaço disponível'),
 ('Windows 10 64-bit', 'AMD FX 4350 / Intel Core i3 6300', 'AMD Radeon™ HD 7790 / NVIDIA GeForce® GTX 950', '6 GB de RAM', '75 GB de espaço disponível'),
-('Windows 10 64-bit', 'Intel: Core i3-530 / AMD: A6-3650', 'GeForce 9600 GT / AMD HD 6570 / Intel HD 4600 integrada', 'GeForce 9600 GT / AMD HD 6570 / Intel HD 4600 integrada', '2 GB de RAM', '16 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel Core i3-530 / AMD A6-3650', 'GeForce 9600 GT / AMD HD 6570 / Intel HD 4600 integrada', '2 GB de RAM', '16 GB de espaço disponível'),
 ('Windows 10 64-bit', 'INTEL CORE I5-8400 / AMD RYZEN 3 3300X', 'NVIDIA GEFORCE GTX 1060 3 GB / AMD RADEON RX 580 4 GB', '12 GB de RAM', '60 GB de espaço disponível');
 
 

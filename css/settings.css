@@ -16,3 +16,11 @@ button {
     all: unset;
     cursor: pointer;
 }
+
+.modal * {
+    color: #191919;
+}
+
+.modal button {
+    color: #fff;
+}

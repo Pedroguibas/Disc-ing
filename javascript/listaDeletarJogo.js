@@ -1,3 +1,9 @@
+function bsModalToggle() {
+    $('#excluiJogoModal').modal('toggle');
+    $('#jogoNomeConfirmacaoExclusao').text($(this).find('.itemListaJogoTitulo').text());
+    $('#excluirJogoID').val($(this).find('.inputJogoID').val());
+}
+
 function carregaJogos() {
     $.ajax({
         url: BASE_URL + 'form/buscaJogos.php',
@@ -7,12 +13,13 @@ function carregaJogos() {
             search: "%" + $('#gameSearchbar').val() + "%"
         },
         success: function(result) {
-            r = JSON.parse(result);
+            result = JSON.parse(result);
             listaJogo = document.querySelector('#listaJogo');
             listaJogo.innerHTML = '';
             
-            for (let i=0; i<r.length; i++) {
-                let itemListaJogo = document.createElement('a');
+            for (let i=0; i<result.length; i++) {
+                r = result[i];
+                let itemListaJogo = document.createElement('button');
                 let coverContainer = document.createElement('div');
                 let cover = document.createElement('img');
 
@@ -27,46 +34,56 @@ function carregaJogos() {
                 let notaContainer = document.createElement('div');
                 let nota = document.createElement('span');
 
-                let notaJogo = r[i].nAvaliacoes > 0 ? (r[i].nota / r[i].nAvaliacoes).toFixed(2) : '0.00';
+                let inputJogoID = document.createElement('input');
 
-                itemListaJogo.href = BASE_URL + 'paginasPrincipais/gamePage.php?gameID=' + r[i].jogoID;
+
+                let notaJogo = r.nAvaliacoes > 0 ? (r.nota / r.nAvaliacoes).toFixed(2) : '0.00';
+
                 itemListaJogo.classList.add('itemListaJogo', 'd-flex', 'gap-2', 'col-md-8', 'col-12', 'mt-2');
+                $(itemListaJogo).attr('data-toggle', 'modal');
+                $(itemListaJogo).attr('data-target', '#excluiJogoModal');
+                $(itemListaJogo).attr('type', 'button');
+
                 coverContainer.classList.add('itemListaJogoImg');
                 cover.classList.add('w-100');
-                cover.alt = 'Capa ' + r[i].jogoNome;
-                cover.src = BASE_URL + 'assets/Jogos/cover' + r[i].jogoID + '.jpg';
+                cover.alt = 'Capa ' + r.jogoNome;
+                cover.src = BASE_URL + 'assets/Jogos/cover' + r.jogoID + '.jpg';
 
                 jogoInfo.classList.add('itemListaJogoInfo', 'd-flex', 'flex-column', 'justify-content-between');
                 tituloContainer.classList.add('itemListaJogoTituloContainer');
                 titulo.classList.add('itemListaJogoTitulo');
-                titulo.textContent = r[i].jogoNome;
+                titulo.textContent = r.jogoNome;
                 platContainer.classList.add('itemListaJogoPlatContainer', 'd-flex', 'gap-1');
                 let plat = '';
-                if (r[i].windowsOS)
+                if (r.windowsOS)
                     plat += '<i class="bi bi-microsoft itemListaJogoPlat"></i>';
-                if (r[i].linuxOS)
+                if (r.linuxOS)
                     plat += '<i class="bi bi-ubuntu itemListaJogoPlat"></i>';
-                if (r[i].macOS)
+                if (r.macOS)
                     plat += '<i class="bi bi-apple itemListaJogoPlat"></i>';
-                if (r[i].playstation)
+                if (r.playstation)
                     plat += '<i class="bi bi-playstation itemListaJogoPlat"></i>';
-                if (r[i].xbox)
+                if (r.xbox)
                     plat += '<i class="bi bi-xbox itemListaJogoPlat"></i>';
-                if (r[i].nintendoSwitch)
+                if (r.nintendoSwitch)
                     plat += '<i class="bi bi-nintendo-switch itemListaJogoPlat"></i>';
-                if (r[i].androidOS)
+                if (r.androidOS)
                     plat += '<i class="bi bi-android2 itemListaJogoPlat"></i>';
 
                 platContainer.innerHTML = plat;
 
                 classificacaoContainer.classList.add('itemListaJogoClassificacao');
                 classificacao.classList.add('w-100');
-                classificacao.alt = 'Classificacao ' + r[i].classificacao;
-                classificacao.src = BASE_URL + 'assets/Jogos/classificacao/age' + r[i].classificacao + '.png';
+                classificacao.alt = 'Classificacao ' + r.classificacao;
+                classificacao.src = BASE_URL + 'assets/Jogos/classificacao/age' + r.classificacao + '.png';
 
                 notaContainer.classList.add('itemListaJogoNotaContainer');
                 nota.classList.add('itemListaJogoNota');
                 nota.innerHTML = '<i class="bi bi-star-fill"></i> ' + notaJogo;
+
+                inputJogoID.type = 'hidden';
+                inputJogoID.classList.add('inputJogoID');
+                inputJogoID.value = r.jogoID;
                 
                 coverContainer.appendChild(cover);
 
@@ -82,8 +99,10 @@ function carregaJogos() {
                 itemListaJogo.appendChild(coverContainer);
                 itemListaJogo.appendChild(jogoInfo);
                 itemListaJogo.appendChild(classificacaoContainer);
+                itemListaJogo.appendChild(inputJogoID);
 
                 listaJogo.appendChild(itemListaJogo);
+                $(itemListaJogo).on('click', bsModalToggle);
             }
         }
     })
@@ -121,9 +140,9 @@ function search() {
         data: {
             search: '%' + $('#gameSearchbar').val() + '%'
         },
-        success: function(r) {
-            $('#totalPages').text(Math.ceil(r / 10));
-            Pagination.totalPages = Math.ceil(r / 10);
+        success: function(result) {
+            $('#totalPages').text(Math.ceil(result / 10));
+            Pagination.totalPages = Math.ceil(result / 10);
             Pagination.curPage = 1;
             if (Pagination.curPage == Pagination.totalPages) {
                 $('#rightPageBtn').removeClass('active');
@@ -143,3 +162,6 @@ function search() {
 
 $('#gameSearchbar').on('input', search);
 $('.paginationBtn.active').on('click', mudaPagina);
+$('.fecharModalBtn').on('click', function() {
+    $('#excluiJogoModal').modal('toggle');
+});
