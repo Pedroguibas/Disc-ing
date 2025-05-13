@@ -114,6 +114,7 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="../javascript/index.js"></script>
     <script src="../javascript/listaJogoPagination.js"></script>
+    <script src="../javascript/formReset.js"></script>
 <?php
 include_once('../templates/footer-template.php');
 ?>

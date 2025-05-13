@@ -65,7 +65,7 @@ include_once("../templates/loginHeader-template.php");
     </main>
     <script> let BASE_URL = '<?= $BASE_URL ?>'; </script>
     <script src="<?= $BASE_URL ?>javascript/signin.js"></script>
-
+    <script src="../javascript/formReset.js"></script>
 
 <?php
 include_once("../templates/footer-template.php");

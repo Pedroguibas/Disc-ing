@@ -112,6 +112,8 @@ include_once('../../templates/admHeader-template.php');
     </main>
     <script>let BASE_URL = '<?= $BASE_URL ?>'</script>
     <script src="../../javascript/formJogo.js"></script>
+    <script src="../javascript/formReset.js"></script>
+
 <?php
 include_once('../../templates/footer-template.php');
 ?>

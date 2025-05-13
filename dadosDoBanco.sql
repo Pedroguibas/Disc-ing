@@ -62,7 +62,10 @@ VALUES ('Windows 10 64-bit', 'Intel Core i5-8400 / AMD Ryzen 5 1600', 'NVIDIA Ge
 ('Windows 10 64-bit', 'Intel Core 2 Duo E8400 (Intel) / Athlon 200GE (AMD)', 'Intel HD 4000 / Radeon R5 200', '8 GB de RAM', '50 GB de espaço disponível'),
 ('Windows 10 64-bit', 'Intel I5 4690 / AMD FX 8350', 'Nvidia GTX 970 / RX 480 (4GB+ of VRAM)', '8 GB de RAM', '150 GB de espaço disponível'),
 ('Windows 10 64-bit', 'Intel Core i5', 'Geforce GT 1030', '8GB de RAM', '100GB de espaço disponível'),
-('Windows 10 64-bit', 'AMD FX 4350 / Intel Core i3 6300', 'AMD Radeon™ HD 7790 / NVIDIA GeForce® GTX 950', '6 GB de RAM', '75 GB de espaço disponível');
+('Windows 10 64-bit', 'AMD FX 4350 / Intel Core i3 6300', 'AMD Radeon™ HD 7790 / NVIDIA GeForce® GTX 950', '6 GB de RAM', '75 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel: Core i3-530 / AMD: A6-3650', 'GeForce 9600 GT / AMD HD 6570 / Intel HD 4600 integrada', 'GeForce 9600 GT / AMD HD 6570 / Intel HD 4600 integrada', '2 GB de RAM', '16 GB de espaço disponível'),
+('Windows 10 64-bit', 'INTEL CORE I5-8400 / AMD RYZEN 3 3300X', 'NVIDIA GEFORCE GTX 1060 3 GB / AMD RADEON RX 580 4 GB', '12 GB de RAM', '60 GB de espaço disponível');
+
 
 INSERT INTO jogo (jogoNome, jogoRequisitosJogoID, sinopse, classificacao, playstation, xbox, nintendoSwitch, windowsOS, macOS, linuxOS, androidOS)
 VALUES ('Black Myth Wukong', 1, '"Um mundo desconhecido onde maravilhas reluzem
@@ -115,7 +118,15 @@ Neste vasto mundo, você pode viajar por sete nações, encontrar companheiros c
 Até que você se reúna com os parentes de sangue separados, testemunhe a precipitação de tudo no final.', '12', 1, 0, 0, 1, 1, 0, 1),
 ('Apex Legends', 16, 'Domine com personalidade em Apex Legends, um jogo de tiro grátis* no qual personagens lendários com habilidades poderosas se unem para lutar por fama e fortuna na Fronteira.
 
-Domine um elenco diverso de Lendas, jogabilidade tática de equipe e inovações ousadas que elevam o nível da experiência battle royale, tudo dentro de um mundo inóspito onde vale tudo. Esta é a próxima evolução do jogo de tiro de heroísmo.', '14', 1, 1, 1, 1, 1, 0, 1,);
+Domine um elenco diverso de Lendas, jogabilidade tática de equipe e inovações ousadas que elevam o nível da experiência battle royale, tudo dentro de um mundo inóspito onde vale tudo. Esta é a próxima evolução do jogo de tiro de heroísmo.', '14', 1, 1, 1, 1, 1, 0, 1),
+('League of Legends', 17, 'League of Legends é um jogo de estratégia em que duas equipes de cinco poderosos Campeões se enfrentam para destruir a base uma da outra. Escolha entre mais de 140 Campeões para realizar jogadas épicas, assegurar abates e destruir torres conforme você luta até a vitória.', '12', 0, 0, 0, 1, 1, 0, 1),
+('Elden Ring', 18, 'Levante-se, Maculado, e seja guiado pela graça para portar o poder do Anel Prístino e se tornar um Lorde Prístino nas Terras Intermédias.
+
+• Um mundo vasto e emocionante
+Um mundo vasto onde campos abertos e uma variedade de situações e masmorras imensas, com complexos designs tridimensionais se conectam com fluidez. Conforme explora, sinta a alegria de descobrir poderosas e desconhecidas ameaças que aguardam por você, levando a um grande senso de conquista.
+
+• Crie seu próprio personagem
+Além de personalizar a aparência do seu personagem, você pode combinar livremente armas, armaduras e magias que equipar. Você pode desenvolver seu personagem de acordo com seu estilo de jogo, como aumentar a força muscular para se tornar um poderoso guerreiro, ou dominar a magia.', '16', 1, 1, 0, 1, 0, 0, 0);
 
 CREATE TABLE IF NOT EXISTS avaliacao (
     avaliacaoUsuarioID INT NOT NULL,
