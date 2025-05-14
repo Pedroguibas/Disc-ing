@@ -2,6 +2,7 @@ function bsModalToggle() {
     $('#excluiJogoModal').modal('toggle');
     $('#jogoNomeConfirmacaoExclusao').text($(this).find('.itemListaJogoTitulo').text());
     $('#excluirJogoID').val($(this).find('.inputJogoID').val());
+    $('#excluirJogoNome').val($(this).find('.itemListaJogoTitulo').text());
 }
 
 function carregaJogos() {
@@ -19,7 +20,7 @@ function carregaJogos() {
             
             for (let i=0; i<result.length; i++) {
                 r = result[i];
-                let itemListaJogo = document.createElement('button');
+                let itemListaJogo = document.createElement('div'); //colocado div em vez de button por conta de erro de responsividade
                 let coverContainer = document.createElement('div');
                 let cover = document.createElement('img');
 

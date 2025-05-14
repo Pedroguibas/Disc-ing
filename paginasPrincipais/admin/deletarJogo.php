@@ -18,7 +18,7 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
                 <div class="col-md-4 col-10 mt-2">
                     <input class="form-control" id="gameSearchbar" type="search" placeholder="Search" aria-label="Search">
                 </div>
-                <div id="listaJogo" class="mt-2">
+                <div id="listaJogo" class="d-flex flex-column mt-2">
                 
                 </div>
                 <div class="listaJogoPaginationContainer d-flex justify-content-center align-items-center gap-2 col-md-8 col-12 mt-2">
@@ -39,9 +39,9 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
                             <i class="bi bi-x-lg"></i>
                         </button>
                     </div>
-                    
                     <div class="modal-body">
                         <input name="id" type="hidden" id="excluirJogoID">
+                        <input name="nome" type="hidden" id="excluirJogoNome">
                         <p>Tem certeza que deseja excluir <span id="jogoNomeConfirmacaoExclusao"></span>?</p>
                     </div>
                     <div class="modal-footer">
