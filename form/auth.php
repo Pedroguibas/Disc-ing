@@ -17,8 +17,6 @@ if (count($usuario) > 0) {
     $_SESSION['usuarioEmail'] = $usuario['email'];
     $_SESSION['usuarioAdm'] = $usuario['adm'];
     header("Location: " . $BASE_URL . "paginasPrincipais/index.php");
-} else {
-
 }
 
 ?>
