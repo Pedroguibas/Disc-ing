@@ -9,7 +9,9 @@ CREATE TABLE IF NOT EXISTS usuario (
    	username VARCHAR(127) COLLATE utf8mb4_bin NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
     senha VARCHAR(127) NOT NULL,
-	adm TINYINT(1) DEFAULT 0);
+	adm TINYINT(1) DEFAULT 0,
+    banido TINYINT(1) DEFAULT 0,
+    banReason VARCHAR(255));
 
 INSERT INTO usuario (email, senha, usuarioNome, usuarioSobrenome, username, adm)
 VALUES ('pedroguibas123@gmail.com', 'senha123', 'Pedro', 'Bastos', 'Pedroguibas', 1),

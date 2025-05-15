@@ -16,6 +16,13 @@ include_once('../../templates/admHeader-template.php');
                 <a href="deletarJogo.php" class="list-group-item list-group-item-action">Excluir Jogo</a>
             </div>
         </section>
+        <section id="gerenciarUsuariosLinks" class="mt-5">
+            <h2>Gerenciar Usuários</h2>
+            <div class="list-group mt-3 col-lg-4 col-md-5 col-sm-6 col-7">
+                <a href="#" class="list-group-item list-group-item-action">Banir Usuário</a>
+                <a href="#" class="list-group-item list-group-item-action">Promover a Administrador</a>
+            </div>
+        </section>
     </div>
 </main>
 <?php

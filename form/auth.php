@@ -16,7 +16,14 @@ if (count($usuario) > 0) {
     $_SESSION['username'] = $usuario['username'];
     $_SESSION['usuarioEmail'] = $usuario['email'];
     $_SESSION['usuarioAdm'] = $usuario['adm'];
-    header("Location: " . $BASE_URL . "paginasPrincipais/index.php");
+
+    if ($usuario['banido'] == 0) {
+        $_SESSION['banido'] = 0;
+        header("Location: " . $BASE_URL . "paginasPrincipais/index.php");
+    } else {
+        $_SESSION['banido'] = 1;
+        header("Location: " . $BASE_URL . "paginasPrincipais/bannedUser.php");
+    }
 }
 
 ?>

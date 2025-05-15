@@ -2,8 +2,9 @@
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
 session_start();
 
-if (isset($_SESSION['loginStatus']))
+if (isset($_SESSION['loginStatus'])) {
     header("Location: " . $BASE_URL . "paginasPrincipais/index.php");
+}
 
 $title = 'Log-in';
 include_once("../templates/loginHeader-template.php");

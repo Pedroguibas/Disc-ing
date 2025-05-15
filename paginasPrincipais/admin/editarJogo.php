@@ -153,7 +153,6 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
         }
 </script>
 <script src="<?= $BASE_URL ?>javascript/listaEditarJogo.js"></script>
-<script src="../../javascript/formReset.js"></script>
 
 <?php
 include_once('../../templates/footer-template.php');

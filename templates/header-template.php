@@ -1,11 +1,14 @@
 <?php
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
+
 if (!isset($_SESSION))
     session_start();
 
-if (!isset($_SESSION['loginStatus'])) {
+if (!isset($_SESSION['loginStatus']))
     header("Location: " . $BASE_URL . "paginasPrincipais/login.php");
-}
+
+if ($_SESSION['banido']);
+    header("Location: " . $BASE_URL . "paginasPrincipais/bannedUser.php");
 ?>
 
 <!DOCTYPE html>
