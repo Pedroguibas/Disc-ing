@@ -1,6 +1,6 @@
 <?php
 
-$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
+$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing/";
 include_once("../config/db.php");
 
 $stmt = $conn->prepare("SELECT COUNT(*) AS total FROM usuario WHERE (email = :usuario OR username = :usuario) AND senha = :senha");

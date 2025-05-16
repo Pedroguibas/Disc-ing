@@ -1,5 +1,5 @@
 <?php
-$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
+$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing/";
 $bodyAttributes = 'id="gamePageBody"';
 $active = 'adm';
 include_once('../../templates/admHeader-template.php');

@@ -1,5 +1,5 @@
 <?php
-$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
+$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing/";
 session_start();
 
 if (isset($_SESSION['loginStatus'])) {

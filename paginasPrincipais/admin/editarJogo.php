@@ -1,5 +1,5 @@
 <?php
-$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing_2.0/";
+$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing/";
 include_once("../../config/db.php");
 $bodyAttributes = 'onload="carregaJogos();"';
 include_once('../../templates/admHeader-template.php');
