@@ -7,7 +7,7 @@ if (!isset($_SESSION))
 if (!isset($_SESSION['loginStatus']))
     header("Location: " . $BASE_URL . "paginasPrincipais/login.php");
 
-if ($_SESSION['banido']);
+if ($_SESSION['banido'])
     header("Location: " . $BASE_URL . "paginasPrincipais/bannedUser.php");
 ?>
 
