@@ -162,7 +162,7 @@ function carregaComentarios() {
                         url: BASE_URL + 'form/checaArquivo.php',
                         method: 'GET',
                         data: {
-                            path: '../assets/usuarios/profilePic' + comentarioUsuarioID + '.jpg'
+                            path: 'assets/usuarios/profilePic' + comentarioUsuarioID + '.jpg'
                         },
                         success: function(result) {
                             fotoUsuario.src = result == 1 ? BASE_URL + 'assets/usuarios/profilePic' + comentarioUsuarioID + '.jpg' : BASE_URL + 'assets/usuarios/unknownUser.jpg';
