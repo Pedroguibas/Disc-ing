@@ -129,6 +129,7 @@ function mudaPagina() {
         $('#rightPageBtn').addClass('active');
     }
     $('#currentPage').text(Pagination.curPage);
+    $('.paginationBtn.active').unbind('click');
     $('.paginationBtn.active').on('click', mudaPagina);
 
     carregaJogos();
@@ -150,6 +151,7 @@ function search() {
                 $('#rightPageBtn').off();
             } else {
                 $('#rightPageBtn').addClass('active');
+                $('#rightPageBtn').unbind('click');
                 $('#rightPageBtn').on('click', mudaPagina);
             }
 

@@ -84,9 +84,13 @@ VALUES ('Windows 10 64-bit', 'Intel Core i5-8400 / AMD Ryzen 5 1600', 'NVIDIA Ge
 ('Windows 10 64-bit', 'Intel Core 2 Duo E8400 (Intel) / Athlon 200GE (AMD)', 'Intel HD 4000 / Radeon R5 200', '8 GB de RAM', '50 GB de espaço disponível'),
 ('Windows 10 64-bit', 'Intel I5 4690 / AMD FX 8350', 'Nvidia GTX 970 / RX 480 (4GB+ of VRAM)', '8 GB de RAM', '150 GB de espaço disponível'),
 ('Windows 10 64-bit', 'Intel Core i5', 'Geforce GT 1030', '8GB de RAM', '100GB de espaço disponível'),
-('Windows 10 64-bit', 'AMD FX 4350 / Intel Core i3 6300', 'AMD Radeon™ HD 7790 / NVIDIA GeForce® GTX 950', '6 GB de RAM', '75 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel Core i3 6300 / AMD FX 4350', 'AMD Radeon™ HD 7790 / NVIDIA GeForce® GTX 950', '6 GB de RAM', '75 GB de espaço disponível'),
 ('Windows 10 64-bit', 'Intel Core i3-530 / AMD A6-3650', 'GeForce 9600 GT / AMD HD 6570 / Intel HD 4600 integrada', '2 GB de RAM', '16 GB de espaço disponível'),
-('Windows 10 64-bit', 'INTEL CORE I5-8400 / AMD RYZEN 3 3300X', 'NVIDIA GEFORCE GTX 1060 3 GB / AMD RADEON RX 580 4 GB', '12 GB de RAM', '60 GB de espaço disponível');
+('Windows 10 64-bit', 'Intel CORE I5-8400 / AMD RYZEN 3 3300X', 'NVIDIA GEFORCE GTX 1060 3 GB / AMD RADEON RX 580 4 GB', '12 GB de RAM', '60 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel Core i3-7100 / AMD Ryzen 3 1200', 'NVIDIA GeForce GTX 960 / AMD Radeon RX 5500 XT', '8 GB de RAM', '75 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel Core i3-4160 3.6 GHz / Equivalente AMD', 'NVIDIA GTX 950 / AMD Radeon RX 470', '8 GB de RAM', '75 GB de espaço disponível'),
+('Windows 10 64-bit', 'Core i7-6700 / Ryzen 5 1600', 'GeForce GTX 1060 6GB / Radeon RX 580 8GB', '12 GB de RAM', '70 GB de espaço disponível'),
+('Windows 10 64-bit', 'Intel Core i5-2300 2.8 GHz / AMD FX-6300, 3.5 GHz', 'GeForce GTX 460, 1 GB / Radeon HD 6870, 1 GB', '6 GB de RAM', '8 GB de espaço disponível');
 
 
 INSERT INTO jogo (jogoNome, jogoRequisitosJogoID, sinopse, classificacao, playstation, xbox, nintendoSwitch, windowsOS, macOS, linuxOS, androidOS)
@@ -127,28 +131,36 @@ Com a vingança contra os deuses do Olimpo no passado, Kratos agora vive no rein
 Esta impressionante repaginação de God of War reúne todas as características marcantes dessa famosa franquia — combate brutal, lutas épicas contra chefes e uma grandiosidade de tirar o fôlego — e as mescla a uma narrativa poderosa e emocionante que reestabelece o mundo de Kratos.', '18', 1, 0, 0, 1, 0, 0, 0),
 ('Overwatch 2', 13, 'Seja um herói, monte uma equipe e ganhe a luta!
 Overwatch 2 é um jogo de ação em equipe grátis para jogar que se passa em um futuro otimista, no qual cada partida é um campo de batalha 5v5 definitivo. Jogue como uma lutadora da liberdade viajante do tempo, um DJ do campo batalha ou outro dos mais de 30 heróis únicos em suas lutas ao redor do mundo.', '12', 1, 1, 1, 1, 0, 0, 0),
-('Valorant', 13, 'DESAFIE SEUS LIMITES
+('Valorant', 14, 'DESAFIE SEUS LIMITES
 
 Misture o seu estilo e experiência em um cenário global e competitivo. Você terá 13 rodadas para atacar e defender com disparos certeiros e habilidades táticas. Com apenas uma vida por rodada, você deve pensar mais rápido que o oponente se quiser sobreviver. Encare inimigos nos modos Competitivo e Sem Ranque, além da Disputa da Spike e do Mata-Mata!', '16', 1, 1, 0, 1, 0, 0, 0),
-("Baldur's Gate 3", 14, 'Reúna seu grupo e volte aos Reinos Esquecidos em uma história de amizade e traição, sacrifício e sobrevivência, e tentação pelo poder absoluto.
+("Baldur's Gate 3", 15, 'Reúna seu grupo e volte aos Reinos Esquecidos em uma história de amizade e traição, sacrifício e sobrevivência, e tentação pelo poder absoluto.
 
 Habilidades misteriosas despertam em você, semeadas por um parasita devorador de mentes no seu cérebro. Resista e faça a escuridão ruir a si mesma, ou aceite a corrupção e torne-se o mal supremo.
 
 Dos criadores de Divinity: Original Sin 2, este é um RPG da nova geração situado no mundo de Dungeons and Dragons.', '16', 1, 1, 0, 1, 1, 0, 0),
-('Genshin Impact', 15, '"Genshin Impact" é um novo RPG de aventura de mundo aberto, onde você irá explorar um mundo de fantasia chamado "Teyvat" no jogo.
+('Genshin Impact', 16, '"Genshin Impact" é um novo RPG de aventura de mundo aberto, onde você irá explorar um mundo de fantasia chamado "Teyvat" no jogo.
 Neste vasto mundo, você pode viajar por sete nações, encontrar companheiros com diferentes personalidades e habilidades únicas, e lutar contra poderosos inimigos com eles e embarcar na estrada para reencontrar seus parentes de sangue. Você também pode vagar sem destino e mergulhar por completo em um mundo vivo, deixe-se levar pela curiosidade para descobrir os mistérios de cada canto...
 Até que você se reúna com os parentes de sangue separados, testemunhe a precipitação de tudo no final.', '12', 1, 0, 0, 1, 1, 0, 1),
-('Apex Legends', 16, 'Domine com personalidade em Apex Legends, um jogo de tiro grátis* no qual personagens lendários com habilidades poderosas se unem para lutar por fama e fortuna na Fronteira.
+('Apex Legends', 17, 'Domine com personalidade em Apex Legends, um jogo de tiro grátis* no qual personagens lendários com habilidades poderosas se unem para lutar por fama e fortuna na Fronteira.
 
 Domine um elenco diverso de Lendas, jogabilidade tática de equipe e inovações ousadas que elevam o nível da experiência battle royale, tudo dentro de um mundo inóspito onde vale tudo. Esta é a próxima evolução do jogo de tiro de heroísmo.', '14', 1, 1, 1, 1, 1, 0, 1),
-('League of Legends', 17, 'League of Legends é um jogo de estratégia em que duas equipes de cinco poderosos Campeões se enfrentam para destruir a base uma da outra. Escolha entre mais de 140 Campeões para realizar jogadas épicas, assegurar abates e destruir torres conforme você luta até a vitória.', '12', 0, 0, 0, 1, 1, 0, 1),
-('Elden Ring', 18, 'Levante-se, Maculado, e seja guiado pela graça para portar o poder do Anel Prístino e se tornar um Lorde Prístino nas Terras Intermédias.
+('League of Legends', 18, 'League of Legends é um jogo de estratégia em que duas equipes de cinco poderosos Campeões se enfrentam para destruir a base uma da outra. Escolha entre mais de 140 Campeões para realizar jogadas épicas, assegurar abates e destruir torres conforme você luta até a vitória.', '12', 0, 0, 0, 1, 1, 0, 1),
+('Elden Ring', 19, 'Levante-se, Maculado, e seja guiado pela graça para portar o poder do Anel Prístino e se tornar um Lorde Prístino nas Terras Intermédias.
 
 • Um mundo vasto e emocionante
 Um mundo vasto onde campos abertos e uma variedade de situações e masmorras imensas, com complexos designs tridimensionais se conectam com fluidez. Conforme explora, sinta a alegria de descobrir poderosas e desconhecidas ameaças que aguardam por você, levando a um grande senso de conquista.
 
 • Crie seu próprio personagem
-Além de personalizar a aparência do seu personagem, você pode combinar livremente armas, armaduras e magias que equipar. Você pode desenvolver seu personagem de acordo com seu estilo de jogo, como aumentar a força muscular para se tornar um poderoso guerreiro, ou dominar a magia.', '16', 1, 1, 0, 1, 0, 0, 0);
+Além de personalizar a aparência do seu personagem, você pode combinar livremente armas, armaduras e magias que equipar. Você pode desenvolver seu personagem de acordo com seu estilo de jogo, como aumentar a força muscular para se tornar um poderoso guerreiro, ou dominar a magia.', '16', 1, 1, 0, 1, 0, 0, 0),
+('Ghost of Tsushima', 20, 'No final do século XIII, o império mongol devastou nações em sua campanha para conquistar o Oriente. A Ilha de Tsushima é tudo que resta entre a ilha principal do Japão e a imensa frota invasora dos mongóis liderada por um general ardiloso e implacável, Khotun Khan.
+
+Enquanto a ilha é devastada pela primeira onda de ataques mongóis, surge Jin Sakai, um corajoso guerreiro samurai que é um dos últimos sobreviventes de seu clã. Ele está decidido a fazer o que for preciso, custe o que custar, para proteger seu povo e recuperar seu lar. Para isso, será necessário deixar de lado as tradições que o moldaram como guerreiro e forjar um novo caminho, o do Fantasma, travando uma guerra atípica pela liberdade de Tsushima.', '18', 1, 0, 0, 1, 0, 0, 0),
+('Spider-Man: Miles Morales', 21, 'Na mais nova aventura do universo de Spider-Man, o adolescente Miles Morales está se adaptando a um novo lar enquanto segue os passos de seu mentor, Peter Parker, como novo Spider-Man.
+
+Mas quando uma violenta disputa de forças ameaça destruir sua vizinhança, o aspirante a herói percebe que com grandes poderes também vêm grandes responsabilidades. Para salvar a Nova York da Marvel, Miles deve reconhecer e assumir o título de Spider-Man.', '12', 1, 0, 0, 1, 0, 0, 0),
+('Cyberpunk 2077', 22, 'Cyberpunk 2077 é um RPG de ação e aventura em mundo aberto ambientado na megalópole de Night City, onde você é um mercenário cyberpunk envolvido em uma intensa luta pela sobrevivência. Com diversas melhorias e conteúdo adicional gratuito, personalize o seu personagem e o seu estilo de jogo conforme aceita trabalhos, construa uma reputação e desbloqueie melhorias. Seus relacionamentos e suas escolhas moldarão a história e o mundo ao seu redor. Aqui nascem as lendas. Qual será a sua?', '18', 1, 1, 1, 1, 0, 0, 0),
+('Dark Souls: Remastered', 23, 'Mas então, fez-se o fogo. Experimente novamente o jogo aclamado pela crítica e definidor de gênero que foi o início tudo. Belamente remasterizado, volte a Lordran com detalhes em alta definição a 60fps.', 1, 1, 1, 1, 0, 0, 0);
 
 CREATE TABLE IF NOT EXISTS avaliacao (
     avaliacaoUsuarioID INT NOT NULL,
