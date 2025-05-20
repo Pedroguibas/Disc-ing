@@ -19,8 +19,8 @@ include_once('../../templates/admHeader-template.php');
                 </div>
             </div>
             <form id="formBanirUsuario" action="<?= $BASE_URL ?>form/banirUsuario.php" method="POST" class="d-flex justify-content-center align-items-center mt-5" onsubmit="if(!confirm('Tem certeza que deseja banir este usuário?')){return false;}">
-                <input id="formBanUsuarioInputID" type="hidden" value="">
-                <div id="formBanirUsuarioConfirm" class="d-flex flex-column justify-content-center align-items-center">
+                <input id="formBanUsuarioInputID" name="userID" type="hidden" value="">
+                <div id="formBanirUsuarioConfirm" class="d-flex flex-column justify-content-center align-items-center" style="display: none !important;">
                     <h3>Banir <span id="banirUsuarioUsername"></span>?</h3>
                     <button class="btn btn-outline-light mt-3">Banir</button>
                 </div>
@@ -31,6 +31,7 @@ include_once('../../templates/admHeader-template.php');
 </main>
 <script>
     let BASE_URL = '<?= $BASE_URL ?>';
+    let userID = <?= $_SESSION['usuarioID'] ?>;
 </script>
 <script src="../../javascript/banUserSearch.js"></script>
 <?php
