@@ -1,11 +1,16 @@
 <?php
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing/";
+include_once('../config/db.php');
 
 if (!isset($_SESSION))
     session_start();
 
 if (!isset($_SESSION['loginStatus']))
     header("Location: " . $BASE_URL . "paginasPrincipais/login.php");
+
+$stmt = $conn->prepare("SELECT banido FROM usuario WHERE usuarioID = :usuarioID");
+$stmt->execute([':usuarioID' => $_SESSION['usuarioID']]);
+$_SESSION['banido'] = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($_SESSION['banido'])
     header("Location: " . $BASE_URL . "paginasPrincipais/bannedUser.php");

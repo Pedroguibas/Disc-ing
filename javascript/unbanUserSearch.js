@@ -7,7 +7,7 @@ function pesquisaUsuarios() {
             $('#userSearchReturn').removeClass('hidden');
 
         $.ajax({
-            url: BASE_URL + 'form/buscaUsuario.php',
+            url: BASE_URL + 'form/buscaUsuarioBanido.php',
             method: 'POST',
             data: {
                 search: '%' + val + '%',
@@ -69,12 +69,11 @@ function pesquisaUsuarios() {
                         });
                     }
                 } else {
-                    console.log('deu')
                     let msgContainer = document.createElement('div');
                     let msg = document.createElement('span');
 
                     msgContainer.classList.add('d-flex', 'justify-content-center', 'align-items-center', 'list-group-item');
-                    msg.textContent = 'Nenhum usuário ativo com este username.';
+                    msg.textContent = 'Nenhum usuário banido com este username.';
                     msg.classList.add('p-4');
 
                     msgContainer.appendChild(msg);

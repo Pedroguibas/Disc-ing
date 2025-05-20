@@ -19,7 +19,27 @@ VALUES ('pedroguibas123@gmail.com', 'senha123', 'Pedro', 'Bastos', 'Pedroguibas'
 ('eduarda@gmail.com', 'senha123', 'Eduarda', 'Solano', 'SolanoEd', 0),
 ('jessica@gmail.com', 'senha123', 'Jessica', 'Cristina', 'CristinaJess', 0),
 ('joao@gmail.com', 'senha123', 'Joao', 'Cardia', 'Jao', 0),
-('querino@gmail.com', 'senha123', 'Luiz', 'Querino', 'QuerinoLu', 0);
+('querino@gmail.com', 'senha123', 'Luiz', 'Querino', 'QuerinoLu', 0),
+('maria@gmail.com', 'senha123', 'Maria', 'Oliveira', 'MariaOliveira', 0),
+('gabriel@gmail.com', 'senha123', 'Gabriel', 'Silva', 'GabrielSilva', 0),
+('lucas@gmail.com', 'senha123', 'Lucas', 'Santos', 'LucasSantos', 0),
+('patricia@gmail.com', 'senha123', 'Patricia', 'Lima', 'PatriciaLima', 0),
+('andre@gmail.com', 'senha123', 'Andre', 'Pereira', 'AndrePereira', 0),
+('karla@gmail.com', 'senha123', 'Karla', 'Costa', 'KarlaCosta', 0),
+('roberto@gmail.com', 'senha123', 'Roberto', 'Souza', 'RobertoSouza', 0),
+('carla@gmail.com', 'senha123', 'Carla', 'Fernandes', 'CarlaFernandes', 0),
+('vitor@gmail.com', 'senha123', 'Vitor', 'Martins', 'VitorMartins', 0),
+('renata@gmail.com', 'senha123', 'Renata', 'Araujo', 'RenataAraujo', 0),
+('pedromagalhaes@gmail.com', 'senha123', 'Pedro', 'Magalhães', 'PedroMaga', 0),
+('camila@gmail.com', 'senha123', 'Camila', 'Lopes', 'CamilaLopes', 0),
+('marcus@gmail.com', 'senha123', 'Marcus', 'Rodrigues', 'MarcusRod', 0),
+('isabela@gmail.com', 'senha123', 'Isabela', 'Nascimento', 'IsabelaNas', 0),
+('rafael@gmail.com', 'senha123', 'Rafael', 'Teixeira', 'RafaTeixeira', 0),
+('gabriela@gmail.com', 'senha123', 'Gabriela', 'Melo', 'GabiMelo', 0),
+('felipe@gmail.com', 'senha123', 'Felipe', 'Gomes', 'FelipeGomes', 0),
+('aline@gmail.com', 'senha123', 'Aline', 'Carvalho', 'AlineCarvalho', 0),
+('marcio@gmail.com', 'senha123', 'Marcio', 'Pinto', 'MarcioPinto', 0),
+('patricio@gmail.com', 'senha123', 'Patricio', 'Alves', 'PatricioAlves', 0);
 
 CREATE TABLE IF NOT EXISTS jogo (
     jogoID INT AUTO_INCREMENT PRIMARY KEY,
