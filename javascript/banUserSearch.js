@@ -28,7 +28,8 @@ function pesquisaUsuarios() {
                         let div = document.createElement('div');
                         let username = document.createElement('span');
                         let nome = document.createElement('span');
-                        let input = document.createElement('input');
+                        let inputID = document.createElement('input');
+                        let inputUsername = document.createElement('input');
 
                         userProfile.classList.add('userProfileBtn', 'list-group-item', 'd-flex', 'gap-2', 'p-2');
 
@@ -43,9 +44,13 @@ function pesquisaUsuarios() {
                         nome.classList.add('userProfileBtnNome');
                         nome.textContent = r.usuarioNome + ' ' + r.usuarioSobrenome;
 
-                        input.classList.add('inputBanUserID');
-                        input.type = 'hidden';
-                        input.value = r.usuarioID;
+                        inputID.classList.add('inputBanUserID');
+                        inputID.type = 'hidden';
+                        inputID.value = r.usuarioID;
+
+                        inputUsername.classList.add('inputBanUserUsername');
+                        inputUsername.type = 'hidden';
+                        inputUsername.value = r.username;
                         $.ajax({
                             url: BASE_URL + 'form/checaArquivo.php',
                             method: 'GET',
@@ -59,7 +64,8 @@ function pesquisaUsuarios() {
                             div.appendChild(username);
                             div.appendChild(nome);
 
-                            userProfile.appendChild(input);
+                            userProfile.appendChild(inputUsername);
+                            userProfile.appendChild(inputID);
                             userProfile.appendChild(pfp);
                             userProfile.appendChild(div);
 
@@ -69,7 +75,6 @@ function pesquisaUsuarios() {
                         });
                     }
                 } else {
-                    console.log('deu')
                     let msgContainer = document.createElement('div');
                     let msg = document.createElement('span');
 
@@ -88,6 +93,7 @@ function pesquisaUsuarios() {
 function preencheForm() {
     $('#userSearchReturn').addClass('hidden');
     $('#formBanUsuarioInputID').val($(this).find('.inputBanUserID').val());
+    $('#formBanUsuarioInputUsername').val($(this).find('.inputBanUserUsername').val());
     $('#banirUsuarioUsername').text($(this).find('.userProfileBtnUsername').text());
 
     $('#formBanirUsuarioConfirm').attr('style', '');

@@ -19,6 +19,7 @@ include_once('../../templates/admHeader-template.php');
                 </div>
             </div>
             <form id="formBanirUsuario" action="<?= $BASE_URL ?>form/banirUsuario.php" method="POST" class="d-flex justify-content-center align-items-center mt-5" onsubmit="if(!confirm('Tem certeza que deseja banir este usuário?')){return false;}">
+                <input id="formBanUsuarioInputUsername" name="username" type="hidden" value="">
                 <input id="formBanUsuarioInputID" name="userID" type="hidden" value="">
                 <div id="formBanirUsuarioConfirm" class="d-flex flex-column justify-content-center align-items-center" style="display: none !important;">
                     <h3>Banir <span id="banirUsuarioUsername"></span>?</h3>

@@ -160,7 +160,7 @@ Enquanto a ilha é devastada pela primeira onda de ataques mongóis, surge Jin S
 
 Mas quando uma violenta disputa de forças ameaça destruir sua vizinhança, o aspirante a herói percebe que com grandes poderes também vêm grandes responsabilidades. Para salvar a Nova York da Marvel, Miles deve reconhecer e assumir o título de Spider-Man.', '12', 1, 0, 0, 1, 0, 0, 0),
 ('Cyberpunk 2077', 22, 'Cyberpunk 2077 é um RPG de ação e aventura em mundo aberto ambientado na megalópole de Night City, onde você é um mercenário cyberpunk envolvido em uma intensa luta pela sobrevivência. Com diversas melhorias e conteúdo adicional gratuito, personalize o seu personagem e o seu estilo de jogo conforme aceita trabalhos, construa uma reputação e desbloqueie melhorias. Seus relacionamentos e suas escolhas moldarão a história e o mundo ao seu redor. Aqui nascem as lendas. Qual será a sua?', '18', 1, 1, 1, 1, 0, 0, 0),
-('Dark Souls: Remastered', 23, 'Mas então, fez-se o fogo. Experimente novamente o jogo aclamado pela crítica e definidor de gênero que foi o início tudo. Belamente remasterizado, volte a Lordran com detalhes em alta definição a 60fps.', 1, 1, 1, 1, 0, 0, 0);
+('Dark Souls: Remastered', 23, 'Mas então, fez-se o fogo. Experimente novamente o jogo aclamado pela crítica e definidor de gênero que foi o início tudo. Belamente remasterizado, volte a Lordran com detalhes em alta definição a 60fps.', '14', 1, 1, 1, 1, 0, 0, 0);
 
 CREATE TABLE IF NOT EXISTS avaliacao (
     avaliacaoUsuarioID INT NOT NULL,
