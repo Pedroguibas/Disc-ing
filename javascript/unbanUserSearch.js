@@ -96,7 +96,10 @@ function preencheForm() {
     $('#formBanUsuarioInputUsername').val($(this).find('.inputBanUserUsername').val());
     $('#banirUsuarioUsername').text($(this).find('.userProfileBtnUsername').text());
 
-    $('#formBanirUsuarioConfirm').attr('style', '');
+    $('#banUserModal').modal('toggle');
 }
 
 $('#userSearchBar').on('input', pesquisaUsuarios);
+$('.fecharModalBtn').on('click', function() {
+    $('#banUserModal').modal('toggle');
+});

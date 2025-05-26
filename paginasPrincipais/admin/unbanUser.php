@@ -18,18 +18,34 @@ include_once('../../templates/admHeader-template.php');
                     </div>
                 </div>
             </div>
-            <form id="formBanirUsuario" action="<?= $BASE_URL ?>form/desbanirUsuario.php" method="POST" class="d-flex justify-content-center align-items-center mt-5" onsubmit="if(!confirm('Tem certeza que deseja banir este usuário?')){return false;}">
-                <input id="formBanUsuarioInputUsername" name="username" type="hidden" value="">
-                <input id="formBanUsuarioInputID" name="userID" type="hidden" value="">
-                <div id="formBanirUsuarioConfirm" class="d-flex flex-column justify-content-center align-items-center" style="display: none !important;">
-                    <h3>Desbanir <span id="banirUsuarioUsername"></span>?</h3>
-                    <button class="btn btn-outline-light mt-3">Desbanir</button>
-                </div>
-            </form>
         </section>
     </div>
 
 </main>
+
+<div class="modal fade" id="banUserModal" tabindex="-1" role="dialog" aria-labelledby="ModalBanUser" aria-hidden="true">
+    <form id="formBanirUsuario" action="<?= $BASE_URL ?>form/desbanirUsuario.php" method="POST">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-between">
+                    <h2>Desbanir Usuário</h3>
+                    <button type="button" class="fecharModalBtn" data-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div class="modal-body d-flex justify-content-center">
+                    <input id="formBanUsuarioInputUsername" name="username" type="hidden" value="">
+                    <input id="formBanUsuarioInputID" name="userID" type="hidden" value="">
+                    <p>Tem certeza que deseja desbanir <span id="banirUsuarioUsername"></span>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="fecharModalBtn btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary">desbanir</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 <script>
     let BASE_URL = '<?= $BASE_URL ?>';
     let userID = <?= $_SESSION['usuarioID'] ?>;

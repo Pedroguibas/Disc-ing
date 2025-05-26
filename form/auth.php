@@ -7,7 +7,7 @@ $stmt = $conn->prepare("SELECT * FROM usuario WHERE (email = :usuario OR usernam
 $stmt->execute([':usuario' => $_POST['usuario'],
                 ':senha' => $_POST['senha']]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-if (count($usuario) > 0) {
+if (isset($usuario) && count($usuario) > 0) {
     session_start();
     $_SESSION['loginStatus'] = 1;
     $_SESSION['usuarioID'] = $usuario['usuarioID'];
@@ -24,6 +24,8 @@ if (count($usuario) > 0) {
         $_SESSION['banido'] = 1;
         header("Location: " . $BASE_URL . "paginasPrincipais/bannedUser.php");
     }
+} else {
+    header("Location: " . $BASE_URL . "paginasPrincipais/login.php");
 }
 
 ?>

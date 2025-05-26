@@ -1,8 +1,8 @@
 function bsModalToggle() {
-    $('#excluiJogoModal').modal('toggle');
     $('#jogoNomeConfirmacaoExclusao').text($(this).find('.itemListaJogoTitulo').text());
     $('#excluirJogoID').val($(this).find('.inputJogoID').val());
     $('#excluirJogoNome').val($(this).find('.itemListaJogoTitulo').text());
+    $('#excluiJogoModal').modal('toggle');
 }
 
 function carregaJogos() {
