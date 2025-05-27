@@ -9,7 +9,7 @@ $nome = htmlspecialchars($_POST['nome']);
 $sobrenome = htmlspecialchars($_POST['sobrenome']);
 
 $stmt = $conn->prepare("INSERT INTO usuario (usuarioNome, usuarioSobrenome, username, email, senha) 
-VALUES (:nome, :sobrenome, :username, :email, :senha)");
+VALUES (:nome, :sobrenome, :username, :email, MD5(:senha))");
 
 $stmt->execute([':nome' => $nome,
                 ':sobrenome' => $sobrenome,
