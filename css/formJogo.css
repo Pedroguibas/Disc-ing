@@ -21,10 +21,11 @@
     resize: none;
 }
 
-.gameInputLeft {
+.formInputLeft {
     margin-right: 5em;
 }
 
+.formInputContainer input,  
 .gameInput .textInput,
 .form-select option,
 .form-select,
@@ -83,7 +84,7 @@
 }
 
 @media screen and (max-width: 500px) {
-    .gameInputLeft {
+    .formInputLeft {
         margin-right: 0;
     }
 }

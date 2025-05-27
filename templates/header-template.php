@@ -11,6 +11,7 @@ if (!isset($_SESSION['loginStatus']))
 $stmt = $conn->prepare("SELECT banido FROM usuario WHERE usuarioID = :usuarioID");
 $stmt->execute([':usuarioID' => $_SESSION['usuarioID']]);
 $_SESSION['banido'] = $stmt->fetch(PDO::FETCH_ASSOC);
+$_SESSION['banido'] = $_SESSION['banido']['banido'];
 
 if ($_SESSION['banido'])
     header("Location: " . $BASE_URL . "paginasPrincipais/bannedUser.php");

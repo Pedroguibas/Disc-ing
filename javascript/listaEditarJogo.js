@@ -106,7 +106,7 @@ function carregaJogos() {
             
             for (let i=0; i<result.length; i++) {
                 r = result[i];
-                let itemListaJogo = document.createElement('button');
+                let itemListaJogo = document.createElement('div');
                 let coverContainer = document.createElement('div');
                 let cover = document.createElement('img');
 
@@ -215,6 +215,7 @@ function mudaPagina() {
     $('.paginationBtn.active').on('click', mudaPagina);
 
     carregaJogos();
+    $('#listaJogo').get(0).scrollIntoView({behavior: 'smooth'});
 }
 
 function search() {

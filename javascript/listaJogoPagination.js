@@ -113,6 +113,7 @@ function mudaPagina() {
     $('.paginationBtn.active').on('click', mudaPagina);
 
     carregaJogos();
+    $('#listaJogo').get(0).scrollIntoView({behavior: 'smooth'});
 }
 
 function search() {

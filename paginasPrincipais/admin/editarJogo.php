@@ -37,7 +37,7 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
                 </div>
                 <h2>Informações Gerais</h2>
                 <div class="formRegistroJogoSection d-flex flex-wrap">
-                    <div class="gameInput gameInputLeft d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
+                    <div class="gameInput formInputLeft d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
                         <label for="nomeJogoInput">Nome do jogo:</label>
                         <input id="nomeJogoInput" type="text" name="nome" class="textInput" required>
                     </div>
@@ -57,7 +57,7 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
                     </div>
                 </div>
                 <div class="formRegistroJogoSection d-flex flex-wrap">
-                    <div class="gameInput gameInputLeft mt-3">
+                    <div class="gameInput formInputLeft mt-3">
                         <label for="gameBannerInput">Banner do jogo:</label>
                         <div id="coverPreviewContainer" class="col-lg-6 col-md-8 col-10">
                             <img src="" alt="" id="bannerPreview" class="formJogoImgPreview w-100">
@@ -85,7 +85,7 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
                 
                 <h2 class="mt-5">Requisistos Mínimos</h2>
                 <div class="formRegistroJogoSection d-flex flex-wrap">
-                    <div class="gameInput gameInputLeft d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
+                    <div class="gameInput formInputLeft d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
                         <label for="soInput">Sistema Operacional: </label>
                         <input id="soInput" type="text" name="so" class="textInput" required>
                     </div>
@@ -95,7 +95,7 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
                     </div>
                 </div>
                 <div class="formRegistroJogoSection d-flex flex-wrap">
-                    <div class="gameInput gameInputLeft mt-3 d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
+                    <div class="gameInput formInputLeft mt-3 d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
                         <label for="gpuInput">Placa de Vídeo: </label>
                         <input id="gpuInput" type="text" name="gpu" class="textInput" required>
                     </div>

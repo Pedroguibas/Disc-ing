@@ -39,7 +39,7 @@ else
     <main id="perfilUsuarioMain">
         <div class="container d-flex flex-column align-items-center">
             <section id="perfilInfoContainer" class="d-flex align-items-center justify-content-between flex-wrap col-10 mb-5">
-                <div id="perfilUsuarioContainer" class="d-flex align-items-center gap-lg-3 gap-md-3 gap-1">
+                <div id="perfilUsuarioContainer" class="d-flex align-items-center gap-lg-3 gap-md-3 gap-1 mb-3">
                     <div id="fotoDePerfilContainer">
                         <img id="fotoDePerfil" class="w-100" 
                         src="<?= $BASE_URL ?>assets/usuarios/<?php echo file_exists('../assets/usuarios/profilePic' . $userInfo['usuarioID'] . '.jpg') ? 'profilePic' . $userInfo['usuarioID'] : 'unknownUser' ?>.jpg"
@@ -53,9 +53,13 @@ else
                 <div class="d-flex flex-column">
                     <span><?= $userInfo['nAvaliacoesUsuario'] ?> Avaliações Feitas</span>
                     <span><?= $userInfo['nJogados'] ?> Jogos Jogados</span>
+                    <?php
+                        if ($_GET['u'] == $_SESSION['usuarioID']) 
+                            echo '<a href="editarPerfil.php" class="btn btn-primary mt-3">Editar Perfil</a>';
+                    ?>
                 </div>
             </section>
-            <section id="jogadosRecentemente" class="col-12 mt-5">
+            <section id="jogadosRecentemente" class="container col-12 mt-5">
                 <h3>Jogados Recentemente</h3>
                 <div class="jogosJogadosContainer row mt-1">
 
