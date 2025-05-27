@@ -61,7 +61,7 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
             static totalPages = <?= $totalPaginas; ?>;
         }
 </script>
-<script src="../../javascript/listaDeletarJogo.js"></script>
+<script src="../../javascript/deletarJogo.js"></script>
 <?php
 include_once('../../templates/footer-template.php');
 ?>

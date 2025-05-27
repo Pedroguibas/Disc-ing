@@ -2,13 +2,13 @@
 $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing/";
 include_once('../config/db.php');
 
-$requisitos['so'] = htmlspecialchars($_POST['so']);
-$requisitos['cpu'] = htmlspecialchars($_POST['cpu']);
-$requisitos['gpu'] = htmlspecialchars($_POST['gpu']);
-$requisitos['ram'] = htmlspecialchars($_POST['ram']);
-$requisitos['armazenamento'] = htmlspecialchars($_POST['armazenamento']);
+$requisitos['so'] = trim(htmlspecialchars($_POST['so']));
+$requisitos['cpu'] = trim(htmlspecialchars($_POST['cpu']));
+$requisitos['gpu'] = trim(htmlspecialchars($_POST['gpu']));
+$requisitos['ram'] = trim(htmlspecialchars($_POST['ram']));
+$requisitos['armazenamento'] = trim(htmlspecialchars($_POST['armazenamento']));
 
-$jogo['nome'] = htmlspecialchars($_POST['nome']);
+$jogo['nome'] = trim(htmlspecialchars($_POST['nome']));
 $jogo['sinopse'] = htmlspecialchars($_POST['sinopse']);
 $jogo['classificacao'] = $_POST['classificacao'];
 $plat['switch'] = 0;

@@ -40,6 +40,7 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
                     <div class="gameInput formInputLeft d-flex flex-column mt-3 col-lg-3 col-md-4 col-8">
                         <label for="nomeJogoInput">Nome do jogo:</label>
                         <input id="nomeJogoInput" type="text" name="nome" class="textInput" required>
+                        <span class="formJogoWarning" id="nomeJaExisteWarning">Já existe um jogo com este nome.</span>
                     </div>
                     <div class="gameInput mt-3">
                         <label for="selectClassificacaoIndicativa">Classificação indicativa:</label>
@@ -152,7 +153,7 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
             static totalPages = <?= $totalPaginas; ?>;
         }
 </script>
-<script src="<?= $BASE_URL ?>javascript/listaEditarJogo.js"></script>
+<script src="<?= $BASE_URL ?>javascript/editarJogo.js"></script>
 
 <?php
 include_once('../../templates/footer-template.php');

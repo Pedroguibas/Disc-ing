@@ -279,10 +279,30 @@ $('.formJogoImgInput').on('change', function() {
 $('#formRegistroJogo').on('submit', function(e) {
     e.preventDefault();
 
-    if($('.platCheckInput:checked').length == 0)
+    let count=0;
+
+    if($('.platCheckInput:checked').length == 0) {
         $('#nenhumaPlataformaWarning').show();
-    else
-        $('#formRegistroJogo')[0].submit();
+        count++;
+    }
+    $.ajax({
+        url: BASE_URL + 'form/validaNomeJogo.php',
+        method: 'POST',
+        data:{
+            nome: $('#nomeJogoInput').val()
+        },
+        success: function(result) {
+            result = parseInt(result);
+            if (result != 0) {
+                count++
+                $('#nomeJaExisteWarning').show();
+                $('#nomeJogoInput').get(0).scrollIntoView({behavior: 'smooth'});
+            }
+        }
+    }).then(function() {
+        if (count == 0)
+            $('#formRegistroJogo')[0].submit();
+    });
 });
 
 $('.platCheckInput').on('change', function() {
