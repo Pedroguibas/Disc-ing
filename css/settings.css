@@ -24,3 +24,10 @@ button {
 .modal button {
     color: #fff;
 }
+
+.modal .btn-outline-primary {
+    color: #0275d8;
+}
+.modal .btn-outline-primary:hover {
+    color: #fff;
+}
