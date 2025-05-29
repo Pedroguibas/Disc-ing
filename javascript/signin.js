@@ -78,12 +78,10 @@ function validaEmail() {
 }
 
 function validaUsername() {
-    if ($('#username').val() != '' && $('#username').val().indexOf(' ') == -1) {
-
+    if ($('#username').val() != '' && $('#username').val().indexOf(' ') == -1)
         return true;
-    }
 
-
+    $('#usernameComEspaco').show();
     return false;
 }
 
@@ -92,7 +90,7 @@ $('#loginForm').on('submit', function(e) {
     e.preventDefault();
     let count = 0;
     
-    if(validaEmail()) {
+    if(validaEmail() && validaUsername()) {
         $.ajax({
             url: BASE_URL + "form/checaUsuarioEmail.php",
             method: 'POST',
@@ -131,9 +129,9 @@ $('#loginForm').on('submit', function(e) {
                 if (count == 0)
                     $('#loginForm')[0].submit();
             });
-        })
+        });
     }
-})
+});
 
 $('#confirma-senha').on('focusout', checkSenha);
 $('#confirma-senha').on('focus', function() {
@@ -149,6 +147,7 @@ $('#email').on('focus', function() {
 $('#username').on('focusout', validaUsername);
 $('#username').on('focus', function() {
     $('#usuarioCadastradoWarning').hide();
+    $('#usernameComEspaco').hide();
 });
 
 $('.showPasswordBtn').on('click', togglePassword);

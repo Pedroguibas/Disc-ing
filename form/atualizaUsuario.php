@@ -57,5 +57,5 @@ if (!$_FILES['pic']['error'] > UPLOAD_ERR_OK) {
     rename($pic, $diretorio . 'profilePic' . $_SESSION['usuarioID'] . '.jpg');
 }
 
-// header('Location: ' . $BASE_URL . 'paginasPrincipais/perfilDoUsuario.php');
+header('Location: ' . $BASE_URL . 'paginasPrincipais/perfilDoUsuario.php');
 ?>

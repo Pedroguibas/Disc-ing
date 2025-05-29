@@ -97,7 +97,7 @@ else
     </main>
 
     <div class="modal fade" id="editarPerfilModal" tabindex="-1" role="dialog" aria-labelledby="ModalAtualizarPerfil" aria-hidden="true">
-        <form action="../form/atualizaUsuario.php" method="POST">
+        <form id="atualizaPerfilForm" action="../form/atualizaUsuario.php" method="POST" enctype="multipart/form-data">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header d-flex justify-content-between">
@@ -109,19 +109,21 @@ else
                     <div class="modal-body d-flex flex-column">
                         <label for="usernameInput">Username:</label>
                         <input type="text" id="usernameInput" name="username" value="<?= $_SESSION['username'] ?>" required>
-                            <label for="nomeInput" class="mt-2">Nome:</label>
-                            <input type="text" id="nomeInput" name="nome" value="<?= $_SESSION['usuarioNome'] ?>" required>
-                            <label for="sobrenomeInput" class="mt-2">Sobrenome:</label>
-                            <input type="text" id="sobrenomeInput" name="sobrenome" value="<?= $_SESSION['usuarioSobrenome'] ?>" required>
-                            <label for="profilePicInput" class="mt-2 mb-2">Foto de perfil:</label>
-                            <div id="fotoDePerfilPreviewContainer" class="col-lg-6 col-md-7 col-9">
-                                <img id="fotoDePerfilPreview" src="" alt="Foto de perfil atual" class="w-100">
-                            </div>
-                            <div id="fotoDePerfilInputContainer" style="display: none;" class="col-lg-8 col-md-10 col-10">
-                                <input class="form-control form-control-sm mt-4" id="profilePicInput" type="file" name="pic" accept="image/jpeg" />
-                            </div>
-                            
-                            <button id="mostrarFotoDePerfilInputBtn" type="button" class="btn btn-outline-primary col-md-2 col-3 mt-3">alterar</button>
+                        <p id="usernameComEspaco" class="signinWarning">Username não pode conter espaços.</p>
+
+                        <label for="nomeInput" class="mt-2">Nome:</label>
+                        <input type="text" id="nomeInput" name="nome" value="<?= $_SESSION['usuarioNome'] ?>" required>
+                        <label for="sobrenomeInput" class="mt-2">Sobrenome:</label>
+                        <input type="text" id="sobrenomeInput" name="sobrenome" value="<?= $_SESSION['usuarioSobrenome'] ?>" required>
+                        <label for="profilePicInput" class="mt-2 mb-2">Foto de perfil:</label>
+                        <div id="fotoDePerfilPreviewContainer" class="col-lg-6 col-md-7 col-9">
+                            <img id="fotoDePerfilPreview" src="" alt="Foto de perfil atual" class="w-100">
+                        </div>
+                        <div id="fotoDePerfilInputContainer" style="display: none;" class="col-lg-8 col-md-10 col-10">
+                            <input class="form-control form-control-sm mt-4" id="profilePicInput" type="file" name="pic" accept="image/jpeg" />
+                        </div>
+                        
+                        <button id="mostrarFotoDePerfilInputBtn" type="button" class="btn btn-outline-primary col-md-2 col-3 mt-3">alterar</button>
 
                     </div>
                     <div class="modal-footer">

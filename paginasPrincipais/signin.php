@@ -41,6 +41,7 @@ include_once("../templates/loginHeader-template.php");
                                 <i class="bi bi-person mb-2"></i>
                             </div>
                             <p id="usuarioCadastradoWarning" class="signinWarning">Já existe um usuário com este username.</p>
+                            <p id="usernameComEspaco" class="signinWarning">Username não pode conter espaços.</p>
                             <div class="loginInputContainer d-flex align-items-center m-4">
                                 <input class="loginInput passwordInput" id="senha" type="password" name="senha" placeholder="Senha" minlength="8" size="25">
                                 <button type="button" tabindex="-1" class="showPasswordBtn mb-2"><i class="bi bi-eye-slash"></i></button>

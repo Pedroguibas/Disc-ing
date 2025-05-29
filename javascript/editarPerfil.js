@@ -28,11 +28,13 @@ $('#profilePicInput').on('change', function() {
 
 $('#mostrarFotoDePerfilInputBtn').on('click', function() {
     $('#fotoDePerfilInputContainer').toggle();
-    if ($(this).text() == 'Cancelar')
+    if ($(this).text() == 'Cancelar') {
+        carregaFotoPerfil();
+        $('#profilePicInput').val('');
         $(this).text('Alterar');
-    else
+    } else {
         $(this).text('Cancelar');
-        
+    }
 });
 
 $('#editarPerfilBtn').on('click', function() {
@@ -40,4 +42,13 @@ $('#editarPerfilBtn').on('click', function() {
 });
 $('.fecharModalBtn').on('click', function() {
     $('#editarPerfilModal').modal('toggle');
+});
+
+$('#atualizaPerfilForm').on('submit', function(e) {
+    e.preventDefault();
+
+    if ($('#usernameInput').val().indexOf(' ') == -1)
+        $('#atualizaPerfilForm')[0].submit();
+    else
+        $('#usernameComEspaco').show();
 });
