@@ -160,6 +160,15 @@
     font-size: 1.1em;
 }
 
+@-moz-document url-prefix() {
+    #novoComentario {
+        background: #000046;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        height: 5em;
+    }
+}
+
 #novoComentario:focus {
     outline: none;
     -webkit-box-shadow: none;
