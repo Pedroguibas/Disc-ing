@@ -1,9 +1,15 @@
 #perfilUsuarioMain #fotoDePerfilContainer #fotoDePerfil,
-#fotoDePerfilPreview {
+#fotoDePerfilPreviewContainer #fotoDePerfilPreview {
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 50%;
     border: 6px solid #c4c4c4;
+}
+
+#perfilUsuarioMain #fotoDePerfilContainer,
+#fotoDePerfilPreviewContainer {
+    border-radius: 50%;
+    background: #c4c4c4;
 }
 
 #perfilUsuarioMain #username {
