@@ -152,7 +152,7 @@ else
                         <div id="plataformasTitleContainer" class="p-2">
                             <h2>Plataformas:</h2>
                         </div>
-                        <div id="plataformas" class="d-flex gap-4">
+                        <div id="plataformas" class="d-flex flex-wrap gap-4">
                             <?php   
 
                                 if ($gameInfo['windowsOS'])

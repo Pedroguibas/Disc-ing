@@ -39,9 +39,6 @@ $BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . "/Disc-ing/";
                 <li class="footerLink">
                     <a href="<?= $BASE_URL . 'paginasPrincipais/perfilDoUsuario.php ' ?>">Perfil</a>
                 </li>
-                <li class="footerLink">
-                    <a href="<?= $BASE_URL . 'paginasPrincipais/errosform.php' ?>">Erros</a>
-                </li>
             </ul>
         </div>
         <div class="d-flex justify-content-center">
