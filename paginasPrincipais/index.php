@@ -17,6 +17,7 @@ $stmt = $conn->prepare("SELECT
                         FROM vw_jogosPopulares J
                         LEFT JOIN avaliacao A ON A.avaliacaoJogoID = J.jogoID
                         GROUP BY J.jogoID
+                        ORDER BY nota DESC
                         LIMIT 6;");
 $stmt->execute();
 $JogosPopulares = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -53,20 +54,20 @@ $totalPaginas = ceil($totalJogos['total'] / 10);
 
                                 <?php
 
-                                foreach ($JogosPopulares as $Jogo) {
+                                foreach ($JogosPopulares as $Game) {
 
-                                    if ($Jogo['nAvaliacoes'] > 0)
-                                        $cardScore = number_format($Jogo['nota'] / $Jogo['nAvaliacoes'], 2);
+                                    if ($Game['nAvaliacoes'] > 0)
+                                        $cardScore = number_format($Game['nota'] / $Game['nAvaliacoes'], 2);
                                     else
                                         $cardScore = number_format(0, 2);
 
                                     echo '
-                                        <li class="cardItem swiper-slide" id="game'. $Jogo['jogoID'] .'">
-                                            <button class="cardLink" onclick="document.getElementById('."'gamePageHeader'".').value = '. $Jogo['jogoID'] .'">
-                                                <img class="cardImg w-100" src="../assets/Jogos/banner' . $Jogo['jogoID'] . '.jpg" alt="Capa ' . $Jogo['jogoNome'] . '">
+                                        <li class="cardItem swiper-slide" id="game'. $Game['jogoID'] .'">
+                                            <button class="cardLink" onclick="document.getElementById('."'gamePageHeader'".').value = '. $Game['jogoID'] .'">
+                                                <img class="cardImg w-100" src="../assets/Jogos/banner' . $Game['jogoID'] . '.jpg" alt="Capa ' . $Game['jogoNome'] . '">
                                                 <div class="cardTitleContainer d-flex justify-content-between align-items-end">
-                                                    <h2 class="cardTitle">' . $Jogo['jogoNome'] . '</h2>
-                                                    <img class="cardClassificacao" alt="Classificação ' . $Jogo['classificacao'] . '" src="' . $BASE_URL . 'assets/Jogos/classificacao/age' . $Jogo['classificacao'] . '.png">
+                                                    <h2 class="cardTitle">' . $Game['jogoNome'] . '</h2>
+                                                    <img class="cardClassificacao" alt="Classificação ' . $Game['classificacao'] . '" src="' . $BASE_URL . 'assets/Jogos/classificacao/age' . $Game['classificacao'] . '.png">
                                                 </div>
                                                 <div class="cardScoreContainer">
                                                     <span class="cardScore d-flex align-items-center gap-2"><i class="bi bi-star-fill cardScoreStar"></i> '. $cardScore .'</span>
